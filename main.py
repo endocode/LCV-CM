@@ -1,5 +1,5 @@
 import json
-from connect import connect
+from validate import validate
 
 
 print("Started Reading JSON report")
@@ -19,8 +19,9 @@ for i in license_list:
     license_list_cleaned.append(my_string)
 
 #print(license_list_cleaned)
+print("Finished reading JSON report")
 
-connect(license_list_cleaned)
+validate(license_list_cleaned)
 
 
 
