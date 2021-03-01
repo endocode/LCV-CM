@@ -3,7 +3,7 @@ from validate import validate
 
 
 print("Started Reading JSON report")
-with open("javacpp.json", "r") as read_file:
+with open("json/json-iterator.json", "r") as read_file:
     data = json.load(read_file)#dict
     license_list = []
     for i in data['payload']['fileMetadata']:
@@ -20,6 +20,8 @@ for i in license_list:
 
 #print(license_list_cleaned)
 print("Finished reading JSON report")
+print("Licenses found are:")
+print(license_list_cleaned)
 
 validate(license_list_cleaned)
 
