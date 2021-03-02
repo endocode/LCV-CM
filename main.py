@@ -10,7 +10,6 @@ with open("json/javacpp.json", "r") as read_file:
         for x in (i['licenses']):
               if not x in license_list:
                   license_list.append(x)
-            # print(i['licenses'][1])
 
 print("Finished reading JSON report")
 print("Licenses found are:")
