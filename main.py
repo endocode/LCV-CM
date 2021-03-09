@@ -1,9 +1,10 @@
 import json
 from validate import validate
+from validate import SPDXIdMapping
 
 
 print("Started Reading JSON report")
-with open("json/javacpp.json", "r") as read_file:
+with open("json/javacv.json", "r") as read_file:
     data = json.load(read_file)#dict
     license_list = []
     for i in data['payload']['fileMetadata']:
@@ -15,4 +16,9 @@ with open("json/javacpp.json", "r") as read_file:
 print("Finished reading JSON report")
 print("Licenses found are:")
 print(license_list)
+
+#license_list_SPDX = SPDXIdMapping(license_list)
+#print(license_list_SPDX)
+
+#validate(license_list_SPDX)
 validate(license_list)

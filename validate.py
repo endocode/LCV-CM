@@ -37,6 +37,8 @@ def CSV_to_dataframe(CSVfilePath, column_names_list):
     return df
 
 
+def SPDXIdMapping(license_list_cleaned)
+    return license_list_SPDX
 
 
 def validate(license_list_cleaned):
