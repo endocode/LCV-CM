@@ -16,8 +16,10 @@ print("Finished reading JSON report")
 print("Licenses found are:")
 print(license_list)
 
-#license_list_SPDX = SPDXIdMapping(license_list)
-#print(license_list_SPDX)
+license_list_SPDX = SPDXIdMapping(license_list)
 
-#validate(license_list_SPDX)
-validate(license_list)
+print("The SPDX IDs are:")
+print(license_list_SPDX)
+
+validate(license_list_SPDX)
+#validate(license_list)

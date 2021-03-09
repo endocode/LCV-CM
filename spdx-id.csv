@@ -5,16 +5,18 @@ Apache 2.0,Apache-2.0,
 GPL 3.0 only,GPL-3.0-only,
 BSD-3-Clause,BSD-3-Clause,
 MIT License,MIT,
-Public Domain,"There are a lot of Public Domain licenses:
-PDDL-1.0
-SAX-PD
-CC-PDDC
-libselinux-1.0
-NIST-PD
-NIST-PD-fallback",
+Public Domain,,
 ,,
 ,,
 Still not found in projects,,
 GPL 2.0 only,GPL-2.0-only,
 ,,
 GPL 3.0 or later,GPL-3.0-or-later,
+,,
+Public Domain – notes for us,"There are a lot of Public Domain licenses:
+PDDL-1.0
+SAX-PD
+CC-PDDC
+libselinux-1.0
+NIST-PD
+NIST-PD-fallback",

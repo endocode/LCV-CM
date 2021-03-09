@@ -37,7 +37,18 @@ def CSV_to_dataframe(CSVfilePath, column_names_list):
     return df
 
 
-def SPDXIdMapping(license_list_cleaned)
+def SPDXIdMapping(license_list_cleaned):
+    CSVfilePath = "spdx-id.csv"
+    license_list_SPDX = []
+    column_names_list = ['Scancode','SPDX-ID']
+    df = CSV_to_dataframe(CSVfilePath, column_names_list)
+    df = df.set_index('Scancode')
+    for license in license_list_cleaned:
+        newElement=df.loc[license]['SPDX-ID']
+        if newElement is not np.nan:
+            license_list_SPDX.append(newElement)
+        else:
+            license_list_SPDX.append(license)
     return license_list_SPDX
 
 
