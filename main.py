@@ -13,6 +13,7 @@ with open("json/javacv.json", "r") as read_file:
                   license_list.append(x)
 
 print("Finished reading JSON report")
+print("###################")
 print("Licenses found are:")
 print(license_list)
 
