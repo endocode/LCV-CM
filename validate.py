@@ -31,9 +31,8 @@ def CSV_to_dataframe(CSVfilePath, column_names_list):
     """
     Import a CSV and transform it into a pandas dataframe
     """
-    # print(column_names_list)
     df = pd.read_csv (CSVfilePath, usecols=column_names_list)
-    # print(df)
+    
     return df
 
 
@@ -52,12 +51,12 @@ def SPDXIdMapping(license_list_cleaned):
     return license_list_SPDX
 
 
-def validate(license_list_cleaned):
+def validate(license_list_cleaned, OutboundLicense):
     """ Connect to the PostgreSQL database server OR read from CSV """
     conn = None
     try:
         # read connection parameters
-        params = config()
+        # params = config()
         # connect to the PostgreSQL server
         # print('Connecting to the PostgreSQL database...')
         # conn = psycopg2.connect(**params)
@@ -67,7 +66,11 @@ def validate(license_list_cleaned):
 
         # duplicating the list to compare items, and before adding License field
         license_list_cleaned_to_compare = license_list_cleaned
-        column_names_list = license_list_cleaned.copy()
+
+        #USED TO COMPARE INBOUND LICENSES
+        #column_names_list = license_list_cleaned.copy()
+
+        column_names_list = [OutboundLicense]
         column_names_list.insert(0,'License')
 
         # retrieve data from PostgreSQL
@@ -75,17 +78,25 @@ def validate(license_list_cleaned):
 
         # retrieve data from CSV file
         df = CSV_to_dataframe(CSVfilePath, column_names_list)
-        # print(df)
-
-        df=df.set_index('License')
+        df = df.set_index('License')
+        if (len(license_list_cleaned)==1) and (license_list_cleaned[0]==OutboundLicense):
+            print("For this project only "+license_list_cleaned[0]+" as the inbound license has been detected, and it is the same of the outbound license ("+OutboundLicense+"). \n It means that it is license compliant. ")
 
         for license in license_list_cleaned:
-            for license_to_compare in license_list_cleaned_to_compare:
-                comparison = df.loc[license,license_to_compare]
-                # print(comparison)
-                if comparison == "0" :
-                    # print("hello")
-                    print(license+" is not compatible with "+license_to_compare)
+            comparison = df.loc[license, OutboundLicense]
+            if comparison == "0" :
+                print(license+" is not compatible with "+OutboundLicense)
+
+        # THIS WAS USED TO COMPARE INBOUND LICENSES --> STILL USEFUL TO DETECT INBOUND LICENSES INCOMPATIBILITY
+        # for license in license_list_cleaned:
+        #     for license_to_compare in license_list_cleaned_to_compare:
+        #         comparison = df.loc[license,license_to_compare]
+        #         # print(comparison)
+        #         if comparison == "0" :
+        #             # print("hello")
+        #             print(license+" is not compatible with "+license_to_compare)
+
+
     # postgresql_to_dataframe related code
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
