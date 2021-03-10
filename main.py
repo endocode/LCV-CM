@@ -1,13 +1,13 @@
 import urllib.request
 import requests, json
-from validate import validate
-from validate import SPDXIdMapping
+from verify import verify
+from verify import SPDXIdMapping
 
 
 def retrieveOutboundLicense(url):
     response = requests.get(url).json()
     content = response['license']['spdx_id']
-    if content == "" or "NOASSERTION":
+    if content == "NOASSERTION":
         print("SPDX ID's outbound license not correctly defined for the project: "+GitHubURL[index])
         print("Please use a project with an outbound license defined with its SPDX id")
         exit(0)
@@ -28,10 +28,10 @@ JSONPath.append('json/javacv.json')
 JSONPath.append('json/javacpp.json')
 
 
-print(JSONPath)
-index = 8
+#print(JSONPath)
+index = 0
 
-
+print("#################")
 print("Started Reading JSON report")
 with open(JSONPath[index], "r") as read_file:
     print("Reading: " + JSONPath[index])
@@ -42,7 +42,7 @@ with open(JSONPath[index], "r") as read_file:
             if not x in license_list:
                 license_list.append(x)
 print("Finished reading JSON report")
-print("###################")
+print("###################\n")
 
 GitHubURL = list()
 
@@ -73,24 +73,34 @@ if orLater in OutboundLicense:
     exit(0)
 
 if len(license_list)==1:
-    print("The only inbound license detected is:")
+    print("\nThe only inbound license detected is:")
     print(license_list[0])
 else:
-    print("The inbound licenses found are:")
+    print("\nThe inbound licenses found are:")
     print(license_list)
 
 license_list_SPDX = SPDXIdMapping(license_list)
 
 if len(license_list_SPDX)==1:
-    print("The SPDX id for the only inbound license detected is:")
+    print("\nThe SPDX id for the only inbound license detected is:")
     print(license_list_SPDX[0])
 else:
-    print("The SPDX IDs for the inbound licenses found are:")
+    print("\nThe SPDX IDs for the inbound licenses found are:")
     print(license_list_SPDX)
 
 
-print("#################")
+print("\n#################")
 print("Running the license compliance verification:")
-
-validate(license_list_SPDX, OutboundLicense)
 print("#################")
+
+verificationList = verify(license_list_SPDX, OutboundLicense)
+
+notCompatible = "is not compatible"
+Compatible = "is compatible"
+for element in verificationList:
+    if notCompatible in element:
+        print("YOUR PACKAGE IS NOT COMPLIANT because:\n"+element)
+    if Compatible in element:
+        print("\n"+element+"\nThis allow you to use this inbound license in your package.\n")
+
+#print(verificationList)

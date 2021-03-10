@@ -45,7 +45,7 @@ def SPDXIdMapping(license_list_cleaned):
     df = df.set_index('Scancode')
     for license in license_list_cleaned:
         newElement=df.loc[license]['SPDX-ID']
-        print(newElement)
+        #print(newElement)
         if newElement is not np.nan:
             license_list_SPDX.append(newElement)
             if orLater in newElement:
@@ -57,9 +57,9 @@ def SPDXIdMapping(license_list_cleaned):
 
 
 def validate(license_list_cleaned, OutboundLicense):
-    """ Connect to the PostgreSQL database server OR read from CSV """
-    conn = None
-    try:
+    # """ Connect to the PostgreSQL database server OR read from CSV """
+    # conn = None
+    # try:
         # read connection parameters
         # params = config()
         # connect to the PostgreSQL server
@@ -85,14 +85,25 @@ def validate(license_list_cleaned, OutboundLicense):
         df = CSV_to_dataframe(CSVfilePath, column_names_list)
         df = df.set_index('License')
         if (len(license_list_cleaned)==1) and (license_list_cleaned[0]==OutboundLicense):
-            print("For this project only "+license_list_cleaned[0]+" as the inbound license has been detected, and it is the same of the outbound license ("+OutboundLicense+"). \n It means that it is license compliant. ")
+            print("For this project only "+license_list_cleaned[0]+" as the inbound license has been detected, and it is the same of the outbound license ("+OutboundLicense+"). \nIt means that it is license compliant. ")
+            exit(0)
+
+        verificationList = list()
+
 
         for license in license_list_cleaned:
             comparison = df.loc[license, OutboundLicense]
             if comparison == "0" :
-                print(license+" is not compatible with "+OutboundLicense+" as an outbound license.")
+                output = license+" is not compatible with "+OutboundLicense+" as an outbound license."
+                #print(output)
+                verificationList.append(output)
+
             else:
-                print(license+" is compatible with "+OutboundLicense+ " as an outbound license.")
+                output = license+" is compatible with "+OutboundLicense+ " as an outbound license."
+                #print(output)
+                verificationList.append(output)
+        return verificationList
+
 
         # THIS WAS USED TO COMPARE INBOUND LICENSES --> STILL USEFUL TO DETECT INBOUND LICENSES INCOMPATIBILITY
         # for license in license_list_cleaned:
@@ -104,14 +115,14 @@ def validate(license_list_cleaned, OutboundLicense):
         #             print(license+" is not compatible with "+license_to_compare)
 
 
-    # postgresql_to_dataframe related code
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(error)
-    finally:
-        if conn is not None:
-            conn.close()
-            print('Database connection closed.')
+    # # postgresql_to_dataframe related code
+    # except (Exception, psycopg2.DatabaseError) as error:
+    #     print(error)
+    # finally:
+    #     if conn is not None:
+    #         conn.close()
+    #         print('Database connection closed.')
 
 
-if __name__ == '__main__':
-    connect()
+# if __name__ == '__main__':
+#     connect()
