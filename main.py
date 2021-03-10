@@ -7,11 +7,16 @@ from validate import SPDXIdMapping
 def retrieveOutboundLicense(url):
     response = requests.get(url).json()
     content = response['license']['spdx_id']
+    if content == "" or "NOASSERTION":
+        print("SPDX ID's outbound license not correctly defined for the project: "+GitHubURL[index])
+        print("Please use a project with an outbound license defined with its SPDX id")
+        exit(0)
     return content
 orLater = "or-later"
 
 
 JSONPath = list()
+
 JSONPath.append('json/hope-boot.json')
 JSONPath.append('json/spotify-docker-maven-plugin.json')
 JSONPath.append('json/dockerfile-maven.json')
@@ -19,9 +24,12 @@ JSONPath.append('json/TelegramBots.json')
 JSONPath.append('json/fabric8io-docker-maven-plugin.json')
 JSONPath.append('json/webdrivermanager.json')
 JSONPath.append('json/git-commit-id-maven-plugin.json')
+JSONPath.append('json/javacv.json')
+JSONPath.append('json/javacpp.json')
+
 
 print(JSONPath)
-index = 6
+index = 8
 
 
 print("Started Reading JSON report")
@@ -52,6 +60,9 @@ GitHubURL.append('https://api.github.com/repos/bonigarcia/webdrivermanager/licen
 
 #https://github.com/git-commit-id/git-commit-id-maven-plugin
 GitHubURL.append('https://api.github.com/repos/git-commit-id/git-commit-id-maven-plugin/license')
+GitHubURL.append('https://api.github.com/repos/bytedeco/javacv/license')
+#index = 8
+GitHubURL.append('https://api.github.com/repos/bytedeco/javacpp/license')
 
 
 OutboundLicense = retrieveOutboundLicense(GitHubURL[index])

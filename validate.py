@@ -45,11 +45,12 @@ def SPDXIdMapping(license_list_cleaned):
     df = df.set_index('Scancode')
     for license in license_list_cleaned:
         newElement=df.loc[license]['SPDX-ID']
-        if orLater in newElement:
-            print("The usage of 'or later' is not supported. \n Please specify a license version instead of using 'or later' notation.")
-            exit(0)
+        print(newElement)
         if newElement is not np.nan:
             license_list_SPDX.append(newElement)
+            if orLater in newElement:
+                print("The usage of 'or later' is not supported. \n Please specify a license version instead of using 'or later' notation.")
+                exit(0)
         else:
             license_list_SPDX.append(license)
     return license_list_SPDX
@@ -89,7 +90,9 @@ def validate(license_list_cleaned, OutboundLicense):
         for license in license_list_cleaned:
             comparison = df.loc[license, OutboundLicense]
             if comparison == "0" :
-                print(license+" is not compatible with "+OutboundLicense)
+                print(license+" is not compatible with "+OutboundLicense+" as an outbound license.")
+            else:
+                print(license+" is compatible with "+OutboundLicense+ " as an outbound license.")
 
         # THIS WAS USED TO COMPARE INBOUND LICENSES --> STILL USEFUL TO DETECT INBOUND LICENSES INCOMPATIBILITY
         # for license in license_list_cleaned:
