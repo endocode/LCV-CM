@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 
 from config import config
+orLater = "or-later"
 
 def postgresql_to_dataframe(conn, column_names_list):
     """
@@ -32,7 +33,7 @@ def CSV_to_dataframe(CSVfilePath, column_names_list):
     Import a CSV and transform it into a pandas dataframe
     """
     df = pd.read_csv (CSVfilePath, usecols=column_names_list)
-    
+
     return df
 
 
@@ -44,6 +45,9 @@ def SPDXIdMapping(license_list_cleaned):
     df = df.set_index('Scancode')
     for license in license_list_cleaned:
         newElement=df.loc[license]['SPDX-ID']
+        if orLater in newElement:
+            print("The usage of 'or later' is not supported. \n Please specify a license version instead of using 'or later' notation.")
+            exit(0)
         if newElement is not np.nan:
             license_list_SPDX.append(newElement)
         else:
