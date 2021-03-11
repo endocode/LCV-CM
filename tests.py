@@ -6,16 +6,9 @@ from testlists import JSONPathList, GitHubURLList
 
 
 orLater = "or-later"
-
-
-
 JSONPath = JSONPathList()
-
 GitHubURL = GitHubURLList()
-
-
-#print(JSONPath)
-index = 1
+index = 7
 t = 10
 
 def runtimer(t):
@@ -101,12 +94,18 @@ while index < len(GitHubURL):
 
         notCompatible = "is not compatible"
         Compatible = "is compatible"
+        isNotSupported = "is not supported"
+        TBD = "compatibility with"
         for element in verificationList:
             if notCompatible in element:
                 print("YOUR PACKAGE IS NOT COMPLIANT because:\n"+element)
             if Compatible in element:
                 print("\n"+element+"\nThis allow you to use this inbound license in your package.\n")
+            if isNotSupported in element:
+                print("\n"+element+"\nMomentairly 'or later' notation are not supported.\n")
+            if TBD in element:
+                print("\n"+element+"\nThis compatibility association still need to be defined.\n")
+
         runtimer(t)
         print("#################")
         print("##Running the next test .... ")
-        
