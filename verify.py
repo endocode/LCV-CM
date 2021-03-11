@@ -27,7 +27,7 @@ def SPDXIdMapping(license_list_cleaned):
             license_list_SPDX.append(newElement)
             if orLater in newElement:
                 print("The usage of 'or later' is not supported. \n Please specify a license version instead of using 'or later' notation.")
-                exit(0)
+                #exit(0)
         else:
             license_list_SPDX.append(license)
     return license_list_SPDX
@@ -43,7 +43,7 @@ def verify(license_list_cleaned, OutboundLicense):
     df = df.set_index('License')
     if (len(license_list_cleaned)==1) and (license_list_cleaned[0]==OutboundLicense):
         print("For this project only "+license_list_cleaned[0]+" as the inbound license has been detected, and it is the same of the outbound license ("+OutboundLicense+"). \nIt means that it is license compliant. ")
-        exit(0)
+        #exit(0)
 
     verificationList = list()
     for license in license_list_cleaned:
@@ -51,7 +51,14 @@ def verify(license_list_cleaned, OutboundLicense):
         if comparison == "0" :
             output = license+" is not compatible with "+OutboundLicense+" as an outbound license."
             verificationList.append(output)
-        else:
+        if comparison == "NS" :
+            output = license+" is not supported, because 'or later' notation."
+            verificationList.append(output)
+        if comparison == "1":
             output = license+" is compatible with "+OutboundLicense+ " as an outbound license."
             verificationList.append(output)
+        if comparison == "TBD":
+            output = license+" compatibility with "+OutboundLicense+ " still needs to be defined."
+            verificationList.append(output)
+
     return verificationList
