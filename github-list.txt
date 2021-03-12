@@ -1,0 +1,94 @@
+#FROM https://github.com/topics/maven
+#17.4MB
+https://github.com/ZHENFENG13/My-Blog
+
+
+still to try
+
+#16kb
+#ERROR DEBUG: 2021/03/12 10:50:43 Connection to control service at localhost:50051 set up
+2021/03/12 10:50:43 Event: PHASE, Message: Activating analysis phase
+2021/03/12 10:50:43 Event: PHASE, Message: Switching to phase 2
+2021/03/12 10:50:43 Event: MODULE, Message: Running analyzer scancode-analyzer
+2021/03/12 10:57:06 Event: MODULE, Message: Analyzer scancode-analyzer failed: exit status 2 (exit status 2)
+Server reported failure:
+Analyzer scancode-analyzer failed: exit status 2 (exit status 2)
+2021/03/12 10:57:06 Event: PHASE, Message: Entering failure phase
+
+https://github.com/Ardesco/Selenium-Maven-Template
+
+
+#86kb
+https://github.com/Baidu-AIP/java-sdk
+[ERROR] /var/qmstr/buildroot/project/src/main/java/com/baidu/aip/kg/AipKnowledgeGraphic.java:34: error: unmappable character (0xE5) for encoding ANSI_X3.4-1968
+[ERROR]      * @param inputMappingFile - ?????????????????????????????????
+[ERROR]                                                 ^
+[ERROR]
+[ERROR] Command line was: /usr/lib/jvm/java-1.11.0-openjdk-amd64/bin/javadoc @options @packages
+[ERROR]
+[ERROR] Refer to the generated Javadoc files in '/var/qmstr/buildroot/project/target/apidocs' dir.
+[ERROR]
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+michelescarlato@QMSTR-vm-big:~$
+
+#200kb
+https://github.com/lrwinx/shop
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.585 s
+[INFO] Finished at: 2021-03-12T11:39:43Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project order-service-api: Fatal error compiling: java.lang.ExceptionInInitializerError: com.sun.tools.javac.code.TypeTags -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR]
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :order-service-api
+michelescarlato@QMSTR-vm-big:~$
+
+#258kb
+https://github.com/gardncl/elements-of-programming-interviews
+
+empty
+2021/03/12 11:51:43 Result: {"plugin_name":"QMSTR","plugin_version":"0.0.1","input":{"product":"gardncl:datastructures","version":"1.0"},"created_at":"2021-03-12T11:51:42.939059728Z","payload":{"package_metadata":{}}}
+2021/03/12 11:51:43 FASTEN reporter completed successfully
+
+#260kb
+https://github.com/TheHolyWaffle/TeamSpeak-3-Java-API
+OK
+
+
+#307kb
+https://github.com/nnngu/nguSeckill
+#390kb
+https://github.com/javafx-maven-plugin/javafx-maven-plugin
+#493kb
+https://github.com/spring-petclinic/spring-framework-petclinic
+#664kb
+https://github.com/openjfx/samples
+#961kb
+https://github.com/thrsky/ThrskyShop
+#1.6MB
+https://github.com/yrojha4ever/JavaStud
+#2.4MB
+https://github.com/windwant/spring-dubbo-service
+#2.9MB
+https://github.com/henryyan/kft-activiti-demo
+#3.3MB
+https://github.com/apache/maven-surefire
+#4.9MB
+https://github.com/Manphil/shop
+#11.3MB
+https://github.com/ueboot/ueboot
+#21.1MB
+https://github.com/ORCID/ORCID-Source
