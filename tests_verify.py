@@ -33,11 +33,10 @@ def SPDXIdMapping(license_list_cleaned):
     return license_list_SPDX
 
 
-def verify(license_list_cleaned, OutboundLicense):
-    CSVfilePath = "licenses.csv"
+def verify(CSVfilePath,license_list_cleaned, OutboundLicense):
+    #CSVfilePath = "licenses.csv"
     column_names_list = [OutboundLicense]
-    column_names_list.insert(0,'License')
-
+    column_names_list.insert(0,'License')    
     # retrieve data from CSV file
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
     df = df.set_index('License')
@@ -63,4 +62,6 @@ def verify(license_list_cleaned, OutboundLicense):
         if comparison == "UNK":
             output = "An UNKNOWN license has been found within the project. This cannot reveal license incompatibility"
             verificationList.append(output)
+
+
     return verificationList

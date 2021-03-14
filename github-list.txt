@@ -67,27 +67,252 @@ empty
 https://github.com/TheHolyWaffle/TeamSpeak-3-Java-API
 OK
 
-
 #307kb
 https://github.com/nnngu/nguSeckill
+empty
+2021/03/13 00:46:32 Result: {"plugin_name":"QMSTR","plugin_version":"0.0.1","input":{"product":"com.nnngu:nguSeckill","version":"1.0-SNAPSHOT"},"created_at":"2021-03-13T00:46:32.287026112Z","payload":{"package_metadata":{}}}
+2021/03/13 00:46:32 FASTEN reporter completed successfully
+
 #390kb
 https://github.com/javafx-maven-plugin/javafx-maven-plugin
+error
+[ERROR] /var/qmstr/buildroot/project/src/main/java/com/zenjava/javafx/maven/plugin/ListBundlersMojo.java:[21,33] package com.oracle.tools.packager does not exist
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
 #493kb
 https://github.com/spring-petclinic/spring-framework-petclinic
+build FAILURE[INFO] --- qmstr-maven-plugin:0.5:qmstr (qmstrpackage) @ spring-framework-petclinic ---
+[INFO] Processing artifact /var/qmstr/buildroot/project/target/petclinic.war
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  53.724 s
+[INFO] Finished at: 2021-03-13T01:08:34Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.qmstr:qmstr-maven-plugin:0.5:qmstr (qmstrpackage) on project spring-framework-petclinic: qmstr: no package found -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+
+
 #664kb
 https://github.com/openjfx/samples
+FINQUA
+./michele-exp.sh https://github.com/openjfx/samples michele
+[INFO]
+[INFO] --- qmstr-maven-plugin:0.5:qmstr (qmstrpackage) @ samples ---
+[WARNING] Not a java project
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.427 s
+[INFO] Finished at: 2021-03-13T05:55:38Z
+[INFO] ------------------------------------------------------------------------
+DEBUG: 2021/03/13 05:55:38 Connection to control service at localhost:50051 set up
+2021/03/13 05:55:38 Event: PHASE, Message: Switching to phase 2
+2021/03/13 05:55:38 Event: PHASE, Message: Activating analysis phase
+2021/03/13 05:55:38 Event: MODULE, Message: Running analyzer scancode-analyzer
+2021/03/13 05:57:16 Event: PHASE, Message: Entering failure phase
+2021/03/13 05:57:16 Event: MODULE, Message: Analyzer scancode-analyzer failed: exit status 2 (exit status 2)
+Server reported failure:
+Analyzer scancode-analyzer failed: exit status 2 (exit status 2)
+
+
 #961kb
 https://github.com/thrsky/ThrskyShop
+[INFO] Packaging webapp
+[INFO] Assembling webapp [ThrskyShop] in [/var/qmstr/buildroot/project/target/ThrskyShop]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/var/qmstr/buildroot/project/src/main/webapp]
+[INFO] Webapp assembled in [187 msecs]
+[INFO] Building war: /var/qmstr/buildroot/project/target/ThrskyShop.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO]
+[INFO] --- qmstr-maven-plugin:0.5:qmstr (qmstrpackage) @ ThrskyShop ---
+[INFO] Processing artifact /var/qmstr/buildroot/project/target/ThrskyShop.war
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.046 s
+[INFO] Finished at: 2021-03-13T06:26:47Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.qmstr:qmstr-maven-plugin:0.5:qmstr (qmstrpackage) on project ThrskyShop: qmstr: no package found -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+
 #1.6MB
 https://github.com/yrojha4ever/JavaStud
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.109 s
+[INFO] Finished at: 2021-03-13T06:42:32Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] The goal you specified requires a project to execute but there is no POM in this directory (/var/qmstr/buildroot/project). Please verify you invoked Maven from the correct directory. -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MissingProjectException
+
+
 #2.4MB
 https://github.com/windwant/spring-dubbo-service
+2021/03/13 07:10:32 Result: {"plugin_name":"QMSTR","plugin_version":"0.0.1","input":{"product":"org.windwant.spring:util","version":"1.0-SNAPSHOT"},"created_at":"2021-03-13T07:10:32.788869566Z","payload":{"package_metadata":{}}}
+2021/03/13 07:10:32 FASTEN reporter completed successfully
+
 #2.9MB
 https://github.com/henryyan/kft-activiti-demo
+#
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebService.java:[21,6] cannot find symbol
+  symbol:   class WebResult
+  location: interface me.kafeitu.demo.activiti.webservice.LeaveWebService
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebserviceUtil.java:[36,9] cannot find symbol
+  symbol:   variable Endpoint
+  location: class me.kafeitu.demo.activiti.webservice.LeaveWebserviceUtil
+[INFO] 11 errors
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.041 s
+[INFO] Finished at: 2021-03-14T03:27:40Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project kft-activiti-demo: Compilation failure: Compilation failure:
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebService.java:[3,17] package javax.jws does not exist
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebService.java:[4,17] package javax.jws does not exist
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebService.java:[5,17] package javax.jws does not exist
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebService.java:[12,2] cannot find symbol
+[ERROR]   symbol: class WebService
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebserviceUtil.java:[3,20] package javax.xml.ws does not exist
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebServiceImpl.java:[4,17] package javax.jws does not exist
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebServiceImpl.java:[15,2] cannot find symbol
+[ERROR]   symbol: class WebService
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebService.java:[22,34] cannot find symbol
+[ERROR]   symbol:   class WebParam
+[ERROR]   location: interface me.kafeitu.demo.activiti.webservice.LeaveWebService
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebService.java:[22,96] cannot find symbol
+[ERROR]   symbol:   class WebParam
+[ERROR]   location: interface me.kafeitu.demo.activiti.webservice.LeaveWebService
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebService.java:[21,6] cannot find symbol
+[ERROR]   symbol:   class WebResult
+[ERROR]   location: interface me.kafeitu.demo.activiti.webservice.LeaveWebService
+[ERROR] /var/qmstr/buildroot/project/src/main/java/me/kafeitu/demo/activiti/webservice/LeaveWebserviceUtil.java:[36,9] cannot find symbol
+[ERROR]   symbol:   variable Endpoint
+[ERROR]   location: class me.kafeitu.demo.activiti.webservice.LeaveWebserviceUtil
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+#14-03-2021 12:50
+
+
+
+
 #3.3MB
 https://github.com/apache/maven-surefire
+14-03-2021 13:00
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0.21/plexus-utils-3.0.21.jar (245 kB at 1.1 MB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/velocity/velocity/1.5/velocity-1.5.jar (392 kB at 1.6 MB/s)
+[INFO] Enabled default license matchers.
+[INFO] Will parse SCM ignores for exclusions...
+[INFO] Parsing exclusions from /var/qmstr/buildroot/project/.gitignore
+[INFO] Finished adding exclusions from SCM ignore files.
+[INFO] 85 implicit excludes (use -debug for more details).
+[INFO] 27 explicit excludes (use -debug for more details).
+[INFO] 7 resources included (use -debug for more details)
+[INFO] Rat check: Summary over all files. Unapproved: 1, unknown: 1, generated: 0, approved: 6 licenses.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache Maven Surefire 3.0.0-M6-SNAPSHOT:
+[INFO]
+[INFO] Apache Maven Surefire .............................. FAILURE [  5.323 s]
+[INFO] SureFire Logger API ................................ SKIPPED
+[INFO] SureFire API ....................................... SKIPPED
+[INFO] Surefire Extensions API ............................ SKIPPED
+[INFO] Surefire Extensions SPI ............................ SKIPPED
+[INFO] SureFire Booter .................................... SKIPPED
+[INFO] Maven Surefire Test-Grouping Support ............... SKIPPED
+[INFO] SureFire Providers ................................. SKIPPED
+[INFO] Shared JUnit3 Provider Code ........................ SKIPPED
+[INFO] Shared Java 5 Provider Base ........................ SKIPPED
+[INFO] Shared JUnit4 Provider Code ........................ SKIPPED
+[INFO] Shared JUnit48 Provider Code ....................... SKIPPED
+[INFO] SureFire JUnit Runner .............................. SKIPPED
+[INFO] SureFire JUnit4 Runner ............................. SKIPPED
+[INFO] Maven Surefire Common .............................. SKIPPED
+[INFO] SureFire JUnitCore Runner .......................... SKIPPED
+[INFO] SureFire JUnit Platform Runner ..................... SKIPPED
+[INFO] SureFire TestNG Utils .............................. SKIPPED
+[INFO] SureFire TestNG Runner ............................. SKIPPED
+[INFO] ShadeFire JUnit3 Provider .......................... SKIPPED
+[INFO] Surefire Report Parser ............................. SKIPPED
+[INFO] Maven Surefire Plugin .............................. SKIPPED
+[INFO] Maven Failsafe Plugin .............................. SKIPPED
+[INFO] Maven Surefire Report Plugin ....................... SKIPPED
+[INFO] Maven Surefire Integration Tests ................... SKIPPED
+[INFO] Surefire Shared Utils .............................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.694 s
+[INFO] Finished at: 2021-03-14T03:59:36Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.rat:apache-rat-plugin:0.13:check (rat-check) on project surefire: Too many files with unapproved license: 1 See RAT report in: /var/qmstr/buildroot/project/target/rat.txt -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
 #4.9MB
 https://github.com/Manphil/shop
+[INFO] 108 errors
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.574 s
+[INFO] Finished at: 2021-03-14T04:59:10Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project shop: Compilation failure: Compilation failure:
+[ERROR] /var/qmstr/buildroot/project/src/main/java/com/neu/shop/service/impl/CateServiceImpl.java:[13,15] unmappable character (0xE6) for encoding US-ASCII
+..
+[ERROR] /var/qmstr/buildroot/project/src/main/java/com/neu/shop/controller/admin/AdminOrderController.java:[55,55] diamond operator is not supported in -source 6
+[ERROR]   (use -source 7 or higher to enable diamond operator)
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
 #11.3MB
 https://github.com/ueboot/ueboot
 #21.1MB

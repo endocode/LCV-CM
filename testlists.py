@@ -11,6 +11,7 @@ def JSONPathList():
     JSONPath.append('json/javacpp.json')
     JSONPath.append('json/TelegramBots.json')
     JSONPath.append('json/git-commit-id-maven-plugin.json')
+    JSONPath.append('json/teamspeak3.json')
     return JSONPath
 
 
@@ -32,4 +33,6 @@ def GitHubURLList():
     GitHubURL.append('https://api.github.com/repos/bytedeco/javacpp/license')
     GitHubURL.append('https://api.github.com/repos/rubenlagus/TelegramBots/license')
     GitHubURL.append('https://api.github.com/repos/git-commit-id/git-commit-id-maven-plugin/license')
+    GitHubURL.append('https://api.github.com/repos/TheHolyWaffle/TeamSpeak-3-Java-API/license')
+
     return GitHubURL

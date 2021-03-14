@@ -1,6 +1,6 @@
 import urllib.request
 import requests, json, time, sys
-from verify import verify
+from tests_verify import verify
 from verify import SPDXIdMapping
 from testlists import JSONPathList, GitHubURLList
 
@@ -8,7 +8,7 @@ from testlists import JSONPathList, GitHubURLList
 orLater = "or-later"
 JSONPath = JSONPathList()
 GitHubURL = GitHubURLList()
-index = 7
+index = 8
 t = 10
 
 def runtimer(t):
@@ -89,13 +89,14 @@ while index < len(GitHubURL):
         print(license_list_SPDX)
         print(OutboundLicense)
         #verify(license_list_SPDX, OutboundLicense)
-
-        verificationList = verify(license_list_SPDX, OutboundLicense)
+        CSVfilePath = "licenses_tests.csv"
+        verificationList = verify(CSVfilePath,license_list_SPDX, OutboundLicense)
 
         notCompatible = "is not compatible"
         Compatible = "is compatible"
         isNotSupported = "is not supported"
         TBD = "compatibility with"
+        UNK = "UNKNOWN"
         for element in verificationList:
             if notCompatible in element:
                 print("YOUR PACKAGE IS NOT COMPLIANT because:\n"+element)
@@ -105,6 +106,8 @@ while index < len(GitHubURL):
                 print("\n"+element+"\nMomentairly 'or later' notation are not supported.\n")
             if TBD in element:
                 print("\n"+element+"\nThis compatibility association still need to be defined.\n")
+            if UNK in element:
+                print("\n"+element)
 
         runtimer(t)
         print("#################")
