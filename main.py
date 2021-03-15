@@ -1,7 +1,7 @@
 import urllib.request
 import requests, json
-from verify import verify, compare, SPDXIdMapping, retrieveOutboundLicense, InboundLicenses, runtimer
-from testlists import JSONPathList, GitHubURLList
+from LCVlib.verify import verify, compare, SPDXIdMapping, retrieveOutboundLicense, InboundLicenses, runtimer
+from LCVlib.testlists import JSONPathList, GitHubURLList
 
 
 JSONPath = JSONPathList()

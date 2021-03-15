@@ -320,3 +320,33 @@ empty payload
 {"plugin_name":"QMSTR","plugin_version":"0.0.1","input":{"product":"com.ueboot:ueboot-core","version":"3.1.0-SNAPSHOT"},"created_at":"2021-03-15T04:06:34.986395628Z","payload":{"package_metadata":{}}}
 #21.1MB
 https://github.com/ORCID/ORCID-Source
+[ERROR]  class XmlAccessorType
+/var/qmstr/buildroot/project/orcid-utils/src/main/java/org/crossref/qrschema/_3/Year.java:[56,1] error: cannot find symbol
+[INFO] 100 errors
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for ORCID - Parent release-1.289.0:
+[INFO]
+[INFO] ORCID - Test ....................................... SUCCESS [  6.362 s]
+[INFO] ORCID - Parent ..................................... SUCCESS [  7.557 s]
+[INFO] ORCID - Utils ...................................... FAILURE [01:42 min]
+[INFO] ORCID - Persistence ................................ SKIPPED
+[INFO] ORCID - Core ....................................... SKIPPED
+[INFO] ORCID - API Commons ................................ SKIPPED
+[INFO] ORCID - Web ........................................ SKIPPED
+[INFO] ORCID - Public API ................................. SKIPPED
+[INFO] ORCID - Tier 2 Services Web ........................ SKIPPED
+[INFO] ORCID - Scheduler .................................. SKIPPED
+[INFO] ORCID - Integration Test ........................... SKIPPED
+[INFO] ORCID - Internal API ............................... SKIPPED
+[INFO] ORCID - ActiveMQ ................................... SKIPPED
+[INFO] ORCID - Message Listener ........................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:57 min
+[INFO] Finished at: 2021-03-15T08:19:12Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile (default-compile) on project orcid-utils: Compilation failure: Compilation failure:
+[ERROR] /var/qmstr/buildroot/project/orcid-utils/src/main/java/org/crossref/qrschema/_3/Volume.java:[11,32] error: package javax.xml.bind.annotation does not exist
+[ERROR]
