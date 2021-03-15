@@ -33,8 +33,8 @@ def SPDXIdMapping(license_list_cleaned):
     return license_list_SPDX
 
 
-def verify(license_list_cleaned, OutboundLicense):
-    CSVfilePath = "licenses.csv"
+def verify(CSVfilePath,license_list_cleaned, OutboundLicense):
+    # CSVfilePath = "licenses.csv"
     column_names_list = [OutboundLicense]
     column_names_list.insert(0,'License')
 

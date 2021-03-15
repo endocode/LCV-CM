@@ -1,6 +1,6 @@
 import urllib.request
 import requests, json, time, sys
-from tests_verify import verify
+from verify import verify
 from verify import SPDXIdMapping
 from testlists import JSONPathList, GitHubURLList
 
