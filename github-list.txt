@@ -177,6 +177,7 @@ WARNING: All illegal access operations will be denied in a future release
 
 #2.4MB
 https://github.com/windwant/spring-dubbo-service
+empty
 2021/03/13 07:10:32 Result: {"plugin_name":"QMSTR","plugin_version":"0.0.1","input":{"product":"org.windwant.spring:util","version":"1.0-SNAPSHOT"},"created_at":"2021-03-13T07:10:32.788869566Z","payload":{"package_metadata":{}}}
 2021/03/13 07:10:32 FASTEN reporter completed successfully
 
@@ -315,5 +316,7 @@ https://github.com/Manphil/shop
 
 #11.3MB
 https://github.com/ueboot/ueboot
+empty payload
+{"plugin_name":"QMSTR","plugin_version":"0.0.1","input":{"product":"com.ueboot:ueboot-core","version":"3.1.0-SNAPSHOT"},"created_at":"2021-03-15T04:06:34.986395628Z","payload":{"package_metadata":{}}}
 #21.1MB
 https://github.com/ORCID/ORCID-Source
