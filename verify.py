@@ -8,7 +8,7 @@ orLater = "or-later"
 
 def CSV_to_dataframe(CSVfilePath, column_names_list):
     """
-    Import a CSV and transform it into a pandas dataframe
+    Import a CSV and transform it into a pandas dataframe selecting only the useful columns from the Compatibility Matrix
     """
     df = pd.read_csv (CSVfilePath, usecols=column_names_list)
 
@@ -37,15 +37,15 @@ def verify(CSVfilePath,license_list_cleaned, OutboundLicense):
     # CSVfilePath = "licenses.csv"
     column_names_list = [OutboundLicense]
     column_names_list.insert(0,'License')
-
+    verificationList = list()
     # retrieve data from CSV file
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
     df = df.set_index('License')
     if (len(license_list_cleaned)==1) and (license_list_cleaned[0]==OutboundLicense):
-        print("For this project only "+license_list_cleaned[0]+" as the inbound license has been detected, and it is the same of the outbound license ("+OutboundLicense+"). \nIt means that it is license compliant. ")
-        #exit(0)
+        output = "For this project only "+license_list_cleaned[0]+" as the inbound license has been detected, and it is the same of the outbound license ("+OutboundLicense+"), implying that it is compatible. \nIt means that it is license compliant. "
+        verificationList.append(output)
+        return verificationList
 
-    verificationList = list()
     for license in license_list_cleaned:
         comparison = df.loc[license, OutboundLicense]
         if comparison == "0" :

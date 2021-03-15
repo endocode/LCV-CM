@@ -8,7 +8,7 @@ from testlists import JSONPathList, GitHubURLList
 orLater = "or-later"
 JSONPath = JSONPathList()
 GitHubURL = GitHubURLList()
-index = 8
+index = 0
 t = 10
 
 def runtimer(t):
@@ -25,9 +25,6 @@ def retrieveOutboundLicense(url):
         print("SPDX ID's outbound license not correctly defined for the project: "+GitHubURL[index])
         print("Please use a project with an outbound license defined with its SPDX id")
         runtimer(t)
-
-        #exit(0)
-        #return
     return content
 
 
@@ -46,7 +43,7 @@ def InboundLicenses(JSONPath):
     return license_list
 
 
-#for url in GitHubURL:
+#while url in GitHubURL:
 while index < len(GitHubURL):
     print("\n\nTest number "+str(index)+ " running\n\n ")
     url = GitHubURL[index]
@@ -108,6 +105,20 @@ while index < len(GitHubURL):
                 print("\n"+element+"\nThis compatibility association still need to be defined.\n")
             if UNK in element:
                 print("\n"+element)
+        #if all element are compatible, license compliance occurs.
+        indexLicense = 0
+        for element in verificationList:
+            if Compatible in element:
+                indexLicense+=1
+        print(str(indexLicense)+" above "+str(len(verificationList))+" licenses found are compatible.")
+        if indexLicense == len(verificationList):
+            print("Hence your project is compatible.")
+        else:
+            print("Hence your project is not compatible.")
+
+
+
+
 
         runtimer(t)
         print("#################")
