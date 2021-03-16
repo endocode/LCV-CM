@@ -27,6 +27,7 @@ python3 main.py
 ```
 
 ## Matrix ... [scarlato]
+The rows represent inbound licenses and the columns outbound licenses.
 
 The compatibility matrix functions in this way:
 `QMSTR` will generate an array of licenses used within a project.
