@@ -26,7 +26,7 @@ To run the code with python3:
 python3 main.py  
 ```
 
-## Matrix ... [scarlato]
+## How does the Matrix function
 The rows represent inbound licenses and the columns outbound licenses.
 
 The compatibility matrix functions in this way:
@@ -34,8 +34,9 @@ The compatibility matrix functions in this way:
 `LCV` is able to retrieve the otbound license for a given GitHub project, by means of GitHub APIs. 
 The array elements will be matched against the outbound license declared for that specific project.
 
-## [results] Acronyms used within the Matrix :
 [https://github.com/endocode/LCV-CM/blob/main/licenses.csv](https://github.com/endocode/LCV-CM/blob/main/licenses.csv) represents *True* with *1* and *False* with *0*, because originally this matrix was thought to be imported as a Postgres table, that makes use of bit data to represent them.
+
+## Acronyms used within the Matrix :
 
 TBD = To be defined
 
