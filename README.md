@@ -31,6 +31,7 @@ The rows represent inbound licenses and the columns outbound licenses.
 
 The compatibility matrix functions in this way:
 `QMSTR` will generate an array of licenses used within a project.
+`LCV` is able to retrieve the otbound license for a given GitHub project, by means of GitHub APIs. 
 The array elements will be matched against the outbound license declared for that specific project.
 
 ## [results] Acronyms used within the Matrix :
