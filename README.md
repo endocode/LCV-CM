@@ -38,11 +38,9 @@ The array elements will be matched against the outbound license declared for tha
 
 ## Acronyms used within the Matrix :
 
-TBD = To be defined
-Associations that still need to be defined.
+TBD = To be defined: associations that still need to be defined.
 
-NS = Not Supported
-Momentarily referred to the `or later` notations used for certain licenses. 
+NS = Not Supported: momentarily referred to the `or later` notations used for certain licenses. 
 Currently, LCV is supporting only specific licenses.
 
 
