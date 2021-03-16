@@ -25,3 +25,8 @@ To run the code with python3:
 ```
 python3 main.py  
 ```
+## [results] Acronyms used within the Matrix :
+[https://github.com/endocode/LCV-CM/blob/main/licenses.csv](https://github.com/endocode/LCV-CM/blob/main/licenses.csv) represents *True* with *1* and *False* with *0*, because originally this matrix was thought to be imported as a Postgres table, that makes use of bit data to represent them.
+
+TBD = To be defined
+NS = Not Supported
