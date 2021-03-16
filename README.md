@@ -25,8 +25,17 @@ To run the code with python3:
 ```
 python3 main.py  
 ```
+
+## Matrix ... [scarlato]
+
+The compatibility matrix functions in this way:
+`QMSTR` will generate an array of licenses used within a project.
+The array elements will be matched against the outbound license declared for that specific project.
+
 ## [results] Acronyms used within the Matrix :
 [https://github.com/endocode/LCV-CM/blob/main/licenses.csv](https://github.com/endocode/LCV-CM/blob/main/licenses.csv) represents *True* with *1* and *False* with *0*, because originally this matrix was thought to be imported as a Postgres table, that makes use of bit data to represent them.
 
 TBD = To be defined
 NS = Not Supported
+
+
