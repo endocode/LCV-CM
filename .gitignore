@@ -1,6 +1,6 @@
 .~lock.licenses.csv#
 .~lock.spdx-id.csv#
-
+src/LCV/shutdown.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -33,7 +33,6 @@ def shutdown(secs):
         sys.stdout.flush()
         time.sleep(1)
     os.kill(int(PID), signal.SIGINT)
-# This fixed a visualization error in the browser
 
 
 # Check the port number range
