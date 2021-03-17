@@ -25,3 +25,22 @@ To run the code with python3:
 ```
 python3 main.py  
 ```
+
+## How does the Matrix function
+The rows represent `inbound` licenses and the columns `outbound` licenses.
+
+The compatibility matrix functions in this way:
+`QMSTR` will generate an array of licenses used within a project.
+`LCV` can retrieve the outbound license for a given GitHub project through GitHub APIs. 
+The array elements will be matched against the outbound license declared for that specific project.
+
+[https://github.com/endocode/LCV-CM/blob/main/licenses.csv](https://github.com/endocode/LCV-CM/blob/main/licenses.csv) represents *True* with *1* and *False* with *0*, because originally this Matrix was thought to be imported as a Postgres table, that makes use of bit data to represent them.
+
+## Acronyms used within the Matrix :
+
+TBD = To be defined: associations that still need to be defined.
+
+NS = Not Supported: momentarily referred to the `or later` notations used for certain licenses. 
+Currently, LCV is supporting only specific licenses.
+
+
