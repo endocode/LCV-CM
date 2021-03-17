@@ -59,7 +59,7 @@ def SPDXIdMapping(license_list_cleaned):
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
     df = df.set_index('Scancode')
     for license in license_list_cleaned:
-        #print(license_list_cleaned)
+        print(license_list_cleaned)
         newElement=df.loc[license]['SPDX-ID']
         print("NewElement:"+newElement)
         print(newElement)
@@ -146,11 +146,11 @@ def compare(license_list,OutboundLicense):
         print("Inbound license list :\n"+str(license_list_SPDX))
         print("The outbound license is: "+OutboundLicense)
         CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
-        verificationList = verify(CSVfilePath,license_list_SPDX, OutboundLicense)
-        verificationList = parseVerificationList(verificationList)
+        verificationListToParse = verify(CSVfilePath,license_list_SPDX, OutboundLicense)
+        verificationList = parseVerificationList(verificationListToParse)
         return verificationList
 
-def compareSPDXid(license_list_SPDX,OutboundLicense):
+def compareSPDX(license_list_SPDX,OutboundLicense):
         if len(license_list_SPDX)==1:
             print("The SPDX id for the only inbound license detected is:")
             print(license_list_SPDX[0])
