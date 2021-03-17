@@ -7,7 +7,7 @@ import re
 from subprocess import check_output
 import subprocess
 from json import dumps
-from flask import current_app, Blueprint, jsonify
+from flask import Flask, redirect, url_for, request, current_app, Blueprint, jsonify, render_template
 import os
 #App configuration
 from os import environ, path, system
@@ -94,15 +94,8 @@ if args.PATH:
     PATH = args.PATH
 if args.shutdown:
     SHUTDOWN = args.shutdown
-print(str(PATH))
-#setting the PATH with the variable
 os.environ['PATH'] = PATH
 
-
-# Camel-case gets cut by spaces
-def separated_str(inputname):
-    inputnameStrip = re.sub("([A-Z])", " \\1", inputname).strip()
-    return inputnameStrip
 
 # Git hash of the head of the repository
 def GitHash(gitrepoName):
@@ -113,19 +106,10 @@ def GitHash(gitrepoName):
     hashHead = hashHead[3:42]
     return hashHead
 
-
 app = flask.Flask(__name__)
 app.config["DEBUG"] = False
 logging.basicConfig(filename=LOGFILE, level=logging.INFO)
 
-@app.route('/helloworld', methods=['GET'])
-def home():
-    return "Hello Stranger"
-
-@app.route('/helloworld/<name>')
-def hello(name=None):
-    nome=separated_str(name)
-    return "Hello "+nome
 
 @app.route('/versionz')
 def version():
@@ -139,27 +123,34 @@ def shutd(secs):
     shutdown(int(secs))
     return "Shutting down server"
 
-
 @app.route('/PATH', methods=['GET'])
 def path():
     CurrentPath = os.getenv("PATH")
     return str(CurrentPath)
-    #return str(PATH)
-
-
-@app.route('/GetOutboundLicense/<url>')
-def GetOutboundLicense(url=None):
-    #url="https://api.github.com/repos/hope-for/hope-boot/license"
-    #OutboundLicense=retrieveOutboundLicense(url)
-    return "Hello "+url
 
 
 @app.route('/GetOutboundLicenseTest/')
 def GetOutboundLicenseTest():
     url="https://api.github.com/repos/hope-for/hope-boot/license"
     OutboundLicense=retrieveOutboundLicense(url)
-    return "Hello "+OutboundLicense
+    return OutboundLicense
 
+@app.route('/GitHubOutboundLicense')
+def Outb():
+   return render_template('outbound.html')
+
+@app.route('/GitHubOutboundLicenseOutput',methods = ['POST', 'GET'])
+def GitHubOutboundLicense():
+    if request.method == 'POST':
+        url = request.form['nm']
+        OutboundLicense=retrieveOutboundLicense(url)
+        return OutboundLicense
+#NOT FUNCTIONING ENDPOINTS
+@app.route('/GetOutboundLicense/<url>')
+def GetOutboundLicense(url="https://api.github.com/repos/hope-for/hope-boot/license"):
+    #url="https://api.github.com/repos/hope-for/hope-boot/license"
+    OutboundLicense=retrieveOutboundLicense(url)
+    return OutboundLicense
 
 f = open("tests/PORT.txt", "w")
 f.write(str(PORT))

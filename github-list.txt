@@ -1,21 +1,50 @@
 #FROM https://github.com/topics/maven
 #17.4MB
 https://github.com/ZHENFENG13/My-Blog
+[INFO] Replacing main artifact /var/qmstr/buildroot/project/target/my-blog-4.0.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- qmstr-maven-plugin:0.5:qmstr (qmstrpackage) @ my-blog ---
+[INFO] Processing artifact /var/qmstr/buildroot/project/target/my-blog-4.0.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.146 s
+[INFO] Finished at: 2021-03-16T09:47:37Z
+[INFO] ------------------------------------------------------------------------
+DEBUG: 2021/03/16 09:47:37 Connection to control service at localhost:50051 set up
+2021/03/16 09:47:42 Event: PHASE, Message: Activating analysis phase
+2021/03/16 09:47:42 Event: MODULE, Message: Running analyzer scancode-analyzer
+2021/03/16 10:07:02 Event: MODULE, Message: Analyzer scancode-analyzer successfully finished
+2021/03/16 10:07:02 Event: PHASE, Message: Switched to phase 2
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   119  100    15  100   104     18    127 --:--:-- --:--:-- --:--:--   146
 
 
-still to try
 
 #16kb
-#ERROR DEBUG: 2021/03/12 10:50:43 Connection to control service at localhost:50051 set up
-2021/03/12 10:50:43 Event: PHASE, Message: Activating analysis phase
-2021/03/12 10:50:43 Event: PHASE, Message: Switching to phase 2
-2021/03/12 10:50:43 Event: MODULE, Message: Running analyzer scancode-analyzer
-2021/03/12 10:57:06 Event: MODULE, Message: Analyzer scancode-analyzer failed: exit status 2 (exit status 2)
+https://github.com/Ardesco/Selenium-Maven-Template
+Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.0/plexus-utils-3.0.jar (226 kB at 3.5 MB/s)
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /var/qmstr/buildroot/project/target/maven-template-1.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- qmstr-maven-plugin:0.5:qmstr (qmstrpackage) @ maven-template ---
+[INFO] Processing artifact /var/qmstr/buildroot/project/target/maven-template-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  30.408 s
+[INFO] Finished at: 2021-03-16T10:20:27Z
+[INFO] ------------------------------------------------------------------------
+DEBUG: 2021/03/16 10:20:27 Connection to control service at localhost:50051 set up
+2021/03/16 10:20:28 Event: PHASE, Message: Switching to phase 2
+2021/03/16 10:20:28 Event: PHASE, Message: Activating analysis phase
+2021/03/16 10:20:28 Event: MODULE, Message: Running analyzer scancode-analyzer
+2021/03/16 10:26:27 Event: MODULE, Message: Analyzer scancode-analyzer failed: exit status 2 (exit status 2)
+2021/03/16 10:26:27 Event: PHASE, Message: Entering failure phase
 Server reported failure:
 Analyzer scancode-analyzer failed: exit status 2 (exit status 2)
-2021/03/12 10:57:06 Event: PHASE, Message: Entering failure phase
 
-https://github.com/Ardesco/Selenium-Maven-Template
 
 
 #86kb
