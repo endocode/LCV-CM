@@ -12,8 +12,10 @@ def CSV_to_dataframe(CSVfilePath, column_names_list):
     """
     Import a CSV and transform it into a pandas dataframe selecting only the useful columns from the Compatibility Matrix
     """
-    df = pd.read_csv (CSVfilePath, usecols=column_names_list)
+    #print("Hello from CSV_to_dataframe")
 
+    df = pd.read_csv (CSVfilePath, usecols=column_names_list)
+    #print(df)
     return df
 
 def retrieveOutboundLicense(url):
@@ -49,20 +51,29 @@ def InboundLicenses(JSONPath):
 
 
 def SPDXIdMapping(license_list_cleaned):
-    CSVfilePath = "csv/spdx-id.csv"
+    print("Hello from SPDXIdMapping")
+    CSVfilePath = "~/gitrepo/LCV-CM/csv/spdx-id.csv"
+    print(CSVfilePath)
     license_list_SPDX = []
     column_names_list = ['Scancode','SPDX-ID']
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
     df = df.set_index('Scancode')
     for license in license_list_cleaned:
+        #print(license_list_cleaned)
         newElement=df.loc[license]['SPDX-ID']
+        print("NewElement:"+newElement)
+        print(newElement)
+
         if newElement is not np.nan:
+            print(newElement)
             license_list_SPDX.append(newElement)
             if orLater in newElement:
                 print("The usage of 'or later' is not supported. \n Please specify a license version instead of using 'or later' notation.")
                 #exit(0)
         else:
             license_list_SPDX.append(license)
+        print(license_list_cleaned)
+
     return license_list_SPDX
 
 
@@ -98,23 +109,31 @@ def verify(CSVfilePath,license_list_cleaned, OutboundLicense):
             verificationList.append(output)
     return verificationList
 
-
-def compare(license_list,OutboundLicense):
+def CheckOutboundLicense(OutboundLicense):
     if OutboundLicense != "NOASSERTION":
         print("The outbound license for the project is: "+OutboundLicense)
 
         if orLater in OutboundLicense:
             print("The usage of `'or later' is not supported. \n Please specify a license version instead of using `'or later'` notation.")
             exit(0)
+    else:
+        print("This project does not specify correctly an SPDX id for its oubound license")
+        exit(0)
+    return OutboundLicense
 
-        if len(license_list)==1:
-            print("The only inbound license detected is: ")
-            print(license_list[0])
-        else:
-            print("The inbound licenses found are:")
-            print(license_list)
 
+def compare(license_list,OutboundLicense):
+        # Check if 1 or more inbound licenses (just to provide an output on screen)
+        # if len(license_list)==1:
+        #     print("The only inbound license detected is: ")
+        #     print(license_list[0])
+        # else:
+        #     print("The inbound licenses found are:")
+        #     print(license_list)
+        print("Running SPDXid mapping function:")
         license_list_SPDX = SPDXIdMapping(license_list)
+        # print("The SPDX IDs are:")
+        # print(license_list_SPDX)
 
         if len(license_list_SPDX)==1:
             print("The SPDX id for the only inbound license detected is:")
@@ -122,17 +141,33 @@ def compare(license_list,OutboundLicense):
         else:
             print("The SPDX IDs for the inbound licenses found are:")
             print(license_list_SPDX)
-
-
         print("#################")
         print("Running the license compliance verification:")
-
         print("Inbound license list :\n"+str(license_list_SPDX))
         print("The outbound license is: "+OutboundLicense)
-        #verify(license_list_SPDX, OutboundLicense)
-        CSVfilePath = "csv/licenses_tests.csv"
+        CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
         verificationList = verify(CSVfilePath,license_list_SPDX, OutboundLicense)
+        verificationList = parseVerificationList(verificationList)
+        return verificationList
 
+def compareSPDXid(license_list_SPDX,OutboundLicense):
+        if len(license_list_SPDX)==1:
+            print("The SPDX id for the only inbound license detected is:")
+            print(license_list_SPDX[0])
+        else:
+            print("The SPDX IDs for the inbound licenses found are:")
+            print(license_list_SPDX)
+        print("#################")
+        print("Running the license compliance verification:")
+        print("Inbound license list :\n"+str(license_list_SPDX))
+        print("The outbound license is: "+OutboundLicense)
+        CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
+        verificationList = verify(CSVfilePath,license_list_SPDX, OutboundLicense)
+        verificationList = parseVerificationList(verificationList)
+        return verificationList
+
+
+def parseVerificationList(verificationList):
         notCompatible = "is not compatible"
         Compatible = "is compatible"
         isNotSupported = "is not supported"
@@ -159,8 +194,7 @@ def compare(license_list,OutboundLicense):
             print("Hence your project is compatible.")
         else:
             print("Hence your project is not compatible.")
-    else:
-        print("This project does not specify correctly an SPDX id for its oubound license")
+        return verificationList
 
 def runtimer(t):
     print("###############################################")

@@ -1,6 +1,6 @@
 import urllib.request
 import requests, json
-from LCVlib.verify import verify, compare, SPDXIdMapping, retrieveOutboundLicense, InboundLicenses, runtimer
+from LCVlib.verify import *
 from LCVlib.testlists import JSONPathList, GitHubURLList
 
 
@@ -11,6 +11,9 @@ URL=GitHubURL[index]
 JSON=JSONPath[index]
 
 OutboundLicense = retrieveOutboundLicense(URL)
+OutboundLicense = CheckOutboundLicense(OutboundLicense)
 license_list = InboundLicenses(JSON)
 
-compare(license_list, OutboundLicense)
+verificationList = compare(license_list, OutboundLicense)
+print("Print verification list:")
+print(verificationList)

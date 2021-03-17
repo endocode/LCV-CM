@@ -16,7 +16,7 @@ import time
 import json, os, signal
 #   sys.path.append('~/gitrepo/LCV-CM/LCVlib')
 sys.path.append('..')
-import LCVlib.verify
+from LCVlib.verify import *
 
 
 import urllib.request
@@ -36,16 +36,6 @@ HOST = environ.get('HOST')
 GITREPO = environ.get('GITREPO')
 SHUTDOWN = environ.get('SHUTDOWN')
 
-def retrieveOutboundLicense(url):
-    print("Retrieving outbound license from: "+url)
-    response = requests.get(url).json()
-    content = response['license']['spdx_id']
-    if content == "NOASSERTION":
-        print(content)
-        print("Outbound noassertion")
-    else:
-        print("Outbound license: "+content)
-    return content
 
 #API Shutdown function
 PID = os.getpid()
@@ -111,6 +101,52 @@ app.config["DEBUG"] = False
 logging.basicConfig(filename=LOGFILE, level=logging.INFO)
 
 
+@app.route('/GitHubOutboundLicense')
+def Outb():
+   return render_template('outbound.html')
+
+@app.route('/GitHubOutboundLicenseOutput',methods = ['POST', 'GET'])
+def GitHubOutboundLicense():
+    if request.method == 'POST':
+        url = request.form['nm']
+        OutboundLicense=retrieveOutboundLicense(url)
+        return OutboundLicense
+
+
+@app.route('/Compatibility')
+def Compatibility():
+   return render_template('compatibility.html')
+
+@app.route('/CompatibilityOutput',methods = ['POST', 'GET'])
+def Compliance():
+    if request.method == 'POST':
+        license_list = request.form['inboundLicenses']
+        license_list = license_list.split (",")
+        OutboundLicense = request.form['outboundLicense']
+        verificationList=compare(license_list, OutboundLicense)
+        print(verificationList)
+        return jsonify(verificationList)
+        #return ComplianceList
+
+@app.route('/CompatibilitySPDX')
+def CompatibilitySPDX():
+   return render_template('compatibilitySPDX.html')
+
+@app.route('/CompatibilitySPDXOutput',methods = ['POST', 'GET'])
+def ComplianceSPDX():
+    if request.method == 'POST':
+        license_list = request.form['inboundLicenses']
+        license_list = license_list.split (",")
+        OutboundLicense = request.form['outboundLicense']
+        verificationList=compareSPDX(license_list, OutboundLicense)
+        print(verificationList)
+        return jsonify(verificationList)
+        #return ComplianceList
+
+
+
+
+#not strictly useful endpoints (at the moment)
 @app.route('/versionz')
 def version():
     GitHeadHash= GitHash(GITREPO)
@@ -129,28 +165,14 @@ def path():
     return str(CurrentPath)
 
 
-@app.route('/GetOutboundLicenseTest/')
-def GetOutboundLicenseTest():
-    url="https://api.github.com/repos/hope-for/hope-boot/license"
-    OutboundLicense=retrieveOutboundLicense(url)
-    return OutboundLicense
-
-@app.route('/GitHubOutboundLicense')
-def Outb():
-   return render_template('outbound.html')
-
-@app.route('/GitHubOutboundLicenseOutput',methods = ['POST', 'GET'])
-def GitHubOutboundLicense():
-    if request.method == 'POST':
-        url = request.form['nm']
-        OutboundLicense=retrieveOutboundLicense(url)
-        return OutboundLicense
 #NOT FUNCTIONING ENDPOINTS
+# Flask is not accepting as parameter an entire URL
 @app.route('/GetOutboundLicense/<url>')
 def GetOutboundLicense(url="https://api.github.com/repos/hope-for/hope-boot/license"):
     #url="https://api.github.com/repos/hope-for/hope-boot/license"
     OutboundLicense=retrieveOutboundLicense(url)
     return OutboundLicense
+
 
 f = open("tests/PORT.txt", "w")
 f.write(str(PORT))

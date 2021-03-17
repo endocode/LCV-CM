@@ -1,6 +1,6 @@
 import urllib.request
 import requests, json, time, sys
-from LCVlib.verify import verify, compare, SPDXIdMapping, retrieveOutboundLicense, InboundLicenses, runtimer
+from LCVlib.verify import *
 from LCVlib.testlists import JSONPathList, GitHubURLList
 
 
