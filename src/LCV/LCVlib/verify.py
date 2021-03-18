@@ -54,9 +54,9 @@ def InboundLicenses(JSONPath):
 
 
 def SPDXIdMapping(license_list_cleaned):
-    print("Hello from SPDXIdMapping")
+    # print("Hello from SPDXIdMapping")
     CSVfilePath = "~/gitrepo/LCV-CM/csv/spdx-id.csv"
-    print(CSVfilePath)
+    # print(CSVfilePath)
     license_list_SPDX = []
     column_names_list = ['Scancode', 'SPDX-ID']
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
@@ -64,13 +64,13 @@ def SPDXIdMapping(license_list_cleaned):
     for license in license_list_cleaned:
         newElement = df.loc[license]['SPDX-ID']
         if newElement is not np.nan:
-            print(newElement)
+            # print(newElement)
             license_list_SPDX.append(newElement)
             if orLater in newElement:
                 print("The usage of 'or later' is not supported. \n Please specify a license version instead of using 'or later' notation.")
         else:
             license_list_SPDX.append(license)
-        print(license_list_cleaned)
+        # print(license_list_cleaned)
 
     return license_list_SPDX
 
@@ -101,6 +101,10 @@ def verify(CSVfilePath, license_list_cleaned, OutboundLicense):
             output = license+" is not supported, because 'or later' notation."
             verificationList.append(output)
         if comparison == "1":
+            output = license+" is compatible with " + \
+                OutboundLicense + " as an outbound license."
+            verificationList.append(output)
+        if comparison == "-":
             output = license+" is compatible with " + \
                 OutboundLicense + " as an outbound license."
             verificationList.append(output)

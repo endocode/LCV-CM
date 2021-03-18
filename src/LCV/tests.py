@@ -9,15 +9,16 @@ from LCVlib.testlists import JSONPathList, GitHubURLList
 
 JSONPath = JSONPathList()
 GitHubURL = GitHubURLList()
-index = 4
+index = 0
 t = 10
 empty = ""
 orLater = "or-later"
 # while url in GitHubURL:
 while index < len(GitHubURL):
     url = GitHubURL[index]
+    testnumber = index + 1
     print("#################")
-    print("##Running test number "+str(index))
+    print("##Running test number "+str(testnumber))
     print("#################")
     OutboundLicense = retrieveOutboundLicense(url)
     OutboundLicense = CheckOutboundLicense(OutboundLicense)

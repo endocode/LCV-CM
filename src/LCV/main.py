@@ -4,7 +4,7 @@ from LCVlib.testlists import JSONPathList, GitHubURLList
 
 JSONPath = JSONPathList()
 GitHubURL = GitHubURLList()
-index = 8
+index = 1
 URL = GitHubURL[index]
 JSON = JSONPath[index]
 
