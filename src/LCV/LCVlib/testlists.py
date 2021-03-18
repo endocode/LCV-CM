@@ -12,8 +12,8 @@ def JSONPathList():
 
     # ffabric8io-docker-maven-plugin uses only Apache 2.0, so it is compliant
     JSONPath.append('json/fabric8io-docker-maven-plugin.json')
-    #emptyJSON
-    #JSONPath.append('json/webdrivermanager.json')
+    # emptyJSON
+    # JSONPath.append('json/webdrivermanager.json')
 
     # This project does not specify correctly an SPDX id for its oubound license
     JSONPath.append('json/javacv.json')
@@ -36,7 +36,14 @@ def JSONPathList():
 
     # policeman-tools/forbidden-apis
     # outbound Apache2.0 https://api.github.com/repos/policeman-tools/forbidden-apis/license
-    JSONPath.append('json/policeman-tools-forbidden-apis.json')
+
+    # 10 https://github.com/mojohaus/versions-maven-plugin
+    # JSONPath.append('json/policeman-tools-forbidden-apis.json')
+    JSONPath.append('json/org.codehaus.mojo:versions-maven-plugin.json')
+
+    # 11  https://github.com/revelc/formatter-maven-plugin
+    JSONPath.append(
+        'json/net.revelc.code.formatter:formatter-maven-plugin.json')
 
     return JSONPath
 
@@ -49,15 +56,15 @@ def GitHubURLList():
         'https://api.github.com/repos/spotify/docker-maven-plugin/license')
     GitHubURL.append(
         'https://api.github.com/repos/spotify/dockerfile-maven/license')
-    #Inbound: GPL3.0 or later
+    # Inbound: GPL3.0 or later
     GitHubURL.append(
         'https://api.github.com/repos/fabric8io/docker-maven-plugin/license')
-    #links to do https://github.com/bonigarcia/webdrivermanager
+    # links to do https://github.com/bonigarcia/webdrivermanager
     # Error 2021/03/10 11:02:13 Received a message: gooooo!!!!!
     # 2021/03/10 11:02:14 FASTEN reporter failed: couldn't get FileNodes, rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp 10.20.13.51:9080: connect: connection refused"
-    #GitHubURL.append('https://api.github.com/repos/bonigarcia/webdrivermanager/license')
+    # GitHubURL.append('https://api.github.com/repos/bonigarcia/webdrivermanager/license')
 
-    #https://github.com/git-commit-id/git-commit-id-maven-plugin
+    # https://github.com/git-commit-id/git-commit-id-maven-plugin
     GitHubURL.append('https://api.github.com/repos/bytedeco/javacv/license')
     GitHubURL.append('https://api.github.com/repos/bytedeco/javacpp/license')
     GitHubURL.append(
@@ -70,9 +77,13 @@ def GitHubURLList():
     GitHubURL.append(
         'https://api.github.com/repos/dzikoysk/reposilite/license')
     # https://github.com/policeman-tools/forbidden-apis
+    # GitHubURL.append(
+    #     'https://api.github.com/repos/policeman-tools/forbidden-apis/license')
+    # GitHubURL.append(
+    #     'https://api.github.com/repos/eclipse/jkube/license')
     GitHubURL.append(
-        'https://api.github.com/repos/policeman-tools/forbidden-apis/license')
+        'https://api.github.com/repos/revelc/formatter-maven-plugin/license')
     GitHubURL.append(
-        'https://api.github.com/repos/eclipse/jkube/license')
+        'https://api.github.com/repos/mojohaus/versions-maven-plugin/license')
 
     return GitHubURL

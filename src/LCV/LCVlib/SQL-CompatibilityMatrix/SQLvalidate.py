@@ -71,7 +71,7 @@ def validate(license_list_cleaned, OutboundLicense):
         # CSVfilePath = "licenses.csv"
 
         # duplicating the list to compare items, and before adding License field
-        license_list_cleaned_to_compare = license_list_cleaned
+        # license_list_cleaned_to_compare = license_list_cleaned
 
         # USED TO COMPARE INBOUND LICENSES
         column_names_list = license_list_cleaned.copy()
