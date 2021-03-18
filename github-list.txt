@@ -49,6 +49,16 @@ Analyzer scancode-analyzer failed: exit status 2 (exit status 2)
 
 #86kb
 https://github.com/Baidu-AIP/java-sdk
+
+100 errors
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.206 s
+[INFO] Finished at: 2021-03-18T10:59:05Z
+
+
 [ERROR] /var/qmstr/buildroot/project/src/main/java/com/baidu/aip/kg/AipKnowledgeGraphic.java:34: error: unmappable character (0xE5) for encoding ANSI_X3.4-1968
 [ERROR]      * @param inputMappingFile - ?????????????????????????????????
 [ERROR]                                                 ^
@@ -64,10 +74,10 @@ https://github.com/Baidu-AIP/java-sdk
 [ERROR]
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
-michelescarlato@QMSTR-vm-big:~$
 
 #200kb
 https://github.com/lrwinx/shop
+
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time:  16.585 s
@@ -105,6 +115,7 @@ empty
 #390kb
 https://github.com/javafx-maven-plugin/javafx-maven-plugin
 error
+
 [ERROR] /var/qmstr/buildroot/project/src/main/java/com/zenjava/javafx/maven/plugin/ListBundlersMojo.java:[21,33] package com.oracle.tools.packager does not exist
 [ERROR] -> [Help 1]
 [ERROR]
@@ -379,3 +390,42 @@ https://github.com/ORCID/ORCID-Source
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:compile (default-compile) on project orcid-utils: Compilation failure: Compilation failure:
 [ERROR] /var/qmstr/buildroot/project/orcid-utils/src/main/java/org/crossref/qrschema/_3/Volume.java:[11,32] error: package javax.xml.bind.annotation does not exist
 [ERROR]
+
+
+https://github.com/policeman-tools/forbidden-apis
+
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.180 s
+[INFO] Finished at: 2021-03-18T11:58:45Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] The goal you specified requires a project to execute but there is no POM in this directory (/var/qmstr/buildroot/project). Please verify you invoked Maven from the correct directory. -> [Help 1]
+[ERROR]
+
+
+https://github.com/eclipse/jkube
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Eclipse JKube 1.2.0-SNAPSHOT:
+[INFO]
+[INFO] Eclipse JKube ...................................... SUCCESS [  2.272 s]
+[INFO] JKube Kit :: Parent ................................ SUCCESS [  0.484 s]
+[INFO] JKube Kit :: Documentation ......................... SUCCESS [ 12.932 s]
+[INFO] JKube Kit :: Common :: Test ........................ SUCCESS [  1.686 s]
+[INFO] JKube Kit :: Common ................................ SUCCESS [ 10.132 s]
+[INFO] JKube Kit :: Common Maven .......................... FAILURE [  2.172 s]
+[INFO] JKube Kit :: Config :: Image ....................... SKIPPED
+[INFO] JKube Kit :: Config :: Resource .................... SKIPPED
+.....
+[INFO] OpenShift Maven Plugin :: Integration Tests ........ SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  31.858 s
+[INFO] Finished at: 2021-03-18T12:01:21Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:1.4.1:enforce (dependency-convergence) on project jkube-kit-common-maven: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.

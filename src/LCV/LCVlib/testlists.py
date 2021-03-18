@@ -29,6 +29,15 @@ def JSONPathList():
 
     # An UNKNOWN license has been found within the project. This cannot reveal license incompatibility
     JSONPath.append('json/teamspeak3.json')
+
+    # 9
+    # outbound Apache2.0 https://github.com/dzikoysk/reposilite
+    JSONPath.append('json/org.panda-lang:reposilite.json')
+
+    # policeman-tools/forbidden-apis
+    # outbound Apache2.0 https://api.github.com/repos/policeman-tools/forbidden-apis/license
+    JSONPath.append('json/policeman-tools-forbidden-apis.json')
+
     return JSONPath
 
 
@@ -57,5 +66,13 @@ def GitHubURLList():
         'https://api.github.com/repos/git-commit-id/git-commit-id-maven-plugin/license')
     GitHubURL.append(
         'https://api.github.com/repos/TheHolyWaffle/TeamSpeak-3-Java-API/license')
+    # https://github.com/dzikoysk/reposilite
+    GitHubURL.append(
+        'https://api.github.com/repos/dzikoysk/reposilite/license')
+    # https://github.com/policeman-tools/forbidden-apis
+    GitHubURL.append(
+        'https://api.github.com/repos/policeman-tools/forbidden-apis/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/eclipse/jkube/license')
 
     return GitHubURL
