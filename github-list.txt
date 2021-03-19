@@ -438,10 +438,120 @@ JSON ok
 
 https://github.com/Ekryd/sortpom
 # actually running on GKE
+# empty payload
+
+INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for SortPom 2.13.2-SNAPSHOT:
+[INFO]
+[INFO] SortPom ............................................ SUCCESS [  6.652 s]
+[INFO] SortPom Sorter ..................................... SUCCESS [  5.947 s]
+[INFO] SortPom Plugin ..................................... SUCCESS [  1.868 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  23.705 s
+[INFO] Finished at: 2021-03-18T16:59:11Z
+[INFO] ------------------------------------------------------------------------
+DEBUG: 2021/03/18 16:59:12 Connection to control service at localhost:50051 set up
+2021/03/18 16:59:12 Event: PHASE, Message: Activating analysis phase
+2021/03/18 16:59:12 Event: MODULE, Message: Running analyzer scancode-analyzer
+2021/03/18 17:01:09 Event: MODULE, Message: Analyzer scancode-analyzer successfully finished
+2021/03/18 17:01:09 Event: PHASE, Message: Switched to phase 2
+
+
 https://github.com/qoomon/maven-git-versioning-extension
 # actually running on GKE
+# empty payload
+[INFO] Building jar: /var/qmstr/buildroot/project/target/formatter-maven-plugin-2.15.0-SNAPSHOT.jar
+[INFO]
+[INFO] --- maven-plugin-plugin:3.6.0:addPluginArtifactMetadata (default-addPluginArtifactMetadata) @ formatter-maven-plugin ---
+[INFO]
+[INFO] --- qmstr-maven-plugin:0.5:qmstr (qmstrpackage) @ formatter-maven-plugin ---
+[INFO] Processing artifact /var/qmstr/buildroot/project/target/formatter-maven-plugin-2.15.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:09 min
+[INFO] Finished at: 2021-03-18T16:00:00Z
+[INFO] ------------------------------------------------------------------------
+DEBUG: 2021/03/18 16:00:00 Connection to control service at localhost:50051 set up
+2021/03/18 16:00:00 Event: PHASE, Message: Switching to phase 2
+2021/03/18 16:00:02 Event: PHASE, Message: Activating analysis phase
+2021/03/18 16:00:02 Event: MODULE, Message: Running analyzer scancode-analyzer
+2021/03/18 16:02:21 Event: MODULE, Message: Analyzer scancode-analyzer successfully finished
+2021/03/18 16:02:21 Event: PHASE, Message: Switched to phase 2
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   119  100    15  100   104     83    581 --:--:-- --:--:-- --:--:--   664
+
 
 
 https://github.com/jcgay/maven-color
 
+INFO] Required toolchain: jdk [ version='1.8' ]
+[ERROR] No toolchain found for type jdk
+[ERROR] Cannot find matching toolchain definitions for the following toolchain types:
+jdk [ version='1.8' ]
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Skipping maven-color-core
+[INFO] This project has been banned from the build due to previous failures.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Skipping maven-color-gossip
+[INFO] This project has been banned from the build due to previous failures.
+[INFO] ------------------------------------------------------------------------
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] Skipping maven-color-coverage-report
+[INFO] This project has been banned from the build due to previous failures.
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for maven-color 2.1.2-SNAPSHOT:
+[INFO]
+[INFO] maven-color ........................................ FAILURE [  1.789 s]
+[INFO] maven-color-core ................................... SKIPPED
+[INFO] maven-color-gossip ................................. SKIPPED
+[INFO] maven-color-coverage-report ........................ SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.143 s
+[INFO] Finished at: 2021-03-19T00:02:24Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-toolchains-plugin:1.1:toolchain (default) on project maven-color: Cannot find matching toolchain definitions for the following toolchain types:
+[ERROR] jdk [ version='1.8' ]
+[ERROR] Please make sure you define the required toolchains in your ~/.m2/toolchains.xml file.
+[ERROR] -> [Help 1]
+[ERROR]
+
+
 https://github.com/gpedro/slack-webhook
+
+Downloaded from central: https://repo.maven.apache.org/maven2/com/google/collections/google-collections/1.0/google-collections-1.0.jar (640 kB at 1.6 MB/s)
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /var/qmstr/buildroot/project/target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR :
+[INFO] -------------------------------------------------------------
+[ERROR] Source option 5 is no longer supported. Use 6 or later.
+[ERROR] Target option 1.5 is no longer supported. Use 1.6 or later.
+[INFO] 2 errors
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.717 s
+[INFO] Finished at: 2021-03-18T23:59:07Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project slack-webhook: Compilation failure: Compilation failure:
+[ERROR] Source option 5 is no longer supported. Use 6 or later.
+[ERROR] Target option 1.5 is no longer supported. Use 1.6 or later.
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
