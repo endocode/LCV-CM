@@ -45,6 +45,26 @@ def JSONPathList():
     JSONPath.append(
         'json/net.revelc.code.formatter:formatter-maven-plugin.json')
 
+    # 12
+    JSONPath.append(
+    'json/com.github.jhg023:SimpleNet.json')
+
+    # 13
+    JSONPath.append(
+    'json/com.github.cryptomorin:XSeries.json')
+
+    # 14
+    JSONPath.append(
+    'json/org.codehaus.mojo:exec-maven-plugin.json')
+
+    # 15
+    JSONPath.append(
+    'json/org.codehaus.mojo:flatten-maven-plugin.json')
+
+    # 16
+    JSONPath.append(
+    'json/org.sonarsource.scanner.maven:sonar-maven-plugin.json')
+
     return JSONPath
 
 
@@ -85,5 +105,15 @@ def GitHubURLList():
         'https://api.github.com/repos/revelc/formatter-maven-plugin/license')
     GitHubURL.append(
         'https://api.github.com/repos/mojohaus/versions-maven-plugin/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/jhg023/SimpleNet/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/CryptoMorin/XSeries/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/mojohaus/exec-maven-plugin/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/mojohaus/flatten-maven-plugin/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/SonarSource/sonar-scanner-maven/license')
 
     return GitHubURL

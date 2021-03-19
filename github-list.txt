@@ -555,3 +555,67 @@ Downloaded from central: https://repo.maven.apache.org/maven2/com/google/collect
 [ERROR]
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
+
+https://github.com/jhg023/SimpleNet
+ok with json output
+project compliant (MIT license in inbound and in outbound)
+
+https://github.com/sayems/java.webdriver
+empty payload
+2021/03/19 14:25:36 Result: {"plugin_name":"QMSTR","plugin_version":"0.0.1","input":{"product":"org.sayem:java.webdriver","version":"1.0-SNAPSHOT"},"created_at":"2021-03-19T14:25:36.580121129Z","payload":{"package_metadata":{}}}
+
+https://github.com/jgitver/jgitver-maven-plugin
+error,
+full log
+
+https://github.com/Cosium/git-code-format-maven-plugin
+empty payload
+full log
+
+https://github.com/confluence-publisher/confluence-publisher
+error with full log (build failure)
+
+https://github.com/CryptoMorin/XSeries
+ok json (still to prepare list)
+
+https://github.com/SERG-Delft/jpacman-framework
+empty payload
+
+# run double in this way
+#  ./michele-exp.sh https://github.com/SERG-Delft/jpacman-framework && ./michele-exp.sh https://github.com/SERG-Delft/jpacman-framework
+
+
+https://github.com/faketime-java/faketime
+empy payload
+full log
+
+https://github.com/mojohaus/exec-maven-plugin
+json ok
+
+# ./scarlato-exp.sh https://github.com/faketime-java/faketime && ./scarlato-exp.sh https://github.com/mojohaus/exec-maven-plugin
+
+
+https://github.com/mojohaus/flatten-maven-plugin
+json ok
+1 above 1 licenses found are compatible. Apache-2.0
+
+
+
+https://github.com/arun-gupta/docker-java-sample
+empty
+full log
+
+https://github.com/SonarSource/sonar-scanner-maven
+json ok
+unknown license (but it is clear that is a GNU LGPL from the LICENSE file)
+
+# do it again
+# https://github.com/AdamBien/javaee8-essentials-archetype
+
+# 4 projects in 2 rows
+# ./michele-exp.sh https://github.com/mojohaus/flatten-maven-plugin && ./michele-exp.sh https://github.com/arun-gupta/docker-java-sample
+# ./scarlato-exp.sh https://github.com/AdamBien/javaee8-essentials-archetype && ./scarlato-exp.sh https://github.com/SonarSource/sonar-scanner-maven
+
+
+https://github.com/AdamBien/javaee8-essentials-archetype
