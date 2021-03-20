@@ -619,3 +619,9 @@ unknown license (but it is clear that is a GNU LGPL from the LICENSE file)
 
 
 https://github.com/AdamBien/javaee8-essentials-archetype
+error and warning is not a java project.
+full log
+
+# do it again
+./scarlato-exp.sh https://github.com/SERG-Delft/jpacman-framework && ./scarlato-exp.sh https://github.com/arun-gupta/docker-java-sample
+both empty and full logs are in the dir
