@@ -47,23 +47,28 @@ def JSONPathList():
 
     # 12
     JSONPath.append(
-    'json/com.github.jhg023:SimpleNet.json')
+        'json/com.github.jhg023:SimpleNet.json')
 
     # 13
     JSONPath.append(
-    'json/com.github.cryptomorin:XSeries.json')
+        'json/com.github.cryptomorin:XSeries.json')
 
     # 14
     JSONPath.append(
-    'json/org.codehaus.mojo:exec-maven-plugin.json')
+        'json/org.codehaus.mojo:exec-maven-plugin.json')
 
     # 15
     JSONPath.append(
-    'json/org.codehaus.mojo:flatten-maven-plugin.json')
+        'json/org.codehaus.mojo:flatten-maven-plugin.json')
 
     # 16
     JSONPath.append(
-    'json/org.sonarsource.scanner.maven:sonar-maven-plugin.json')
+        'json/org.sonarsource.scanner.maven:sonar-maven-plugin.json')
+    # 17
+    JSONPath.append(
+        'json/spring-cloud-build.json')
+    JSONPath.append(
+        'json/java-comment-preprocessor.json')
 
     return JSONPath
 
@@ -115,5 +120,9 @@ def GitHubURLList():
         'https://api.github.com/repos/mojohaus/flatten-maven-plugin/license')
     GitHubURL.append(
         'https://api.github.com/repos/SonarSource/sonar-scanner-maven/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/spring-cloud/spring-cloud-build/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/raydac/java-comment-preprocessor/license')
 
     return GitHubURL

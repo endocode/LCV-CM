@@ -1,3 +1,109 @@
+https://github.com/liquidz/antq
+BUILD successfully
+Analyzer scancode-analyzer failed: exit status 2 (exit status 2)
+check full log
+
+https://github.com/arthurgregorio/web-budget
+[INFO] BUILD FAILURE
+check full log
+
+https://github.com/spring-cloud/spring-cloud-build
+
+https://github.com/raydac/java-comment-preprocessor
+
+https://github.com/Angular2Guy/Angular2AndJavaEE
+
+https://github.com/mojohaus/build-helper-maven-plugin
+
+
+
+./michele-exp.sh https://github.com/arthurgregorio/web-budget && \
+./michele-exp.sh https://github.com/spring-cloud/spring-cloud-build && \
+./michele-exp.sh https://github.com/raydac/java-comment-preprocessor && \
+./michele-exp.sh https://github.com/Angular2Guy/Angular2AndJavaEE
+
+-------------STILL HERE ----------------------
+-------------DONE 2 GOOD----------------------
+
+https://github.com/delthas/JavaSkype
+
+empty payload
+
+https://github.com/MitchTalmadge/ASCII-Data
+
+empty payload
+
+https://github.com/wiverson/maven-jpackage-template
+
+error
+
+
+#26MB
+
+https://github.com/egineering-llc/gitflow-helper-maven-plugin
+json ok (still to map to the github api)
+
+https://github.com/mojohaus/appassembler
+json ok (still to map to the github api)
+
+https://github.com/apache/maven-enforcer
+[INFO] BUILD FAILURE
+
+
+
+
+https://github.com/intuit/maven-build-scanner
+#53% Java code
+empty payload
+https://github.com/syncdk/docker-compose-maven-plugin
+empty payload
+https://github.com/mojohaus/aspectj-maven-plugin
+json ok (still to map to the github api)
+
+
+
+https://github.com/mojohaus/animal-sniffer
+
+https://github.com/mojohaus/jaxb2-maven-plugin
+
+
+https://github.com/kiegroup/optaplanner-quickstarts
+#license defined in a file called differently (LICENSE-Apache-2.0.txt)
+
+
+./michele-exp.sh https://github.com/mojohaus/animal-sniffer && ./michele-exp.sh https://github.com/mojohaus/jaxb2-maven-plugin && ./michele-exp.sh https://github.com/kiegroup/optaplanner-quickstarts
+# here 
+
+https://github.com/RadarCOVID/radar-covid-backend-configuration-server
+
+
+https://github.com/Zlika/reproducible-build-maven-plugin
+
+https://github.com/jcabi/jcabi-aether
+
+
+https://github.com/jenkinsci/plot-plugin
+
+
+https://github.com/Drombler/drombler-fx
+
+
+https://github.com/mojohaus/rpm-maven-plugin
+
+
+https://github.com/drtrang/maven-archetype-springboot
+
+
+https://github.com/bsorrentino/maven-confluence-plugin
+# 56% Java
+
+
+https://github.com/Kaysoro/KaellyBot
+
+
+
+
+
 #FROM https://github.com/topics/maven
 #17.4MB
 https://github.com/ZHENFENG13/My-Blog
@@ -625,3 +731,7 @@ full log
 # do it again
 ./scarlato-exp.sh https://github.com/SERG-Delft/jpacman-framework && ./scarlato-exp.sh https://github.com/arun-gupta/docker-java-sample
 both empty and full logs are in the dir
+
+
+FROM NOW ON
+ADDING ELEMENTS AT THE BEGINNING OF THE LIST
