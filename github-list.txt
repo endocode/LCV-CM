@@ -1,3 +1,6 @@
+#FROM https://github.com/topics/maven
+
+
 https://github.com/liquidz/antq
 BUILD successfully
 Analyzer scancode-analyzer failed: exit status 2 (exit status 2)
@@ -8,13 +11,17 @@ https://github.com/arthurgregorio/web-budget
 check full log
 
 https://github.com/spring-cloud/spring-cloud-build
+json ok
 
 https://github.com/raydac/java-comment-preprocessor
+json ok
 
 https://github.com/Angular2Guy/Angular2AndJavaEE
+build failure
 
 https://github.com/mojohaus/build-helper-maven-plugin
-
+# where is this log?
+# @michele
 
 
 ./michele-exp.sh https://github.com/arthurgregorio/web-budget && \
@@ -25,18 +32,13 @@ https://github.com/mojohaus/build-helper-maven-plugin
 -------------DONE 2 GOOD----------------------
 
 https://github.com/delthas/JavaSkype
-
 empty payload
 
 https://github.com/MitchTalmadge/ASCII-Data
-
 empty payload
 
 https://github.com/wiverson/maven-jpackage-template
-
 error
-
-
 #26MB
 
 https://github.com/egineering-llc/gitflow-helper-maven-plugin
@@ -54,8 +56,10 @@ https://github.com/apache/maven-enforcer
 https://github.com/intuit/maven-build-scanner
 #53% Java code
 empty payload
+
 https://github.com/syncdk/docker-compose-maven-plugin
 empty payload
+
 https://github.com/mojohaus/aspectj-maven-plugin
 json ok
 
@@ -65,9 +69,45 @@ json ok
 https://github.com/kiegroup/optaplanner-quickstarts
 #license defined in a file called differently (LICENSE-Apache-2.0.txt)
 build failure - see full logs
-
-./michele-exp.sh https://github.com/mojohaus/animal-sniffer && ./michele-exp.sh https://github.com/mojohaus/jaxb2-maven-plugin && ./michele-exp.sh https://github.com/kiegroup/optaplanner-quickstarts
 # here
+
+
+https://github.com/RadarCOVID/radar-covid-backend-configuration-server
+JSON ok
+
+https://github.com/Zlika/reproducible-build-maven-plugin
+JSON ok
+
+https://github.com/jcabi/jcabi-aether
+error see full log
+
+
+
+
+https://github.com/jenkinsci/plot-plugin
+build failure
+
+https://github.com/Drombler/drombler-fx
+build failure
+
+https://github.com/mojohaus/rpm-maven-plugin
+json ok
+
+
+
+https://github.com/drtrang/maven-archetype-springboot
+Build success
+analyzer failed
+
+https://github.com/bsorrentino/maven-confluence-plugin
+# 56% Java
+
+https://github.com/Kaysoro/KaellyBot
+
+./michele-exp.sh https://github.com/drtrang/maven-archetype-springboot && ./michele-exp.sh https://github.com/bsorrentino/maven-confluence-plugin && ./michele-exp.sh https://github.com/Kaysoro/KaellyBot
+
+
+
 
 https://github.com/mojohaus/animal-sniffer
 # to repeat!! The log seems good with no errors
@@ -76,43 +116,33 @@ https://github.com/mojohaus/animal-sniffer
 2021/03/23 09:16:30 FASTEN reporter failed: couldn't get FileNodes, rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp 10.20.15.33:9080: connect: connection refused"
 log seems ok
 
+# added 24-03-2021 00:17
+
+https://github.com/mojohaus/buildnumber-maven-plugin
+
+https://github.com/jdillon/mvnsh
+
+https://github.com/Carleslc/Simple-YAML
+
+https://github.com/CycloneDX/cyclonedx-maven-plugin
+
+https://github.com/tedyoung/kid-bank
+
+https://github.com/kiwigrid/helm-maven-plugin
+
+https://github.com/ctron/rpm-builder
+
+https://github.com/jinahya/executable-jar-with-maven-example
+
+https://github.com/mugglmenzel/serverless-examples-cached-rds-ws
+
+https://github.com/openjfx/javafx-maven-archetypes
+
+https://github.com/Naoghuman/lib-i18n
 
 
-https://github.com/RadarCOVID/radar-covid-backend-configuration-server
+#47% of Java
 
-
-https://github.com/Zlika/reproducible-build-maven-plugin
-
-
-https://github.com/jcabi/jcabi-aether
-
-
-./michele-exp.sh https://github.com/RadarCOVID/radar-covid-backend-configuration-server && ./michele-exp.sh https://github.com/Zlika/reproducible-build-maven-plugin && ./michele-exp.sh https://github.com/jcabi/jcabi-aether
-
-
-https://github.com/jenkinsci/plot-plugin
-
-
-https://github.com/Drombler/drombler-fx
-
-
-https://github.com/mojohaus/rpm-maven-plugin
-
-
-https://github.com/drtrang/maven-archetype-springboot
-
-
-https://github.com/bsorrentino/maven-confluence-plugin
-# 56% Java
-
-
-https://github.com/Kaysoro/KaellyBot
-
-
-
-
-
-#FROM https://github.com/topics/maven
 #17.4MB
 https://github.com/ZHENFENG13/My-Blog
 [INFO] Replacing main artifact /var/qmstr/buildroot/project/target/my-blog-4.0.0-SNAPSHOT.jar

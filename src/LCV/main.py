@@ -9,7 +9,9 @@ GitHubURL = GitHubURLList()
 if len(sys.argv[1]) > 0:
     index = int(sys.argv[1], base=10)
 else:
-    index = 19
+    print("No parameter has been included.\n")
+    print("Please, insert an integer to identify a pair JSON")
+    print("(for the inbound licenses) and GitHub API url (for the outbound license).")
 
 URL = GitHubURL[index]
 JSON = JSONPath[index]

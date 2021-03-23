@@ -83,6 +83,15 @@ def JSONPathList():
     # 22
     JSONPath.append(
         'json/jaxb2-maven-plugin.json')
+    # 23
+    JSONPath.append(
+        'json/radar-covid-backend-configuration-server.json')
+    # 24
+    JSONPath.append(
+        'json/reproducible-build-maven-plugin.json')
+    # 25
+    JSONPath.append(
+        'json/rpm-maven-plugin.json')
 
     return JSONPath
 
@@ -146,5 +155,11 @@ def GitHubURLList():
         'https://api.github.com/repos/mojohaus/aspectj-maven-plugin/license')
     GitHubURL.append(
         'https://api.github.com/repos/mojohaus/jaxb2-maven-plugin/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/RadarCOVID/radar-covid-backend-configuration-server/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/Zlika/reproducible-build-maven-plugin/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/mojohaus/rpm-maven-plugin/license')
 
     return GitHubURL
