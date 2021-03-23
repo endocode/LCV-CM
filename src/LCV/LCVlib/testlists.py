@@ -67,8 +67,22 @@ def JSONPathList():
     # 17
     JSONPath.append(
         'json/spring-cloud-build.json')
+    # 18
     JSONPath.append(
         'json/java-comment-preprocessor.json')
+    # 19
+    JSONPath.append(
+        'json/gitflow-helper-maven-plugin.json')
+    # 20
+    JSONPath.append(
+        'json/appassembler.json')
+
+    # 21
+    JSONPath.append(
+        'json/aspectj-maven-plugin.json')
+    # 22
+    JSONPath.append(
+        'json/jaxb2-maven-plugin.json')
 
     return JSONPath
 
@@ -124,5 +138,13 @@ def GitHubURLList():
         'https://api.github.com/repos/spring-cloud/spring-cloud-build/license')
     GitHubURL.append(
         'https://api.github.com/repos/raydac/java-comment-preprocessor/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/egineering-llc/gitflow-helper-maven-plugin/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/mojohaus/appassembler/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/mojohaus/aspectj-maven-plugin/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/mojohaus/jaxb2-maven-plugin/license')
 
     return GitHubURL

@@ -22,7 +22,6 @@ https://github.com/mojohaus/build-helper-maven-plugin
 ./michele-exp.sh https://github.com/raydac/java-comment-preprocessor && \
 ./michele-exp.sh https://github.com/Angular2Guy/Angular2AndJavaEE
 
--------------STILL HERE ----------------------
 -------------DONE 2 GOOD----------------------
 
 https://github.com/delthas/JavaSkype
@@ -41,10 +40,10 @@ error
 #26MB
 
 https://github.com/egineering-llc/gitflow-helper-maven-plugin
-json ok (still to map to the github api)
+json ok
 
 https://github.com/mojohaus/appassembler
-json ok (still to map to the github api)
+json ok
 
 https://github.com/apache/maven-enforcer
 [INFO] BUILD FAILURE
@@ -58,28 +57,37 @@ empty payload
 https://github.com/syncdk/docker-compose-maven-plugin
 empty payload
 https://github.com/mojohaus/aspectj-maven-plugin
-json ok (still to map to the github api)
-
-
-
-https://github.com/mojohaus/animal-sniffer
+json ok
 
 https://github.com/mojohaus/jaxb2-maven-plugin
-
+json ok
 
 https://github.com/kiegroup/optaplanner-quickstarts
 #license defined in a file called differently (LICENSE-Apache-2.0.txt)
-
+build failure - see full logs
 
 ./michele-exp.sh https://github.com/mojohaus/animal-sniffer && ./michele-exp.sh https://github.com/mojohaus/jaxb2-maven-plugin && ./michele-exp.sh https://github.com/kiegroup/optaplanner-quickstarts
-# here 
+# here
+
+https://github.com/mojohaus/animal-sniffer
+# to repeat!! The log seems good with no errors
+23-03-2021 18:06 repeating now
+2021/03/23 09:16:28 Received a message: gooooo!!!!!
+2021/03/23 09:16:30 FASTEN reporter failed: couldn't get FileNodes, rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp 10.20.15.33:9080: connect: connection refused"
+log seems ok
+
+
 
 https://github.com/RadarCOVID/radar-covid-backend-configuration-server
 
 
 https://github.com/Zlika/reproducible-build-maven-plugin
 
+
 https://github.com/jcabi/jcabi-aether
+
+
+./michele-exp.sh https://github.com/RadarCOVID/radar-covid-backend-configuration-server && ./michele-exp.sh https://github.com/Zlika/reproducible-build-maven-plugin && ./michele-exp.sh https://github.com/jcabi/jcabi-aether
 
 
 https://github.com/jenkinsci/plot-plugin
@@ -683,7 +691,7 @@ https://github.com/confluence-publisher/confluence-publisher
 error with full log (build failure)
 
 https://github.com/CryptoMorin/XSeries
-ok json (still to prepare list)
+ok json
 
 https://github.com/SERG-Delft/jpacman-framework
 empty payload
