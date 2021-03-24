@@ -1,5 +1,7 @@
 from LCVlib.verify import retrieveOutboundLicense, CheckOutboundLicense, InboundLicenses, compare
-from LCVlib.testlists import JSONPathList, GitHubURLList
+from LCVlib.testlistsJSONfiles import JSONPathList
+from LCVlib.testlistsGithubAPI import GitHubURLList
+
 import sys
 
 JSONPath = JSONPathList()

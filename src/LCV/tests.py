@@ -1,10 +1,6 @@
-# import urllib.request
-# import requests
-# import json
-# import time
-# import sys
 from LCVlib.verify import retrieveOutboundLicense, InboundLicenses, compare, runtimer, CheckOutboundLicense
-from LCVlib.testlists import JSONPathList, GitHubURLList
+from LCVlib.testlistsJSONfiles import JSONPathList
+from LCVlib.testlistsGithubAPI import GitHubURLList
 
 
 JSONPath = JSONPathList()
