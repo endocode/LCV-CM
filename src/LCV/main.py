@@ -1,12 +1,18 @@
-from LCVlib.verify import retrieveOutboundLicense, CheckOutboundLicense, InboundLicenses, compare
-from LCVlib.testlistsJSONfiles import JSONPathList
-from LCVlib.testlistsGithubAPI import GitHubURLList
-
 import sys
+from LCVlib.testlistsGithubAPI import GitHubURLList
+from LCVlib.testlistsJSONfiles import JSONPathList
+from LCVlib.verify import retrieveOutboundLicense, CheckOutboundLicense
+from LCVlib.verify import InboundLicenses, compare
+'''
+* SPDX-FileCopyrightText: 2021 Michele Scarlato <michele.scarlato@endocode.com>
+*
+* SPDX-License-Identifier: MIT
+'''
+
 
 JSONPath = JSONPathList()
 GitHubURL = GitHubURLList()
-#index = int(str(sys.argv), base=10)
+# index = int(str(sys.argv), base=10)
 # To fix this error, because if there are no args, this control doesn't function.
 if len(sys.argv[1]) > 0:
     index = int(sys.argv[1], base=10)

@@ -1,7 +1,12 @@
-from LCVlib.verify import retrieveOutboundLicense, InboundLicenses, compare, runtimer, CheckOutboundLicense
+from LCVlib.verify import retrieveOutboundLicense, InboundLicenses, compare
+from LCVlib.verify import runtimer, CheckOutboundLicense
 from LCVlib.testlistsJSONfiles import JSONPathList
 from LCVlib.testlistsGithubAPI import GitHubURLList
-
+'''
+* SPDX-FileCopyrightText: 2021 Michele Scarlato <michele.scarlato@endocode.com>
+*
+* SPDX-License-Identifier: MIT
+'''
 
 JSONPath = JSONPathList()
 GitHubURL = GitHubURLList()

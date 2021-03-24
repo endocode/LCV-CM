@@ -6,7 +6,11 @@ import time
 import sys
 import pandas as pd
 import numpy as np
-
+'''
+* SPDX-FileCopyrightText: 2021 Michele Scarlato <michele.scarlato@endocode.com>
+*
+* SPDX-License-Identifier: MIT
+'''
 orLater = "or-later"
 
 

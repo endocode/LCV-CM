@@ -11,7 +11,11 @@ from subprocess import check_output
 import flask
 import argparse
 import sys
-
+'''
+* SPDX-FileCopyrightText: 2021 Michele Scarlato <michele.scarlato@endocode.com>
+*
+* SPDX-License-Identifier: MIT
+'''
 # Load .env file
 basedir = path.abspath(path.dirname(__file__))
 load_dotenv(path.join(basedir, '.env'))

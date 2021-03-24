@@ -1,3 +1,9 @@
+'''
+* SPDX-FileCopyrightText: 2021 Michele Scarlato <michele.scarlato@endocode.com>
+*
+* SPDX-License-Identifier: MIT
+'''
+
 
 def JSONPathList():
     JSONPath = list()
