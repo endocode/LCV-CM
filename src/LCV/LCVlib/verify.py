@@ -38,7 +38,7 @@ def retrieveOutboundLicense(url):
     return content
 
 
-def InboundLicenses(JSONPath):
+def RetrieveInboundLicenses(JSONPath):
     print("Retrieving inbound license(s) from: "+JSONPath)
     print("Started Reading the JSON report")
     with open(JSONPath, "r") as read_file:
