@@ -88,7 +88,7 @@ def GitHash(gitrepoName):
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
-#logging.basicConfig(filename=LOGFILE, level=logging.DEBUG)
+# logging.basicConfig(filename=LOGFILE, level=logging.DEBUG)
 
 
 @app.route('/GitHubOutboundLicense')

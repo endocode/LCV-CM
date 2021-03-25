@@ -59,7 +59,8 @@ def InboundLicenses(JSONPath):
 
 def SPDXIdMapping(license_list_cleaned):
     # print("Hello from SPDXIdMapping")
-    CSVfilePath = "~/gitrepo/LCV-CM/csv/spdx-id.csv"
+    #CSVfilePath = "~/gitrepo/LCV-CM/csv/spdx-id.csv"
+    CSVfilePath = "../../csv/spdx-id.csv"
     # print(CSVfilePath)
     license_list_SPDX = []
     column_names_list = ['Scancode', 'SPDX-ID']
@@ -149,7 +150,8 @@ def compare(license_list, OutboundLicense):
     print("Running the license compliance verification:")
     print("Inbound license list :\n"+str(license_list_SPDX))
     print("The outbound license is: ", OutboundLicense)
-    CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
+    #CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
+    CSVfilePath = "../../csv/licenses_tests.csv"
     verificationListToParse = verify(
         CSVfilePath, license_list_SPDX, OutboundLicense)
     verificationList = parseVerificationList(verificationListToParse)
@@ -167,7 +169,8 @@ def compareSPDX(license_list_SPDX, OutboundLicense):
     print("Running the license compliance verification:")
     print("Inbound license list :\n"+str(license_list_SPDX))
     print("The outbound license is: "+OutboundLicense)
-    CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
+    #CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
+    CSVfilePath = "../../csv/licenses_tests.csv"
     verificationList = verify(
         CSVfilePath, license_list_SPDX, OutboundLicense)
     verificationList = parseVerificationList(verificationList)
