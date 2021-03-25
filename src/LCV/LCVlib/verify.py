@@ -44,43 +44,43 @@ def InboundLicenses(JSONPath):
     with open(JSONPath, "r") as read_file:
         print("Reading: " + JSONPath)
         data = json.load(read_file)  # dict
-        license_list = []
+        InboundLicenses = []
         for i in data['payload']['fileMetadata']:
             for x in (i['licenses']):
-                if x not in license_list:
-                    license_list.append(x)
+                if x not in InboundLicenses:
+                    InboundLicenses.append(x)
     print("Finished reading the JSON report")
     print("These inbound licenses have been found:")
-    print(license_list)
+    print(InboundLicenses)
 
     print("###################")
-    return license_list
+    return InboundLicenses
 
 
-def SPDXIdMapping(license_list_cleaned):
+def SPDXIdMapping(InboundLicenses_cleaned):
     # print("Hello from SPDXIdMapping")
     #CSVfilePath = "~/gitrepo/LCV-CM/csv/spdx-id.csv"
     CSVfilePath = "../../csv/spdx-id.csv"
     # print(CSVfilePath)
-    license_list_SPDX = []
+    InboundLicenses_SPDX = []
     column_names_list = ['Scancode', 'SPDX-ID']
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
     df = df.set_index('Scancode')
-    for license in license_list_cleaned:
+    for license in InboundLicenses_cleaned:
         newElement = df.loc[license]['SPDX-ID']
         if newElement is not np.nan:
             # print(newElement)
-            license_list_SPDX.append(newElement)
+            InboundLicenses_SPDX.append(newElement)
             if orLater in newElement:
                 print("The usage of 'or later' is not supported. \n Please specify a license version instead of using 'or later' notation.")
         else:
-            license_list_SPDX.append(license)
-        # print(license_list_cleaned)
+            InboundLicenses_SPDX.append(license)
+        # print(InboundLicenses_cleaned)
 
-    return license_list_SPDX
+    return InboundLicenses_SPDX
 
 
-def verify(CSVfilePath, license_list_cleaned, OutboundLicense):
+def verify(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
     # CSVfilePath = "csv/licenses.csv"
     column_names_list = [OutboundLicense]
     column_names_list.insert(0, 'License')
@@ -88,15 +88,15 @@ def verify(CSVfilePath, license_list_cleaned, OutboundLicense):
     # retrieve data from CSV file
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
     df = df.set_index('License')
-    if (len(license_list_cleaned) == 1) and (license_list_cleaned[0] == OutboundLicense):
+    if (len(InboundLicenses_cleaned) == 1) and (InboundLicenses_cleaned[0] == OutboundLicense):
         output = "For this project only " + \
-            license_list_cleaned[0] + \
+            InboundLicenses_cleaned[0] + \
             " as the inbound license has been detected, and it is the same of the outbound license (" + \
             OutboundLicense+"), implying that it is compatible. \nIt means that it is license compliant. "
         verificationList.append(output)
         return verificationList
 
-    for license in license_list_cleaned:
+    for license in InboundLicenses_cleaned:
         comparison = df.loc[license, OutboundLicense]
         if comparison == "0":
             output = license+" is not compatible with " + \
@@ -136,43 +136,43 @@ def CheckOutboundLicense(OutboundLicense):
     return OutboundLicense
 
 
-def compare(license_list, OutboundLicense):
+def compare(InboundLicenses, OutboundLicense):
     print("Running SPDXid mapping function:")
-    license_list_SPDX = SPDXIdMapping(license_list)
+    InboundLicenses_SPDX = SPDXIdMapping(InboundLicenses)
 
-    if len(license_list_SPDX) == 1:
+    if len(InboundLicenses_SPDX) == 1:
         print("The SPDX id for the only inbound license detected is:")
-        print(license_list_SPDX[0])
+        print(InboundLicenses_SPDX[0])
     else:
         print("The SPDX IDs for the inbound licenses found are:")
-        print(license_list_SPDX)
+        print(InboundLicenses_SPDX)
     print("#################")
     print("Running the license compliance verification:")
-    print("Inbound license list :\n"+str(license_list_SPDX))
+    print("Inbound license list :\n"+str(InboundLicenses_SPDX))
     print("The outbound license is: ", OutboundLicense)
     #CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
     CSVfilePath = "../../csv/licenses_tests.csv"
     verificationListToParse = verify(
-        CSVfilePath, license_list_SPDX, OutboundLicense)
+        CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
     verificationList = parseVerificationList(verificationListToParse)
     return verificationList
 
 
-def compareSPDX(license_list_SPDX, OutboundLicense):
-    if len(license_list_SPDX) == 1:
+def compareSPDX(InboundLicenses_SPDX, OutboundLicense):
+    if len(InboundLicenses_SPDX) == 1:
         print("The SPDX id for the only inbound license detected is:")
-        print(license_list_SPDX[0])
+        print(InboundLicenses_SPDX[0])
     else:
         print("The SPDX IDs for the inbound licenses found are:")
-        print(license_list_SPDX)
+        print(InboundLicenses_SPDX)
     print("#################")
     print("Running the license compliance verification:")
-    print("Inbound license list :\n"+str(license_list_SPDX))
+    print("Inbound license list :\n"+str(InboundLicenses_SPDX))
     print("The outbound license is: "+OutboundLicense)
     #CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
     CSVfilePath = "../../csv/licenses_tests.csv"
     verificationList = verify(
-        CSVfilePath, license_list_SPDX, OutboundLicense)
+        CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
     verificationList = parseVerificationList(verificationList)
     return verificationList
 

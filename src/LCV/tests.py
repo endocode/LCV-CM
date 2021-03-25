@@ -24,7 +24,7 @@ while index < len(GitHubURL):
     OutboundLicense = retrieveOutboundLicense(url)
     OutboundLicense = CheckOutboundLicense(OutboundLicense)
     if OutboundLicense is not None:
-        license_list = InboundLicenses(JSONPath[index])
-        compare(license_list, OutboundLicense)
+        InboundLicenses = InboundLicenses(JSONPath[index])
+        compare(InboundLicenses, OutboundLicense)
     runtimer(t)
     index += 1

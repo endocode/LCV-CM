@@ -112,10 +112,10 @@ def Compatibility():
 @app.route('/CompatibilityOutput', methods=['POST', 'GET'])
 def Compliance():
     if request.method == 'POST':
-        license_list = request.form['inboundLicenses']
-        license_list = license_list.split(",")
+        InboundLicenses = request.form['inboundLicenses']
+        InboundLicenses = InboundLicenses.split(",")
         OutboundLicense = request.form['outboundLicense']
-        verificationList = compare(license_list, OutboundLicense)
+        verificationList = compare(InboundLicenses, OutboundLicense)
         #print(verificationList)
         return jsonify(verificationList)
 
@@ -128,11 +128,11 @@ def CompatibilitySPDX():
 @app.route('/CompatibilitySPDXOutput', methods=['POST', 'GET'])
 def ComplianceSPDX():
     if request.method == 'POST':
-        license_list = request.form['inboundLicenses']
-        license_list = license_list.split(",")
-        #print(license_list)
+        InboundLicenses = request.form['inboundLicenses']
+        InboundLicenses = InboundLicenses.split(",")
+        #print(InboundLicenses)
         OutboundLicense = request.form['outboundLicense']
-        verificationList = compareSPDX(license_list, OutboundLicense)
+        verificationList = compareSPDX(InboundLicenses, OutboundLicense)
         #print("Hello from ComplianceSPDX endpoint")
         #print(verificationList)
         return jsonify(verificationList)
@@ -154,10 +154,10 @@ def testPost():
 def LicensesInput():
     args = request.args
     # print(args)  # For debugging
-    license_list = args['license_list']
-    license_list = license_list.split(",")
+    InboundLicenses = args['InboundLicenses']
+    InboundLicenses = InboundLicenses.split(",")
     OutboundLicense = args['OutboundLicense']
-    verificationList = compareSPDX(license_list, OutboundLicense)
+    verificationList = compareSPDX(InboundLicenses, OutboundLicense)
     return jsonify(verificationList)
 
 
