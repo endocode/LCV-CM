@@ -140,6 +140,27 @@ def ComplianceSPDX():
 # not strictly useful endpoints (at the moment)
 
 
+@app.route('/bar')
+def testPost():
+    args = request.args
+    print(args)  # For debugging
+    no1 = args['key1']
+    no2 = args['key2']
+    return jsonify(dict(data=[no1, no2]))  # or whatever is required
+
+
+@app.route('/LicensesInput', methods=['GET', 'POST'])
+# @app.route('/LicensesInput', methods=['POST'])
+def LicensesInput():
+    args = request.args
+    # print(args)  # For debugging
+    license_list = args['license_list']
+    license_list = license_list.split(",")
+    OutboundLicense = args['OutboundLicense']
+    verificationList = compareSPDX(license_list, OutboundLicense)
+    return jsonify(verificationList)
+
+
 @app.route('/versionz')
 def version():
     GitHeadHash = GitHash(GITREPO)
