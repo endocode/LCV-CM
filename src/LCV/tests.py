@@ -1,4 +1,4 @@
-from LCVlib.verify import retrieveOutboundLicense, InboundLicenses, compare
+from LCVlib.verify import retrieveOutboundLicense, InboundLicenses, Compare
 from LCVlib.verify import runtimer, CheckOutboundLicense
 from LCVlib.testlistsJSONfiles import JSONPathList
 from LCVlib.testlistsGithubAPI import GitHubURLList
@@ -25,6 +25,6 @@ while index < len(GitHubURL):
     OutboundLicense = CheckOutboundLicense(OutboundLicense)
     if OutboundLicense is not None:
         InboundLicenses = InboundLicenses(JSONPath[index])
-        compare(InboundLicenses, OutboundLicense)
+        Compare(InboundLicenses, OutboundLicense)
     runtimer(t)
     index += 1

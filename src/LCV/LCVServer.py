@@ -1,4 +1,4 @@
-from LCVlib.verify import retrieveOutboundLicense, compare, compareSPDX
+from LCVlib.verify import retrieveOutboundLicense, Compare, CompareSPDX
 import logging
 import signal
 import time
@@ -115,7 +115,7 @@ def Compliance():
         InboundLicenses = request.form['inboundLicenses']
         InboundLicenses = InboundLicenses.split(",")
         OutboundLicense = request.form['outboundLicense']
-        verificationList = compare(InboundLicenses, OutboundLicense)
+        verificationList = Compare(InboundLicenses, OutboundLicense)
         #print(verificationList)
         return jsonify(verificationList)
 
@@ -132,7 +132,7 @@ def ComplianceSPDX():
         InboundLicenses = InboundLicenses.split(",")
         #print(InboundLicenses)
         OutboundLicense = request.form['outboundLicense']
-        verificationList = compareSPDX(InboundLicenses, OutboundLicense)
+        verificationList = CompareSPDX(InboundLicenses, OutboundLicense)
         #print("Hello from ComplianceSPDX endpoint")
         #print(verificationList)
         return jsonify(verificationList)
@@ -157,7 +157,7 @@ def LicensesInput():
     InboundLicenses = args['InboundLicenses']
     InboundLicenses = InboundLicenses.split(",")
     OutboundLicense = args['OutboundLicense']
-    verificationList = compareSPDX(InboundLicenses, OutboundLicense)
+    verificationList = CompareSPDX(InboundLicenses, OutboundLicense)
     return jsonify(verificationList)
 
 

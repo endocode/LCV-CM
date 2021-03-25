@@ -136,7 +136,7 @@ def CheckOutboundLicense(OutboundLicense):
     return OutboundLicense
 
 
-def compare(InboundLicenses, OutboundLicense):
+def Compare(InboundLicenses, OutboundLicense):
     print("Running SPDXid mapping function:")
     InboundLicenses_SPDX = SPDXIdMapping(InboundLicenses)
 
@@ -158,7 +158,7 @@ def compare(InboundLicenses, OutboundLicense):
     return verificationList
 
 
-def compareSPDX(InboundLicenses_SPDX, OutboundLicense):
+def CompareSPDX(InboundLicenses_SPDX, OutboundLicense):
     if len(InboundLicenses_SPDX) == 1:
         print("The SPDX id for the only inbound license detected is:")
         print(InboundLicenses_SPDX[0])
