@@ -45,11 +45,22 @@ Currently, LCV is supporting only specific licenses.
 
 
 ## Running it with Docker:
+LCVServer.py implements the APIs to interact with the LCV algorithm that is performing License Compliance.
+While using Main.py and Tests.py the LCV algorithm is collecting a single instance of each inbound license found in a given JSON (so far is accepting the QMSTR JSON Output, and can be easily adapted to the Scancode JSON Output), the APIs require to insert a list of inbound licenses, and the outbound license declared for a given project.
+Given these two inputs, the LCV algorithm is able to perform the verification.
+To build the APIS
 Build the docker image locally:
 ```
-docker build -t lcv-cm .
+docker build -t lcv-cm.
 ```
+or
+```
+docker build --no-cache -t lcv-cm .
+```
+To avoid Docker build from using cache. The dockerfile clones this repository, so if it is required to update the docker image with code added recently, `--no-cache` would be the right option to apply the changes.
+
 Running it:
 ```
 docker run -it -p 8080:8080 lcv-cm
 ```
+The LCVServer will run at the 8080 port of your localhost and can be reached via `http://0.0.0.0:8080/APIEndpoints` (WIP).
