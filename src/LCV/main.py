@@ -12,8 +12,6 @@ from LCVlib.verify import RetrieveInboundLicenses, Compare
 
 JSONPath = JSONPathList()
 GitHubURL = GitHubURLList()
-# index = int(str(sys.argv), base=10)
-# To fix this error, because if there are no args, this control doesn't function.
 if len(sys.argv[1]) > 0:
     index = int(sys.argv[1], base=10)
 else:

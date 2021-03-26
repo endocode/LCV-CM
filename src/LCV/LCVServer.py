@@ -91,6 +91,11 @@ app.config["DEBUG"] = True
 # logging.basicConfig(filename=LOGFILE, level=logging.DEBUG)
 
 
+@app.route('/APIEndpoints')
+def APIEndpoints():
+    return render_template('APIEndpoints.html')
+
+
 @app.route('/GitHubOutboundLicense')
 def Outb():
     return render_template('outbound.html')
