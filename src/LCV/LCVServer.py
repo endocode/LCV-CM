@@ -162,6 +162,18 @@ def LicensesInput():
     InboundLicenses = args['InboundLicenses']
     InboundLicenses = InboundLicenses.split(",")
     OutboundLicense = args['OutboundLicense']
+    verificationList = Compare(InboundLicenses, OutboundLicense)
+    return jsonify(verificationList)
+
+
+@app.route('/LicensesInputSPDX', methods=['GET', 'POST'])
+# @app.route('/LicensesInput', methods=['POST'])
+def LicensesInputSPDX():
+    args = request.args
+    # print(args)  # For debugging
+    InboundLicenses = args['InboundLicenses']
+    InboundLicenses = InboundLicenses.split(",")
+    OutboundLicense = args['OutboundLicense']
     verificationList = CompareSPDX(InboundLicenses, OutboundLicense)
     return jsonify(verificationList)
 

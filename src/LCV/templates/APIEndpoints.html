@@ -22,6 +22,19 @@
           <p><input type = "text" name = "outboundLicense" /></p>
           <p><input type = "submit" value = "Check compatibility" /></p>
       </form>
+        <h2>Example of usage of the API methods /LicensesInput and /LicensesInputSPDX</h2>
+        <ul>
+            <li><a href="LicensesInput?InboundLicenses=Apache 2.0,MIT License&OutboundLicense=MIT">http://0.0.0.0:8080/LicensesInput?InboundLicenses=Apache 2.0,MIT License&OutboundLicense=MIT</a></li>
+            <li><a href="LicensesInputSPDX?InboundLicenses=Apache-2.0,MIT&OutboundLicense=MIT">http://0.0.0.0:8080/LicensesInputSPDX?InboundLicenses=Apache-2.0,MIT&OutboundLicense=MIT</a></li>
+        </ul>
+
+            <p> These two endpoints accept both POST and GET requests, and they can be used via browser or collaboration platform for API development, such as Postman.</p>
+            <p> The syntax is as following: </p>
+            <ul>
+              <li><p>/LicensesInput?InboundLicenses=<span style="color:brown;">FirstInboundLicense,FirstInboundLicense, ... nInboundLicense</span>&<span style="color:tomato;">OutboundLicense=UniqueOutboundLicenseSPDXid</span></p>
+              <li><p>/LicensesInputSPDX?InboundLicenses=<span style="color:blue;">FirstInboundLicenseSPDXid,FirstInboundLicenseSPDXid, ... nInboundLicenseSPDXid</span>&<span style="color:green;">OutboundLicense=UniqueOutboundLicenseSPDXid</span></p>
+            </ul>
+
         <h2>Link to every single APIs</h2>
         <ul>
             <li><a href="GitHubOutboundLicense">GitHub Outbound License</a></li>
