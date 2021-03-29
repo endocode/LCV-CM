@@ -19,7 +19,6 @@ def GitHubURLList():
     # links to do https://github.com/bonigarcia/webdrivermanager
     # Error 2021/03/10 11:02:13 Received a message: gooooo!!!!!
     # 2021/03/10 11:02:14 FASTEN reporter failed: couldn't get FileNodes, rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing dial tcp 10.20.13.51:9080: connect: connection refused"
-    # GitHubURL.append('https://api.github.com/repos/bonigarcia/webdrivermanager/license')
 
     # https://github.com/git-commit-id/git-commit-id-maven-plugin
     GitHubURL.append('https://api.github.com/repos/bytedeco/javacv/license')
@@ -80,5 +79,7 @@ def GitHubURLList():
         'https://api.github.com/repos/ctron/rpm-builder/license')
     GitHubURL.append(
         'https://api.github.com/repos/jinahya/executable-jar-with-maven-example/license')
+    GitHubURL.append(
+        'https://api.github.com/repos/bonigarcia/webdrivermanager/license')
 
     return GitHubURL

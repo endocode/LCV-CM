@@ -19,7 +19,6 @@ def JSONPathList():
     # ffabric8io-docker-maven-plugin uses only Apache 2.0, so it is compliant
     JSONPath.append('json/fabric8io-docker-maven-plugin.json')
     # emptyJSON
-    # JSONPath.append('json/webdrivermanager.json')
 
     # This project does not specify correctly an SPDX id for its oubound license
     JSONPath.append('json/javacv.json')
@@ -113,5 +112,7 @@ def JSONPathList():
     # 30
     JSONPath.append(
         'json/executable-jar-with-maven-example.json')
+    # 31
+    JSONPath.append('json/webdrivermanager.json')
 
     return JSONPath

@@ -6,6 +6,3 @@ RUN make
 WORKDIR "/LCV-CM/src/LCV"
 EXPOSE 8080
 CMD ["python3","LCVServer.py"]
-# cd ~/gitrepo/LCV-CM/
-# docker build -t lcv-cm .
-# docker run -it -p 8080:8080 lcv-cm
