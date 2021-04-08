@@ -51,7 +51,7 @@ Given these two inputs, the LCV algorithm is able to perform the verification.
 To build the APIS
 Build the docker image locally:
 ```
-docker build -t lcv-cm.
+docker build -t lcv-cm .
 ```
 or
 ```
