@@ -1,1 +1,6 @@
 https://www.getpostman.com/collections/3b2724fe658897b87a57
+
+# use this link to install newman
+# https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/
+# fix sudo permission with this link
+# https://community.piccalil.li/t/how-to-fix-npm-permission-issues/309
