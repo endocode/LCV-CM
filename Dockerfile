@@ -4,5 +4,5 @@ RUN git clone https://github.com/endocode/LCV-CM.git
 WORKDIR "/LCV-CM"
 RUN make
 WORKDIR "/LCV-CM/src/LCV"
-EXPOSE 8080
+EXPOSE 3251
 CMD ["python3","LCVServer.py"]
