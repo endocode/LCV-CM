@@ -81,7 +81,6 @@ def SPDXIdMapping(InboundLicenses_cleaned):
 
 
 def verify(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
-    # CSVfilePath = "csv/licenses.csv"
     column_names_list = [OutboundLicense]
     column_names_list.insert(0, 'License')
     verificationList = list()
@@ -123,6 +122,62 @@ def verify(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
     return verificationList
 
 
+def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
+    column_names_list = [OutboundLicense]
+    column_names_list.insert(0, 'License')
+    verificationFlagList = list()
+    # retrieve data from CSV file
+    df = CSV_to_dataframe(CSVfilePath, column_names_list)
+    df = df.set_index('License')
+    if (len(InboundLicenses_cleaned) == 1) and (InboundLicenses_cleaned[0] == OutboundLicense):
+        verificationFlag = True
+        return verificationFlag
+
+    for license in InboundLicenses_cleaned:
+        comparison = df.loc[license, OutboundLicense]
+        if comparison == "0":
+            verificationFlag = False
+            return verificationFlag
+        if comparison == "NS":
+            verificationFlag = False
+            return verificationFlag
+        if comparison == "1":
+            verificationFlag = True
+            verificationFlagList.append(verificationFlag)
+        if comparison == "-":
+            verificationFlag = True
+            verificationFlagList.append(verificationFlag)
+        if comparison == "TBD":
+            verificationFlag = False
+            return verificationFlag
+        if comparison == "UNK":
+            verificationFlag = False
+            return verificationFlag
+
+    if all(verificationFlagList):
+        verificationFlag = True
+        return verificationFlag
+    else:
+        verificationFlag = False
+        return verificationFlag
+
+    # for flag in range(len(verificationFlagList)):
+    #     print(flag)
+    # for flag in range(len(verificationFlagList)):
+    #     if (flag is True):
+    #         TrueCount += 1
+    # print(TrueCount)
+    # print(range(len(verificationFlagList)))
+    # if (TrueCount == range(len(verificationFlagList))):
+    #     verificationFlag = True
+    #     return verificationFlag
+    # else:
+    #     print(
+    #         "For some reasons a value for verificationFlag is missing, please investigate")
+    #     verificationFlag = False
+    #     return verificationFlag
+
+
 def CheckOutboundLicense(OutboundLicense):
     if OutboundLicense != "NOASSERTION":
         print("The outbound license for the project is: "+OutboundLicense)
@@ -150,12 +205,42 @@ def Compare(InboundLicenses, OutboundLicense):
     print("Running the license compliance verification:")
     print("Inbound license list :\n"+str(InboundLicenses_SPDX))
     print("The outbound license is: ", OutboundLicense)
-    #CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
     CSVfilePath = "../../csv/licenses_tests.csv"
     verificationListToParse = verify(
         CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
     verificationList = parseVerificationList(verificationListToParse)
     return verificationList
+
+
+def CompareFlag(InboundLicenses, OutboundLicense):
+    print("Running SPDXid mapping function:")
+    InboundLicenses_SPDX = SPDXIdMapping(InboundLicenses)
+
+    if len(InboundLicenses_SPDX) == 1:
+        print("The SPDX id for the only inbound license detected is:")
+        print(InboundLicenses_SPDX[0])
+    else:
+        print("The SPDX IDs for the inbound licenses found are:")
+        print(InboundLicenses_SPDX)
+    print("#################")
+    print("Running the license compliance verification:")
+    print("Inbound license list :\n"+str(InboundLicenses_SPDX))
+    print("The outbound license is: ", OutboundLicense)
+    CSVfilePath = "../../csv/licenses_tests.csv"
+    verificationFlag = verifyFlag(
+        CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
+    # if (verificationFlag == False):
+    #     print("The project has license compatibility issues ... reporting log")
+    #     verificationListToParse = verify(
+    #         CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
+    #     verificationList = parseVerificationList(verificationListToParse)
+    #     # print(verificationList)
+    #     return verificationList
+    # else:
+    #     # print("The project do not has license compatibility issues")
+    #     # print(verificationFlag)
+    #     return verificationFlag
+    return verificationFlag
 
 
 def CompareSPDX(InboundLicenses_SPDX, OutboundLicense):
@@ -175,6 +260,23 @@ def CompareSPDX(InboundLicenses_SPDX, OutboundLicense):
         CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
     verificationList = parseVerificationList(verificationList)
     return verificationList
+
+
+def CompareSPDXFlag(InboundLicenses_SPDX, OutboundLicense):
+    if len(InboundLicenses_SPDX) == 1:
+        print("The SPDX id for the only inbound license detected is:")
+        print(InboundLicenses_SPDX[0])
+    else:
+        print("The SPDX IDs for the inbound licenses found are:")
+        print(InboundLicenses_SPDX)
+    print("#################")
+    print("Running the license compliance verification:")
+    print("Inbound license list :\n"+str(InboundLicenses_SPDX))
+    print("The outbound license is: ", OutboundLicense)
+    CSVfilePath = "../../csv/licenses_tests.csv"
+    verificationFlag = verifyFlag(
+        CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
+    return verificationFlag
 
 
 def parseVerificationList(verificationList):

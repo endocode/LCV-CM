@@ -1,4 +1,4 @@
-from LCVlib.verify import retrieveOutboundLicense, Compare, CompareSPDX
+from LCVlib.verify import retrieveOutboundLicense, Compare, CompareSPDX, CompareFlag, CompareSPDXFlag
 import logging
 import signal
 import time
@@ -125,6 +125,22 @@ def Compliance():
         return jsonify(verificationList)
 
 
+@app.route('/CompatibilityFlag')
+def CompatibilityFlag():
+    return render_template('compatibilityFlag.html')
+
+
+@app.route('/CompatibilityFlagOutput', methods=['POST', 'GET'])
+def ComplianceFlag():
+    if request.method == 'POST':
+        InboundLicenses = request.form['inboundLicenses']
+        InboundLicenses = InboundLicenses.split(",")
+        OutboundLicense = request.form['outboundLicense']
+        verificationFlag = CompareFlag(InboundLicenses, OutboundLicense)
+        # print(verificationList)
+        return jsonify(verificationFlag)
+
+
 @app.route('/CompatibilitySPDX')
 def CompatibilitySPDX():
     return render_template('compatibilitySPDX.html')
@@ -142,16 +158,23 @@ def ComplianceSPDX():
         # print(verificationList)
         return jsonify(verificationList)
 
-# not strictly useful endpoints (at the moment)
+
+@app.route('/CompatibilitySPDXFlag')
+def CompatibilitySPDXFlag():
+    return render_template('compatibilitySPDXFlag.html')
 
 
-@app.route('/bar')
-def testPost():
-    args = request.args
-    print(args)  # For debugging
-    no1 = args['key1']
-    no2 = args['key2']
-    return jsonify(dict(data=[no1, no2]))  # or whatever is required
+@app.route('/CompatibilitySPDXFlagOutput', methods=['POST', 'GET'])
+def ComplianceSPDXFlag():
+    if request.method == 'POST':
+        InboundLicenses = request.form['inboundLicenses']
+        InboundLicenses = InboundLicenses.split(",")
+        OutboundLicense = request.form['outboundLicense']
+        verificationFlag = CompareSPDXFlag(InboundLicenses, OutboundLicense)
+        # print(verificationList)
+        return jsonify(verificationFlag)
+
+
 
 
 @app.route('/LicensesInput', methods=['GET', 'POST'])
@@ -165,6 +188,18 @@ def LicensesInput():
     verificationList = Compare(InboundLicenses, OutboundLicense)
     return jsonify(verificationList)
 
+@app.route('/LicensesInputFlag', methods=['GET', 'POST'])
+# @app.route('/LicensesInput', methods=['POST'])
+def LicensesInputFlag():
+    args = request.args
+    # print(args)  # For debugging
+    InboundLicenses = args['InboundLicenses']
+    InboundLicenses = InboundLicenses.split(",")
+    OutboundLicense = args['OutboundLicense']
+    verificationFlag = CompareFlag(InboundLicenses, OutboundLicense)
+    return jsonify(verificationFlag)
+
+
 
 @app.route('/LicensesInputSPDX', methods=['GET', 'POST'])
 # @app.route('/LicensesInput', methods=['POST'])
@@ -176,6 +211,27 @@ def LicensesInputSPDX():
     OutboundLicense = args['OutboundLicense']
     verificationList = CompareSPDX(InboundLicenses, OutboundLicense)
     return jsonify(verificationList)
+
+@app.route('/LicensesInputSPDXFlag', methods=['GET', 'POST'])
+# @app.route('/LicensesInput', methods=['POST'])
+def LicensesInputSPDXFlag():
+    args = request.args
+    # print(args)  # For debugging
+    InboundLicenses = args['InboundLicenses']
+    InboundLicenses = InboundLicenses.split(",")
+    OutboundLicense = args['OutboundLicense']
+    verificationFlag = CompareSPDXFlag(InboundLicenses, OutboundLicense)
+    return jsonify(verificationFlag)
+
+# not strictly useful endpoints (at the moment)
+
+@app.route('/bar')
+def testPost():
+    args = request.args
+    print(args)  # For debugging
+    no1 = args['key1']
+    no2 = args['key2']
+    return jsonify(dict(data=[no1, no2]))  # or whatever is required
 
 
 @app.route('/versionz')

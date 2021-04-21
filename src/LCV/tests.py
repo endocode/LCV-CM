@@ -1,5 +1,5 @@
 from LCVlib.verify import retrieveOutboundLicense, RetrieveInboundLicenses, Compare
-from LCVlib.verify import runtimer, CheckOutboundLicense
+from LCVlib.verify import runtimer, CheckOutboundLicense, CompareFlag
 from LCVlib.testlistsJSONfiles import JSONPathList
 from LCVlib.testlistsGithubAPI import GitHubURLList
 '''
@@ -10,7 +10,7 @@ from LCVlib.testlistsGithubAPI import GitHubURLList
 
 JSONPath = JSONPathList()
 GitHubURL = GitHubURLList()
-index = 10
+index = 8
 t = 10
 empty = ""
 orLater = "or-later"
@@ -26,8 +26,15 @@ while index < len(GitHubURL):
     OutboundLicense = CheckOutboundLicense(OutboundLicense)
     if OutboundLicense is not None:
         InboundLicenses = RetrieveInboundLicenses(JSON)
-        Compare(InboundLicenses, OutboundLicense)
-
+        verificationFlag = CompareFlag(InboundLicenses, OutboundLicense)
+        if (verificationFlag is False):
+            print("Compatibility issues found .... generating logs")
+            verificationList = Compare(InboundLicenses, OutboundLicense)
+            print("Print verification list:")
+            print(verificationList)
+        # verificationList = Compare(InboundLicenses, OutboundLicense)
+        # print("Print verification list:")
+        # print(verificationList)
     runtimer(t)
     index += 1
     print(index)

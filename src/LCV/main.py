@@ -2,7 +2,7 @@ import sys
 from LCVlib.testlistsGithubAPI import GitHubURLList
 from LCVlib.testlistsJSONfiles import JSONPathList
 from LCVlib.verify import retrieveOutboundLicense, CheckOutboundLicense
-from LCVlib.verify import RetrieveInboundLicenses, Compare
+from LCVlib.verify import RetrieveInboundLicenses, Compare, CompareFlag
 '''
 * SPDX-FileCopyrightText: 2021 Michele Scarlato <michele.scarlato@endocode.com>
 *
@@ -26,6 +26,9 @@ OutboundLicense = retrieveOutboundLicense(URL)
 OutboundLicense = CheckOutboundLicense(OutboundLicense)
 if OutboundLicense is not None:
     InboundLicenses = RetrieveInboundLicenses(JSON)
-    verificationList = Compare(InboundLicenses, OutboundLicense)
-    print("Print verification list:")
-    print(verificationList)
+    verificationFlag = CompareFlag(InboundLicenses, OutboundLicense)
+    if (verificationFlag is False):
+        print("Compatibility issues found .... generating logs")
+        verificationList = Compare(InboundLicenses, OutboundLicense)
+        print("Print verification list:")
+        print(verificationList)
