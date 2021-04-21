@@ -18,10 +18,7 @@ def CSV_to_dataframe(CSVfilePath, column_names_list):
     """
     Import a CSV and transform it into a pandas dataframe selecting only the useful columns from the Compatibility Matrix
     """
-    # print("Hello from CSV_to_dataframe")
-
     df = pd.read_csv(CSVfilePath, usecols=column_names_list)
-    # print(df)
     return df
 
 
@@ -58,10 +55,7 @@ def RetrieveInboundLicenses(JSONPath):
 
 
 def SPDXIdMapping(InboundLicenses_cleaned):
-    # print("Hello from SPDXIdMapping")
-    #CSVfilePath = "~/gitrepo/LCV-CM/csv/spdx-id.csv"
     CSVfilePath = "../../csv/spdx-id.csv"
-    # print(CSVfilePath)
     InboundLicenses_SPDX = []
     column_names_list = ['Scancode', 'SPDX-ID']
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
@@ -161,22 +155,6 @@ def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
         verificationFlag = False
         return verificationFlag
 
-    # for flag in range(len(verificationFlagList)):
-    #     print(flag)
-    # for flag in range(len(verificationFlagList)):
-    #     if (flag is True):
-    #         TrueCount += 1
-    # print(TrueCount)
-    # print(range(len(verificationFlagList)))
-    # if (TrueCount == range(len(verificationFlagList))):
-    #     verificationFlag = True
-    #     return verificationFlag
-    # else:
-    #     print(
-    #         "For some reasons a value for verificationFlag is missing, please investigate")
-    #     verificationFlag = False
-    #     return verificationFlag
-
 
 def CheckOutboundLicense(OutboundLicense):
     if OutboundLicense != "NOASSERTION":
@@ -229,17 +207,6 @@ def CompareFlag(InboundLicenses, OutboundLicense):
     CSVfilePath = "../../csv/licenses_tests.csv"
     verificationFlag = verifyFlag(
         CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
-    # if (verificationFlag == False):
-    #     print("The project has license compatibility issues ... reporting log")
-    #     verificationListToParse = verify(
-    #         CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
-    #     verificationList = parseVerificationList(verificationListToParse)
-    #     # print(verificationList)
-    #     return verificationList
-    # else:
-    #     # print("The project do not has license compatibility issues")
-    #     # print(verificationFlag)
-    #     return verificationFlag
     return verificationFlag
 
 
@@ -254,7 +221,6 @@ def CompareSPDX(InboundLicenses_SPDX, OutboundLicense):
     print("Running the license compliance verification:")
     print("Inbound license list :\n"+str(InboundLicenses_SPDX))
     print("The outbound license is: "+OutboundLicense)
-    #CSVfilePath = "~/gitrepo/LCV-CM/csv/licenses_tests.csv"
     CSVfilePath = "../../csv/licenses_tests.csv"
     verificationList = verify(
         CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
