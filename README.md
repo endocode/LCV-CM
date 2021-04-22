@@ -19,7 +19,7 @@ pip3 install psycopg2
 pip3 install pandas
 
 ```
-Since the original idea was to create a Postgres table, instead of using a csv, also the library `libpq-dev` is a dependency.
+Since the original idea was to create a `Postgres` table, instead of using a csv, also the library `libpq-dev` is a dependency.
 
 To run the code with python3:
 ```
