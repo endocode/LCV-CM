@@ -1,32 +1,41 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
-
-# Controls when the action will run. 
-on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+branding:
+  icon: "mic"
+  color: "purple"
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      - uses: actions/checkout@master
-      - uses: matt-ball/newman-action@master
-        with:
-          collection: https://www.getpostman.com/collections/3b2724fe658897b87a57
+# # This is a basic workflow to help you get started with Actions
+#
+# name: CI
+#
+# # Controls when the action will run.
+# on:
+#   # Triggers the workflow on push or pull request events but only for the main branch
+#   push:
+#     branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
+#
+#   # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
+#
+# runs:
+#   using: 'docker'
+#   image: 'Dockerfile'
+#
+# # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# jobs:
+#   # This workflow contains a single job called "build"
+#   build:
+#     # The type of runner that the job will run on
+#     runs-on: ubuntu-latest
+#
+#     # Steps represent a sequence of tasks that will be executed as part of the job
+#     steps:
+#       - uses: actions/checkout@master
+#       - uses: matt-ball/newman-action@master
+#         with:
+#           collection: https://www.getpostman.com/collections/3b2724fe658897b87a57
