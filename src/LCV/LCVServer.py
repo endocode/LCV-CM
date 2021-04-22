@@ -175,8 +175,6 @@ def ComplianceSPDXFlag():
         return jsonify(verificationFlag)
 
 
-
-
 @app.route('/LicensesInput', methods=['GET', 'POST'])
 # @app.route('/LicensesInput', methods=['POST'])
 def LicensesInput():
@@ -187,6 +185,7 @@ def LicensesInput():
     OutboundLicense = args['OutboundLicense']
     verificationList = Compare(InboundLicenses, OutboundLicense)
     return jsonify(verificationList)
+
 
 @app.route('/LicensesInputFlag', methods=['GET', 'POST'])
 # @app.route('/LicensesInput', methods=['POST'])
@@ -200,6 +199,13 @@ def LicensesInputFlag():
     return jsonify(verificationFlag)
 
 
+@app.route('/GetGitHubOutboundLicense', methods=['POST', 'GET'])
+def GetGitHubOutboundLicense():
+    args = request.args
+    url = args['url']
+    OutboundLicense = retrieveOutboundLicense(url)
+    return OutboundLicense
+
 
 @app.route('/LicensesInputSPDX', methods=['GET', 'POST'])
 # @app.route('/LicensesInput', methods=['POST'])
@@ -211,6 +217,7 @@ def LicensesInputSPDX():
     OutboundLicense = args['OutboundLicense']
     verificationList = CompareSPDX(InboundLicenses, OutboundLicense)
     return jsonify(verificationList)
+
 
 @app.route('/LicensesInputSPDXFlag', methods=['GET', 'POST'])
 # @app.route('/LicensesInput', methods=['POST'])
@@ -224,6 +231,7 @@ def LicensesInputSPDXFlag():
     return jsonify(verificationFlag)
 
 # not strictly useful endpoints (at the moment)
+
 
 @app.route('/bar')
 def testPost():

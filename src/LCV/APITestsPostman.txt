@@ -8,8 +8,9 @@ https://www.postman.com/collections/3b2724fe658897b87a57
 # https://community.piccalil.li/t/how-to-fix-npm-permission-issues/309
 # Use this link to configure node.js in jenkins
 # https://medium.com/appgambit/ci-cd-pipeline-for-a-nodejs-application-with-jenkins-fa3cc7fad13a
-# STILL TO DO, trigger jenkins after a push
-# https://medium.com/@dillson/triggering-a-jenkins-pipeline-on-git-push-321d29a98cf3
+# STILL TO DO, trigger jenkins after a push -- DONE using
+# mainly https://www.blazemeter.com/blog/how-to-integrate-your-github-repository-to-your-jenkins-project
+# partially https://medium.com/@dillson/triggering-a-jenkins-pipeline-on-git-push-321d29a98cf3
 
 # this is the jenkins bash
 docker build --no-cache -t lcv-cm .

@@ -22,7 +22,7 @@
           <p><input type = "text" name = "outboundLicense" /></p>
           <p><input type = "submit" value = "Check compatibility" /></p>
       </form>
-        <h2>Example of usage of the API methods /LicensesInput and /LicensesInputSPDX</h2>
+        <h2>Example of usage of the API methods /LicensesInput, /LicensesInputSPDX, and /GetGitHubOutboundLicense</h2>
         <ul>
             <li><a href="LicensesInput?InboundLicenses=Apache 2.0,MIT License&OutboundLicense=MIT">http://0.0.0.0:8080/LicensesInput?InboundLicenses=Apache 2.0,MIT License&OutboundLicense=MIT</a></li>
             <li><a href="LicensesInputSPDX?InboundLicenses=Apache-2.0,MIT&OutboundLicense=MIT">http://0.0.0.0:8080/LicensesInputSPDX?InboundLicenses=Apache-2.0,MIT&OutboundLicense=MIT</a></li>
@@ -34,7 +34,10 @@
               <li><p>/LicensesInput?InboundLicenses=<span style="color:brown;">FirstInboundLicense,FirstInboundLicense, ... nInboundLicense</span>&<span style="color:tomato;">OutboundLicense=UniqueOutboundLicenseSPDXid</span></p>
               <li><p>/LicensesInputSPDX?InboundLicenses=<span style="color:blue;">FirstInboundLicenseSPDXid,FirstInboundLicenseSPDXid, ... nInboundLicenseSPDXid</span>&<span style="color:green;">OutboundLicense=UniqueOutboundLicenseSPDXid</span></p>
             </ul>
-
+            <p> This endpoint accept a GitHub API url, and retrieve the SPDX ID of its outbound license.
+            <ul>
+              <li><p>/GetGitHubOutboundLicense?url=<span style="color:green;">https://api.github.com/repos/hope-for/hope-boot/license</span>
+            </ul>
         <h2>Link to every single APIs</h2>
         <ul>
             <li><a href="GitHubOutboundLicense">GitHub Outbound License</a></li>
