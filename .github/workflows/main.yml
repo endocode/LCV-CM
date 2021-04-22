@@ -6,7 +6,7 @@ on:
 jobs:
   runs:
     using: "docker"
-    image: "../../Dockerfile"
+    image: "Dockerfile"
     steps:
       - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
