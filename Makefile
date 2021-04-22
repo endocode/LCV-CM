@@ -3,7 +3,6 @@
 .PHONY: install
 install:
 	pip3 install -r requirements.txt
-	#python3 server.py
 # venv is a shortcut target
 
 #.PHONY: tests
