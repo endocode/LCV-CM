@@ -9,7 +9,7 @@ check full log
 https://github.com/arthurgregorio/web-budget
 [INFO] BUILD FAILURE
 check full log
-
+..
 https://github.com/spring-cloud/spring-cloud-build
 json ok
 
