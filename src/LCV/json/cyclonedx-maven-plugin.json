@@ -8,7 +8,9 @@
    "created_at":"2021-03-24T04:35:04.382348949Z",
    "payload":{
       "package_metadata":{
-         
+        "InboundLicenses":[
+         "MIT","Apache-2.0"
+      ]
       },
       "fileMetadata":[
          {

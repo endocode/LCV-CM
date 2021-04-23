@@ -3,15 +3,15 @@ on:
   push:
     branches: [ main ]
 
-jobs:
-  runs:
-    using: "docker"
-    image: "Dockerfile"
-    steps:
-      - uses: actions/checkout@master
-      - uses: matt-ball/newman-action@master
-        with:
-         collection: https://www.getpostman.com/collections/3b2724fe658897b87a57
+# jobs:
+runs:
+  using: "docker"
+  image: "Dockerfile"
+    # steps:
+    #   - uses: actions/checkout@master
+    #   - uses: matt-ball/newman-action@master
+    #     with:
+    #      collection: https://www.getpostman.com/collections/3b2724fe658897b87a57
 
 branding:
   icon: "mic"
