@@ -15,6 +15,10 @@ jobs:
   newman:
     runs-on: ubuntu-latest
     steps:
+      - name: Wait / Sleep
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+          time: '180s'
       - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
         with:
