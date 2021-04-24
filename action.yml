@@ -1,4 +1,4 @@
-name: 'LCVServer'
+name: 'lcvserver'
 description: 'Greet someone and record the time'
 runs:
   using: 'docker'
