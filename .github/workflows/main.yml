@@ -3,23 +3,10 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: LCV API with Postamn tests (using Newman)
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      # with:
-      #   ref: main
     - name: Hello world action step
       id: hello
       uses: ./
-  # newman:
-  #   runs-on: ubuntu-latest
-  #   steps:
-      # - name: Wait / Sleep
-      #   uses: jakejarvis/wait-action@v0.1.0
-      #   with:
-      #     time: '180s'
-    # - name: Newman
-    #   uses: matt-ball/newman-action@master
-    #   with:
-    #     collection: https://www.getpostman.com/collections/3b2724fe658897b87a57
