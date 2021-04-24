@@ -1,5 +1,5 @@
 #!/bin/sh -l
 
 echo "Hello world"
-cd /home/runner/work/lcv-cm/lcv-cm/src/LCV
+cd /home/runner/work/LCV-CM/LCV-CM/src/LCV
 python3 LCVServer.py
