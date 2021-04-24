@@ -5,4 +5,5 @@ WORKDIR "/LCV-CM"
 RUN make
 WORKDIR "/LCV-CM/src/LCV"
 EXPOSE 3251
+CMD ["pwd"]
 CMD ["python3","LCVServer.py"]
