@@ -1,5 +1,5 @@
 name: 'lcvserver'
-description: 'Greet someone and record the time'
+description: 'Running LCVServer with tests'
 runs:
   using: 'docker'
   image: 'Dockerfile'
