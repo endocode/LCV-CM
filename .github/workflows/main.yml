@@ -11,4 +11,4 @@ jobs:
       #   ref: main
     - name: Hello world action step
       id: hello
-      uses: .
+      uses: ./
