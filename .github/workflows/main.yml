@@ -20,7 +20,7 @@ jobs:
       #   with:
       #     time: '180s'
     - name: Newman
-    - uses: actions/checkout@master
-    - uses: matt-ball/newman-action@master
+      uses: actions/checkout@master
+      uses: matt-ball/newman-action@master
       with:
         collection: https://www.getpostman.com/collections/3b2724fe658897b87a57
