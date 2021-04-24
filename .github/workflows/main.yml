@@ -12,14 +12,15 @@ jobs:
     - name: Hello world action step
       id: hello
       uses: ./
-  newman:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Wait / Sleep
-        uses: jakejarvis/wait-action@v0.1.0
-        with:
-          time: '180s'
-      - uses: actions/checkout@master
-      - uses: matt-ball/newman-action@master
-        with:
-          collection: https://www.getpostman.com/collections/3b2724fe658897b87a57
+  # newman:
+  #   runs-on: ubuntu-latest
+  #   steps:
+      # - name: Wait / Sleep
+      #   uses: jakejarvis/wait-action@v0.1.0
+      #   with:
+      #     time: '180s'
+    name: Newman
+    - uses: actions/checkout@master
+    - uses: matt-ball/newman-action@master
+      with:
+        collection: https://www.getpostman.com/collections/3b2724fe658897b87a57
