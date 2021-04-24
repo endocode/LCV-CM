@@ -19,7 +19,7 @@ jobs:
       #   uses: jakejarvis/wait-action@v0.1.0
       #   with:
       #     time: '180s'
-    - name: Newman
-      uses: matt-ball/newman-action@master
-      with:
-        collection: https://www.getpostman.com/collections/3b2724fe658897b87a57
+    # - name: Newman
+    #   uses: matt-ball/newman-action@master
+    #   with:
+    #     collection: https://www.getpostman.com/collections/3b2724fe658897b87a57
