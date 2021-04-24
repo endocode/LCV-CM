@@ -7,4 +7,4 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      uses: endocode/LCV-CM/hello-world-docker-action@v1
+      uses: endocode/LCV-CM/hello-world-docker-action
