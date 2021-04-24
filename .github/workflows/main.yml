@@ -11,8 +11,7 @@ jobs:
       #   ref: main
     - name: Hello world action step
       id: hello
-      uses: ./
-    - name:
+      uses: ./    
   newman:
   runs-on: ubuntu-latest
   steps:
