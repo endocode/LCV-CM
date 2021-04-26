@@ -104,7 +104,7 @@ def Outb():
 @app.route('/GitHubOutboundLicenseOutput', methods=['POST', 'GET'])
 def GitHubOutboundLicense():
     if request.method == 'POST':
-        url = request.form['nm']
+        url = request.form['url']
         OutboundLicense = retrieveOutboundLicense(url)
         return OutboundLicense
 
