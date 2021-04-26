@@ -61,6 +61,6 @@ To avoid Docker build from using cache. The dockerfile clones this repository, s
 
 Running it:
 ```
-docker run -it -p 8080:8080 lcv-cm
+docker run -it -p 3251:3251 lcv-cm
 ```
 The LCVServer will run at the 8080 port of your localhost and can be reached via `http://0.0.0.0:8080/APIEndpoints` (WIP).
