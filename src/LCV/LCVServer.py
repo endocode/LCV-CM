@@ -151,11 +151,8 @@ def ComplianceSPDX():
     if request.method == 'POST':
         InboundLicenses = request.form['inboundLicenses']
         InboundLicenses = InboundLicenses.split(",")
-        # print(InboundLicenses)
         OutboundLicense = request.form['outboundLicense']
         verificationList = CompareSPDX(InboundLicenses, OutboundLicense)
-        # print("Hello from ComplianceSPDX endpoint")
-        # print(verificationList)
         return jsonify(verificationList)
 
 
