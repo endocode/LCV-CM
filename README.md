@@ -65,4 +65,4 @@ Running it:
 ```
 docker run -it -p 3251:3251 lcv-cm
 ```
-The LCVServer will run at the 8080 port of your localhost and can be reached via `http://0.0.0.0:3251/APIEndpoints` (WIP).
+The LCVServer will run at the 3251 port of your localhost and can be reached via `http://0.0.0.0:3251/APIEndpoints` (WIP).
