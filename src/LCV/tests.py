@@ -11,6 +11,7 @@ from LCVlib.testlistsGithubAPI import GitHubURLList
 JSONPath = JSONPathList()
 GitHubURL = GitHubURLList()
 index = 8
+# With CM.csv tests 1 (because of Public Domain), 7, 9, 24 and 30 not functioning
 t = 10
 empty = ""
 orLater = "or-later"
@@ -27,6 +28,11 @@ while index < len(GitHubURL):
     if OutboundLicense is not None:
         InboundLicenses = RetrieveInboundLicenses(JSON)
         verificationFlag = CompareFlag(InboundLicenses, OutboundLicense)
+        if (verificationFlag is True):
+            print("The set of inbound licenses is compatible with the outbound one")
+            verificationList = Compare(InboundLicenses, OutboundLicense)
+            print("Print verification list:")
+            print(verificationList)
         if (verificationFlag is False):
             print("Compatibility issues found .... generating logs")
             verificationList = Compare(InboundLicenses, OutboundLicense)
