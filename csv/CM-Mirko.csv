@@ -2,7 +2,7 @@ License,LGPL-3.0,LGPL-3.1,LGPL-2.0,GPL-2.0-with-classpath-exception,Apache-2.0,G
 LGPL-3.0,1,1,0,0,0,0,0,1,1,0,0,0,0
 LGPL-3.1,0,1,0,0,0,0,0,0,1,0,0,0,0
 LGPL-2.0,1,1,1,1,0,1,1,1,1,0,0,0,0
-GPL-2.0-with-classpath-exception,0,0,0,1,0,?,1,1,1,0,0,0,0
+GPL-2.0-with-classpath-exception,0,0,0,1,0,0,1,1,1,0,0,0,0
 Apache-2.0,1,1,0,0,1,0,1,1,1,0,0,1,1
 GPL-2.0,0,0,0,1,0,1,1,1,1,0,0,0,0
 GPL-2.1,0,0,0,0,0,0,1,1,1,0,0,0,0
