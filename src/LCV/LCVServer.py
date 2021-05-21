@@ -230,15 +230,6 @@ def LicensesInputSPDXFlag():
 # not strictly useful endpoints (at the moment)
 
 
-@app.route('/bar')
-def testPost():
-    args = request.args
-    print(args)  # For debugging
-    no1 = args['key1']
-    no2 = args['key2']
-    return jsonify(dict(data=[no1, no2]))  # or whatever is required
-
-
 @app.route('/versionz')
 def version():
     GitHeadHash = GitHash(GITREPO)
