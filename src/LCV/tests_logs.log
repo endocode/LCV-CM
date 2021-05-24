@@ -1,0 +1,945 @@
+#################
+##Running test number 1
+#################
+Retrieving outbound license from: https://api.github.com/repos/hope-for/hope-boot/license
+Outbound license: GPL-3.0
+The outbound license for the project is: GPL-3.0
+Retrieving inbound license(s) from: json/hope-boot.json
+Started Reading the JSON report
+Reading: json/hope-boot.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['MIT License', 'Public Domain']
+###################
+Running SPDXid mapping function:
+The SPDX IDs for the inbound licenses found are:
+['MIT', 'Public Domain']
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT', 'Public Domain']
+The outbound license is:  GPL-3.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX IDs for the inbound licenses found are:
+['MIT', 'Public Domain']
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT', 'Public Domain']
+The outbound license is:  GPL-3.0
+
+MIT is compatible with GPL-3.0 as an outbound license.
+This allow you to use this inbound license in your package.
+
+2 above 2 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['MIT is compatible with GPL-3.0 as an outbound license.', 'Public Domain is compatible with GPL-3.0 as an outbound license.']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+1
+#################
+##Running test number 2
+#################
+Retrieving outbound license from: https://api.github.com/repos/spotify/docker-maven-plugin/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/spotify-docker-maven-plugin.json
+Started Reading the JSON report
+Reading: json/spotify-docker-maven-plugin.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+2
+#################
+##Running test number 3
+#################
+Retrieving outbound license from: https://api.github.com/repos/spotify/dockerfile-maven/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/dockerfile-maven.json
+Started Reading the JSON report
+Reading: json/dockerfile-maven.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+3
+#################
+##Running test number 4
+#################
+Retrieving outbound license from: https://api.github.com/repos/fabric8io/docker-maven-plugin/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/fabric8io-docker-maven-plugin.json
+Started Reading the JSON report
+Reading: json/fabric8io-docker-maven-plugin.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+4
+#################
+##Running test number 5
+#################
+Retrieving outbound license from: https://api.github.com/repos/bytedeco/javacv/license
+NOASSERTION
+Outbound noassertion
+This project does not specify correctly an SPDX id for its oubound license
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+5
+#################
+##Running test number 6
+#################
+Retrieving outbound license from: https://api.github.com/repos/bytedeco/javacpp/license
+NOASSERTION
+Outbound noassertion
+This project does not specify correctly an SPDX id for its oubound license
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+6
+#################
+##Running test number 7
+#################
+Retrieving outbound license from: https://api.github.com/repos/rubenlagus/TelegramBots/license
+Outbound license: MIT
+The outbound license for the project is: MIT
+Retrieving inbound license(s) from: json/TelegramBots.json
+Started Reading the JSON report
+Reading: json/TelegramBots.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['GPL 3.0 or later', 'Apache 2.0']
+###################
+Running SPDXid mapping function:
+The usage of 'or later' is not supported. 
+ Please specify a license version instead of using 'or later' notation.
+The SPDX IDs for the inbound licenses found are:
+['GPL-3.0-or-later', 'Apache-2.0']
+#################
+Running the license compliance verification:
+Inbound license list :
+['GPL-3.0-or-later', 'Apache-2.0']
+The outbound license is:  MIT
+Compatibility issues found .... generating logs
+Running SPDXid mapping function:
+The usage of 'or later' is not supported. 
+ Please specify a license version instead of using 'or later' notation.
+The SPDX IDs for the inbound licenses found are:
+['GPL-3.0-or-later', 'Apache-2.0']
+#################
+Running the license compliance verification:
+Inbound license list :
+['GPL-3.0-or-later', 'Apache-2.0']
+The outbound license is:  MIT
+
+GPL-3.0-or-later is not supported, because 'or later' notation.
+Momentairly 'or later' notation are not supported.
+
+0 above 2 licenses found are compatible.
+Hence your project is not compatible.
+Print verification list:
+["GPL-3.0-or-later is not supported, because 'or later' notation.", 'Apache-2.0 is not compatible with MIT as an outbound license.']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+7
+#################
+##Running test number 8
+#################
+Retrieving outbound license from: https://api.github.com/repos/git-commit-id/git-commit-id-maven-plugin/license
+Outbound license: LGPL-3.0
+The outbound license for the project is: LGPL-3.0
+Retrieving inbound license(s) from: json/git-commit-id-maven-plugin.json
+Started Reading the JSON report
+Reading: json/git-commit-id-maven-plugin.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['AGPL 3.0 or later', 'LGPL 3.0 or later', 'MIT License']
+###################
+Running SPDXid mapping function:
+The usage of 'or later' is not supported. 
+ Please specify a license version instead of using 'or later' notation.
+The usage of 'or later' is not supported. 
+ Please specify a license version instead of using 'or later' notation.
+The SPDX IDs for the inbound licenses found are:
+['AGPL-3.0-or-later', 'LGPL-3.0-or-later', 'MIT']
+#################
+Running the license compliance verification:
+Inbound license list :
+['AGPL-3.0-or-later', 'LGPL-3.0-or-later', 'MIT']
+The outbound license is:  LGPL-3.0
+Compatibility issues found .... generating logs
+Running SPDXid mapping function:
+The usage of 'or later' is not supported. 
+ Please specify a license version instead of using 'or later' notation.
+The usage of 'or later' is not supported. 
+ Please specify a license version instead of using 'or later' notation.
+The SPDX IDs for the inbound licenses found are:
+['AGPL-3.0-or-later', 'LGPL-3.0-or-later', 'MIT']
+#################
+Running the license compliance verification:
+Inbound license list :
+['AGPL-3.0-or-later', 'LGPL-3.0-or-later', 'MIT']
+The outbound license is:  LGPL-3.0
+
+AGPL-3.0-or-later is not supported, because 'or later' notation.
+Momentairly 'or later' notation are not supported.
+
+1 above 3 licenses found are compatible.
+Hence your project is not compatible.
+Print verification list:
+["AGPL-3.0-or-later is not supported, because 'or later' notation.", "LGPL-3.0-or-later is not supported, because 'or later' notation.", 'MIT is compatible with LGPL-3.0 as an outbound license.']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+8
+#################
+##Running test number 9
+#################
+Retrieving outbound license from: https://api.github.com/repos/TheHolyWaffle/TeamSpeak-3-Java-API/license
+Outbound license: MIT
+The outbound license for the project is: MIT
+Retrieving inbound license(s) from: json/teamspeak3.json
+Started Reading the JSON report
+Reading: json/teamspeak3.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['MIT License', 'unknown']
+###################
+Running SPDXid mapping function:
+The SPDX IDs for the inbound licenses found are:
+['MIT', 'unknown']
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT', 'unknown']
+The outbound license is:  MIT
+Compatibility issues found .... generating logs
+Running SPDXid mapping function:
+The SPDX IDs for the inbound licenses found are:
+['MIT', 'unknown']
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT', 'unknown']
+The outbound license is:  MIT
+
+MIT is compatible with MIT as an outbound license.
+This allow you to use this inbound license in your package.
+
+1 above 2 licenses found are compatible.
+Hence your project is not compatible.
+Print verification list:
+['MIT is compatible with MIT as an outbound license.', 'An UNKNOWN license has been found within the project. This cannot reveal license incompatibility']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+9
+#################
+##Running test number 10
+#################
+Retrieving outbound license from: https://api.github.com/repos/dzikoysk/reposilite/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/org.panda-lang:reposilite.json
+Started Reading the JSON report
+Reading: json/org.panda-lang:reposilite.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+10
+#################
+##Running test number 11
+#################
+Retrieving outbound license from: https://api.github.com/repos/revelc/formatter-maven-plugin/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/org.codehaus.mojo:versions-maven-plugin.json
+Started Reading the JSON report
+Reading: json/org.codehaus.mojo:versions-maven-plugin.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+11
+#################
+##Running test number 12
+#################
+Retrieving outbound license from: https://api.github.com/repos/mojohaus/versions-maven-plugin/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/net.revelc.code.formatter:formatter-maven-plugin.json
+Started Reading the JSON report
+Reading: json/net.revelc.code.formatter:formatter-maven-plugin.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+12
+#################
+##Running test number 13
+#################
+Retrieving outbound license from: https://api.github.com/repos/jhg023/SimpleNet/license
+Outbound license: MIT
+The outbound license for the project is: MIT
+Retrieving inbound license(s) from: json/com.github.jhg023:SimpleNet.json
+Started Reading the JSON report
+Reading: json/com.github.jhg023:SimpleNet.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['MIT License']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+MIT
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT']
+The outbound license is:  MIT
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+MIT
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT']
+The outbound license is:  MIT
+
+For this project only MIT as the inbound license has been detected, and it is the same of the outbound license (MIT), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only MIT as the inbound license has been detected, and it is the same of the outbound license (MIT), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+13
+#################
+##Running test number 14
+#################
+Retrieving outbound license from: https://api.github.com/repos/CryptoMorin/XSeries/license
+Outbound license: MIT
+The outbound license for the project is: MIT
+Retrieving inbound license(s) from: json/com.github.cryptomorin:XSeries.json
+Started Reading the JSON report
+Reading: json/com.github.cryptomorin:XSeries.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['MIT License']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+MIT
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT']
+The outbound license is:  MIT
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+MIT
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT']
+The outbound license is:  MIT
+
+For this project only MIT as the inbound license has been detected, and it is the same of the outbound license (MIT), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only MIT as the inbound license has been detected, and it is the same of the outbound license (MIT), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+14
+#################
+##Running test number 15
+#################
+Retrieving outbound license from: https://api.github.com/repos/mojohaus/exec-maven-plugin/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/org.codehaus.mojo:exec-maven-plugin.json
+Started Reading the JSON report
+Reading: json/org.codehaus.mojo:exec-maven-plugin.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+15
+#################
+##Running test number 16
+#################
+Retrieving outbound license from: https://api.github.com/repos/mojohaus/flatten-maven-plugin/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/org.codehaus.mojo:flatten-maven-plugin.json
+Started Reading the JSON report
+Reading: json/org.codehaus.mojo:flatten-maven-plugin.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+16
+#################
+##Running test number 17
+#################
+Retrieving outbound license from: https://api.github.com/repos/SonarSource/sonar-scanner-maven/license
+NOASSERTION
+Outbound noassertion
+This project does not specify correctly an SPDX id for its oubound license
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+17
+#################
+##Running test number 18
+#################
+Retrieving outbound license from: https://api.github.com/repos/spring-cloud/spring-cloud-build/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/spring-cloud-build.json
+Started Reading the JSON report
+Reading: json/spring-cloud-build.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+18
+#################
+##Running test number 19
+#################
+Retrieving outbound license from: https://api.github.com/repos/raydac/java-comment-preprocessor/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/java-comment-preprocessor.json
+Started Reading the JSON report
+Reading: json/java-comment-preprocessor.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+19
+#################
+##Running test number 20
+#################
+Retrieving outbound license from: https://api.github.com/repos/egineering-llc/gitflow-helper-maven-plugin/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/gitflow-helper-maven-plugin.json
+Started Reading the JSON report
+Reading: json/gitflow-helper-maven-plugin.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+20
+#################
+##Running test number 21
+#################
+Retrieving outbound license from: https://api.github.com/repos/mojohaus/appassembler/license
+Outbound license: MIT
+The outbound license for the project is: MIT
+Retrieving inbound license(s) from: json/appassembler.json
+Started Reading the JSON report
+Reading: json/appassembler.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['MIT License']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+MIT
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT']
+The outbound license is:  MIT
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+MIT
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT']
+The outbound license is:  MIT
+
+For this project only MIT as the inbound license has been detected, and it is the same of the outbound license (MIT), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only MIT as the inbound license has been detected, and it is the same of the outbound license (MIT), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+21
+#################
+##Running test number 22
+#################
+Retrieving outbound license from: https://api.github.com/repos/mojohaus/aspectj-maven-plugin/license
+Outbound license: MIT
+The outbound license for the project is: MIT
+Retrieving inbound license(s) from: json/aspectj-maven-plugin.json
+Started Reading the JSON report
+Reading: json/aspectj-maven-plugin.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['MIT License']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+MIT
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT']
+The outbound license is:  MIT
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+MIT
+#################
+Running the license compliance verification:
+Inbound license list :
+['MIT']
+The outbound license is:  MIT
+
+For this project only MIT as the inbound license has been detected, and it is the same of the outbound license (MIT), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only MIT as the inbound license has been detected, and it is the same of the outbound license (MIT), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+22
+#################
+##Running test number 23
+#################
+Retrieving outbound license from: https://api.github.com/repos/mojohaus/jaxb2-maven-plugin/license
+Outbound license: Apache-2.0
+The outbound license for the project is: Apache-2.0
+Retrieving inbound license(s) from: json/jaxb2-maven-plugin.json
+Started Reading the JSON report
+Reading: json/jaxb2-maven-plugin.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['Apache 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+The set of inbound licenses is compatible with the outbound one
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+Apache-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['Apache-2.0']
+The outbound license is:  Apache-2.0
+
+For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. 
+It means that it is license compliant. 
+This allow you to use this inbound license in your package.
+
+1 above 1 licenses found are compatible.
+Hence your project is compatible.
+Print verification list:
+['For this project only Apache-2.0 as the inbound license has been detected, and it is the same of the outbound license (Apache-2.0), implying that it is compatible. \nIt means that it is license compliant. ']
+###############################################
+tasks done, now sleeping for 10 seconds
+10 9 8 7 6 5 4 3 2 1 
+
+23
+#################
+##Running test number 24
+#################
+Retrieving outbound license from: https://api.github.com/repos/RadarCOVID/radar-covid-backend-configuration-server/license
+Outbound license: MPL-2.0
+The outbound license for the project is: MPL-2.0
+Retrieving inbound license(s) from: json/radar-covid-backend-configuration-server.json
+Started Reading the JSON report
+Reading: json/radar-covid-backend-configuration-server.json
+Finished reading the JSON report
+These inbound licenses have been found:
+['MPL 2.0']
+###################
+Running SPDXid mapping function:
+The SPDX id for the only inbound license detected is:
+MPL-2.0
+#################
+Running the license compliance verification:
+Inbound license list :
+['MPL-2.0']
+The outbound license is:  MPL-2.0
