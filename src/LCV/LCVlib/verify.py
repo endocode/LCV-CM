@@ -114,7 +114,9 @@ def verify(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
             output = "An UNKNOWN license has been found within the project. This cannot reveal license incompatibility"
             verificationList.append(output)
         if comparison == "II":
-            output = "There is insufficient information or knowledge whether this compatibility. OSADL Matrix is not able to compare them."
+            output = "There is insufficient information or knowledge whether the "+license+" as inbound license"+ \
+            " is compatible with the "+ OutboundLicense +" as outbound license. Therefore a general recommendation"+ \
+            " on the compatibility of "+license+" as inbound with the "+OutboundLicense+" as outbound cannot be given."
             verificationList.append(output)
     return verificationList
 
@@ -273,7 +275,7 @@ def parseVerificationList(verificationList):
         if UNK in element:
             print("\n"+element)
         if II in element:
-            print("\n"+element+"\nThere is insufficient information or knowledge whether this compatibility. OSADL Matrix is not able to compare them.\n")
+            print("\n"+element+"\nThere is insufficient information or knowledge upon this compatibility. OSADL Matrix is not able to compare them.\n")
         # if all element are compatible, license compliance occurs.
         indexLicense = 0
         for element in verificationList:
