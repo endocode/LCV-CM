@@ -147,6 +147,9 @@ def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
         if comparison == "UNK":
             verificationFlag = False
             return verificationFlag
+        if comparison == "II":
+            verificationFlag = False
+            return verificationFlag
 
     if all(verificationFlagList):
         verificationFlag = True
@@ -251,6 +254,7 @@ def parseVerificationList(verificationList):
     isNotSupported = "is not supported"
     TBD = "compatibility with"
     UNK = "UNKNOWN"
+    II = "II"
     for element in verificationList:
         if notCompatible in element:
             print("YOUR PACKAGE IS NOT COMPLIANT because:\n"+element)
@@ -265,6 +269,8 @@ def parseVerificationList(verificationList):
                 "\n"+element+"\nThis compatibility association still need to be defined.\n")
         if UNK in element:
             print("\n"+element)
+        if II in element:
+            print("\n"+element+"\nTThere is insufficient information or knowledge whether this compatibility.\n")
         # if all element are compatible, license compliance occurs.
         indexLicense = 0
         for element in verificationList:
