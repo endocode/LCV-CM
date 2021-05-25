@@ -52,13 +52,13 @@ While using Main.py and Tests.py the LCV algorithm is collecting a single instan
 Given these two inputs, the LCV algorithm can perform the verification.
 To build the APIs, build the docker image locally:
 ```
-docker build -t lcv-cm .
+docker build -f DockerfileExternal -t lcv-cm .
 ```
 or
 ```
-docker build --no-cache -t lcv-cm .
+docker build -f DockerfileExternal --no-cache -t lcv-cm .
 ```
-To avoid Docker build from using cache. 
+To avoid Docker build from using cache.
 
 The dockerfile clones this repository, so if it is required to update the docker image with code added recently, `--no-cache` would be the right option to apply the changes.
 
