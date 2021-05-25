@@ -118,6 +118,10 @@ def verify(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
             " is compatible with the "+ OutboundLicense +" as outbound license. Therefore a general recommendation"+ \
             " on the compatibility of "+license+" as inbound with the "+OutboundLicense+" as outbound cannot be given."
             verificationList.append(output)
+        if comparison == "DEP":
+            output = "Depending compatibility of the "+license+" with the "+ \
+            OutboundLicense +" license is explicitly stated in the "+OutboundLicense+" license checklist hosted by OSADL.org"
+            verificationList.append(output)
     return verificationList
 
 
@@ -153,6 +157,9 @@ def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
             verificationFlag = False
             return verificationFlag
         if comparison == "II":
+            verificationFlag = False
+            return verificationFlag
+        if comparison == "DEP":
             verificationFlag = False
             return verificationFlag
 
@@ -260,6 +267,7 @@ def parseVerificationList(verificationList):
     TBD = "compatibility with"
     UNK = "UNKNOWN"
     II = "II"
+    DEP = "DEP"
     for element in verificationList:
         if notCompatible in element:
             print("YOUR PACKAGE IS NOT COMPLIANT because:\n"+element)
@@ -276,6 +284,8 @@ def parseVerificationList(verificationList):
             print("\n"+element)
         if II in element:
             print("\n"+element+"\nThere is insufficient information or knowledge upon this compatibility. OSADL Matrix is not able to compare them.\n")
+        if DEP in element:
+            print("\n"+element+"\nDepending compatibility is explicitly stated in the license checklist hosted by OSADL.org")
         # if all element are compatible, license compliance occurs.
         indexLicense = 0
         for element in verificationList:
