@@ -10,7 +10,7 @@ from LCVlib.testlistsGithubAPI import GitHubURLList
 
 JSONPath = JSONPathList()
 GitHubURL = GitHubURLList()
-index = 29
+index = 0
 # With CM.csv tests 1 (because of Public Domain), 7, 9, 24 and 30 not functioning
 t = 10
 empty = ""
