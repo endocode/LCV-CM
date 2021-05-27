@@ -38,6 +38,11 @@ while index < len(GitHubURL):
             verificationList = Compare(InboundLicenses, OutboundLicense)
             print("Print verification list:")
             print(verificationList)
+        if (verificationFlag == "DUC"):
+            print("Compatibility depending on the use case .... generating logs")
+            verificationList = Compare(InboundLicenses, OutboundLicense)
+            print("Print verification list:")
+            print(verificationList)
         # verificationList = Compare(InboundLicenses, OutboundLicense)
         # print("Print verification list:")
         # print(verificationList)

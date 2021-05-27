@@ -268,6 +268,8 @@ def parseVerificationList(verificationList):
     UNK = "UNKNOWN"
     II = "II"
     DEP = "DEP"
+    DUC = "DUC"
+
     for element in verificationList:
         if notCompatible in element:
             print("YOUR PACKAGE IS NOT COMPLIANT because:\n"+element)
@@ -286,6 +288,9 @@ def parseVerificationList(verificationList):
             print("\n"+element+"\nThere is insufficient information or knowledge upon this compatibility. OSADL Matrix is not able to compare them.\n")
         if DEP in element:
             print("\n"+element+"\nDepending compatibility is explicitly stated in the license checklist hosted by OSADL.org")
+        if DUC in element:
+            print("\n"+element+"\nDepending on the use case.")
+
         # if all element are compatible, license compliance occurs.
         indexLicense = 0
         for element in verificationList:
