@@ -33,7 +33,7 @@ if OutboundLicense is not None:
         print("Print verification list:")
         print(verificationList)
 
-    if (verificationFlag is False or DUC):
+    if (verificationFlag is False):
         print("Compatibility issues found .... generating logs")
         verificationList = Compare(InboundLicenses, OutboundLicense)
         print("Print verification list:")

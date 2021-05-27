@@ -157,10 +157,10 @@ def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
             verificationFlag = False
             return verificationFlag
         if comparison == "II":
-            verificationFlag = DUC
+            verificationFlag = "DUC"
             return verificationFlag
         if comparison == "DEP":
-            verificationFlag = DUC
+            verificationFlag = "DUC"
             return verificationFlag
 
     if all(verificationFlagList):
