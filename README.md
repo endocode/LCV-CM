@@ -48,7 +48,7 @@ Currently, LCV is supporting only specific licenses.
 
 ## Running it with Docker:
 LCVServer.py implements the APIs to interact with the LCV algorithm that is performing License Compliance assessments.
-While using Main.py and Tests.py the LCV algorithm is collecting a single instance of each inbound license found in a given JSON (so far is accepting the QMSTR JSON Output and can be easily adapted to the Scancode JSON Output), the APIs require to insert a list of inbound licenses. The outbound license is declared for a given project.
+While using Main.py and Tests.py, the LCV algorithm is collecting a single instance of each inbound license found in a given JSON (so far is accepting the QMSTR JSON Output and can be easily adapted to the Scancode JSON Output), the APIs require to insert a list of inbound licenses. The outbound license is declared for a given project.
 Given these two inputs, the LCV algorithm can perform the verification.
 To build the APIs, build the docker image locally:
 ```
