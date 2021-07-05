@@ -39,17 +39,14 @@ df = CSV_to_dataframeOSADL("../../csv/OSADL.csv")
 supported_licenses_OSADL = list(df.index)
 #print(supported_licenses_OSADL)
 # create a list of licenses presents in our original matrix
-df = CSV_to_dataframeOSADL("../../csv/licenses_tests.csv")
-supported_licenses = list(df.index)
-#print(supported_licenses)
 
 def verifyOSADL_Transposed(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
     verificationList = list()
     if (OutboundLicense in supported_licenses_OSADL):
         column_names_list = [OutboundLicense]
         column_names_list.insert(0, 'License')
-        df = CSV_to_dataframe(CSVfilePath, column_names_list)
-        Column_array = df.to_numpy()
+        # df = CSV_to_dataframe(CSVfilePath, column_names_list)
+        # Column_array = df.to_numpy()
         # retrieve data from CSV file
         CSVfilePath = "../../csv/OSADL_transposed.csv"
         df = CSV_to_dataframe(CSVfilePath, column_names_list)
@@ -93,6 +90,55 @@ def verifyOSADL_Transposed(CSVfilePath, InboundLicenses_cleaned, OutboundLicense
                 verificationList.append(output)
     return verificationList
 
+def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
+    verificationFlagList = list()
+    if (OutboundLicense in supported_licenses_OSADL):
+        column_names_list = [OutboundLicense]
+        column_names_list.insert(0, 'License')
+        # retrieve data from CSV file
+        df = CSV_to_dataframe(CSVfilePath, column_names_list)
+        df = df.set_index('License')
+        if (len(InboundLicenses_cleaned) == 1) and (InboundLicenses_cleaned[0] == OutboundLicense):
+            verificationFlag = True
+            return verificationFlag
+
+        for license in InboundLicenses_cleaned:
+            if (license in supported_licenses_OSADL):
+                comparison = df.loc[license, OutboundLicense]
+                if comparison == "No":
+                    verificationFlag = False
+                    return verificationFlag
+                if comparison == "Yes":
+                    verificationFlag = True
+                    verificationFlagList.append(verificationFlag)
+                if comparison == "-":
+                    verificationFlag = True
+                    verificationFlagList.append(verificationFlag)
+                if comparison == "?":
+                    verificationFlag = "DUC"
+                    verificationFlagList.append(verificationFlag)
+                if comparison == "Dep.":
+                    verificationFlag = "DUC"
+                    verificationFlagList.append(verificationFlag)
+            else:
+                output = "The inbound license "+license+" is not present in the Compatibility Matrix"
+                verificationFlagList.append(output)
+
+        if ("DUC" in verificationFlagList):
+            verificationFlag = "DUC"
+            return verificationFlag
+        if all(verificationFlagList):
+            verificationFlag = True
+            return verificationFlag
+        else:
+            verificationFlag = False
+            return verificationFlag
+    else:
+        output = "The outbound license "+license+" is not present in the Compatibility Matrix"
+        verificationFlag.append(output)
+        return verificationFlag
+
+
 
 def retrieveOutboundLicense(url):
     print("Retrieving outbound license from: "+url)
@@ -105,55 +151,6 @@ def retrieveOutboundLicense(url):
         print("Outbound license: "+OutboundLicense)
 
     return OutboundLicense
-
-
-
-def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
-    column_names_list = [OutboundLicense]
-    column_names_list.insert(0, 'License')
-    verificationFlagList = list()
-    # retrieve data from CSV file
-    df = CSV_to_dataframe(CSVfilePath, column_names_list)
-    df = df.set_index('License')
-    if (len(InboundLicenses_cleaned) == 1) and (InboundLicenses_cleaned[0] == OutboundLicense):
-        verificationFlag = True
-        return verificationFlag
-
-    for license in InboundLicenses_cleaned:
-        comparison = df.loc[license, OutboundLicense]
-        if comparison == "0":
-            verificationFlag = False
-            return verificationFlag
-        if comparison == "NS":
-            verificationFlag = False
-            return verificationFlag
-        if comparison == "1":
-            verificationFlag = True
-            verificationFlagList.append(verificationFlag)
-        if comparison == "-":
-            verificationFlag = True
-            verificationFlagList.append(verificationFlag)
-        if comparison == "TBD":
-            verificationFlag = False
-            return verificationFlag
-        if comparison == "UNK":
-            verificationFlag = False
-            return verificationFlag
-        if comparison == "II":
-            verificationFlag = "DUC"
-            verificationFlagList.append(verificationFlag)
-        if comparison == "DEP":
-            verificationFlag = "DUC"
-            verificationFlagList.append(verificationFlag)
-    if ("DUC" in verificationFlagList):
-        verificationFlag = "DUC"
-        return verificationFlag
-    if all(verificationFlagList):
-        verificationFlag = True
-        return verificationFlag
-    else:
-        verificationFlag = False
-        return verificationFlag
 
 
 def CompareSPDX(InboundLicenses_SPDX, OutboundLicense):
@@ -204,7 +201,7 @@ def CompareSPDXFlag(InboundLicenses_SPDX, OutboundLicense):
     print("Running the license compliance verification:")
     print("Inbound license list :\n"+str(InboundLicenses_SPDX))
     print("The outbound license is: ", OutboundLicense)
-    CSVfilePath = "../../csv/licenses_tests.csv"
+    CSVfilePath = "../../csv/OSADL_transposed.csv"
     verificationFlag = verifyFlag(
         CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
     return verificationFlag
