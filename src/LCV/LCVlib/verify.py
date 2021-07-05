@@ -11,7 +11,6 @@ import numpy as np
 *
 * SPDX-License-Identifier: MIT
 '''
-orLater = "or-later"
 
 
 def CSV_to_dataframe(CSVfilePath, column_names_list):
@@ -95,53 +94,6 @@ def verifyOSADL_Transposed(CSVfilePath, InboundLicenses_cleaned, OutboundLicense
     return verificationList
 
 
-def verifyOSADL(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
-    verificationList = list()
-    if (OutboundLicense in supported_licenses_OSADL):
-        # retrieve data from CSV file
-        df = CSV_to_dataframeOSADL(CSVfilePath)
-
-        if (len(InboundLicenses_cleaned) == 1) and (InboundLicenses_cleaned[0] == OutboundLicense):
-            output = "For this project only " + \
-                InboundLicenses_cleaned[0] + \
-                " as the inbound license has been detected, and it is the same of the outbound license (" + \
-                OutboundLicense+"), implying that it is compatible. \nIt means that it is license compliant. "
-            verificationList.append(output)
-            return verificationList
-        else:
-            for license in InboundLicenses_cleaned:
-                if (license in supported_licenses_OSADL):
-                    comparison = df.loc[OutboundLicense, str(license)]
-                    if comparison == "No":
-                        output = license+" is not compatible with " + \
-                            OutboundLicense+" as an outbound license."
-                        verificationList.append(output)
-                    if comparison == "Yes":
-                        output = license+" is compatible with " + \
-                            OutboundLicense + " as an outbound license."
-                        verificationList.append(output)
-                    # OSADL Matrix could be shipped with empty field, resulting in nan.
-                    if comparison == "-":
-                        output = license+" is compatible with " + \
-                            OutboundLicense + " as an outbound license."
-                        verificationList.append(output)
-                    if comparison == "?":
-                        output = "There is insufficient information or knowledge whether the "+license+" as inbound license" + \
-                            " is compatible with the " + OutboundLicense + " as outbound license. Therefore a general recommendation" + \
-                            " on the compatibility of "+license+" as inbound with the " + \
-                            OutboundLicense+" as outbound cannot be given."
-                        verificationList.append(output)
-                    if comparison == "Dep.":
-                        output = "Depending compatibility of the "+license+" with the " + \
-                            OutboundLicense + " license is explicitly stated in the " + \
-                            OutboundLicense+" license checklist hosted by OSADL.org"
-                        verificationList.append(output)
-                else:
-                    output = "The inbound license "+license+" is not present in the Compatibility Matrix"
-                    verificationList.append(output)
-    return verificationList
-
-
 def retrieveOutboundLicense(url):
     print("Retrieving outbound license from: "+url)
     response = requests.get(url).json()
@@ -154,105 +106,6 @@ def retrieveOutboundLicense(url):
 
     return OutboundLicense
 
-
-def RetrieveInboundLicenses(JSONPath):
-    print("Retrieving inbound license(s) from: "+JSONPath)
-    print("Started Reading the JSON report")
-    with open(JSONPath, "r") as read_file:
-        print("Reading: " + JSONPath)
-        data = json.load(read_file)  # dict
-        InboundLicenses = []
-        for i in data['payload']['fileMetadata']:
-            for x in (i['licenses']):
-                if x not in InboundLicenses:
-                    InboundLicenses.append(x)
-    print("Finished reading the JSON report")
-    print("These inbound licenses have been found:")
-    print(InboundLicenses)
-
-    print("###################")
-    return InboundLicenses
-
-
-def SPDXIdMapping(InboundLicenses_cleaned):
-    CSVfilePath = "../../csv/spdx-id.csv"
-    InboundLicenses_SPDX = []
-    column_names_list = ['Scancode', 'SPDX-ID']
-    df = CSV_to_dataframe(CSVfilePath, column_names_list)
-    df = df.set_index('Scancode')
-    for license in InboundLicenses_cleaned:
-        newElement = df.loc[license]['SPDX-ID']
-        if newElement is not np.nan:
-            # print(newElement)
-            InboundLicenses_SPDX.append(newElement)
-            if orLater in newElement:
-                print("The usage of 'or later' is not supported. \n Please specify a license version instead of using 'or later' notation.")
-        else:
-            InboundLicenses_SPDX.append(license)
-        # print(InboundLicenses_cleaned)
-
-    return InboundLicenses_SPDX
-
-
-def verify(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
-    verificationList = list()
-    if (OutboundLicense in supported_licenses):
-        column_names_list = [OutboundLicense]
-        column_names_list.insert(0, 'License')
-        # retrieve data from CSV file
-        df = CSV_to_dataframe(CSVfilePath, column_names_list)
-        df = df.set_index('License')
-        if (len(InboundLicenses_cleaned) == 1) and (InboundLicenses_cleaned[0] == OutboundLicense):
-            output = "For this project only " + \
-                InboundLicenses_cleaned[0] + \
-                " as the inbound license has been detected, and it is the same of the outbound license (" + \
-                OutboundLicense+"), implying that it is compatible. \nIt means that it is license compliant. "
-            verificationList.append(output)
-            return verificationList
-        else:
-            for license in InboundLicenses_cleaned:
-                if (license in supported_licenses):
-                    comparison = df.loc[license, OutboundLicense]
-                    if comparison == "0":
-                        output = license+" is not compatible with " + \
-                            OutboundLicense+" as an outbound license."
-                        verificationList.append(output)
-                    if comparison == "NS":
-                        output = license+" is not supported, because 'or later' notation."
-                        verificationList.append(output)
-                    if comparison == "1":
-                        output = license+" is compatible with " + \
-                            OutboundLicense + " as an outbound license."
-                        verificationList.append(output)
-                    if comparison == "-":
-                        output = license+" is compatible with " + \
-                            OutboundLicense + " as an outbound license."
-                        verificationList.append(output)
-                    if comparison == "TBD":
-                        output = license+" compatibility with " + \
-                            OutboundLicense + " still needs to be defined."
-                        verificationList.append(output)
-                    if comparison == "UNK":
-                        output = "An UNKNOWN license has been found within the project. This cannot reveal license incompatibility"
-                        verificationList.append(output)
-                    if comparison == "II":
-                        output = "There is insufficient information or knowledge whether the "+license+" as inbound license" + \
-                            " is compatible with the " + OutboundLicense + " as outbound license. Therefore a general recommendation" + \
-                            " on the compatibility of "+license+" as inbound with the " + \
-                            OutboundLicense+" as outbound cannot be given."
-                        verificationList.append(output)
-                    if comparison == "DEP":
-                        output = "Depending compatibility of the "+license+" with the " + \
-                            OutboundLicense + " license is explicitly stated in the " + \
-                            OutboundLicense+" license checklist hosted by OSADL.org"
-                        verificationList.append(output)
-                else:
-                    output = "The inbound license "+license+" is not present in the Compatibility Matrix"
-                    verificationList.append(output)
-    else:
-        output = "The outbound license "+OutboundLicense+"  is not present in the Compatibility Matrix"
-        verificationList.append(output)
-    return verificationList
 
 
 def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
@@ -301,60 +154,6 @@ def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
     else:
         verificationFlag = False
         return verificationFlag
-
-
-def CheckOutboundLicense(OutboundLicense):
-    if OutboundLicense != "NOASSERTION":
-        print("The outbound license for the project is: "+OutboundLicense)
-
-        if orLater in OutboundLicense:
-            print("The usage of `'or later' is not supported. \n Please specify a license version instead of using `'or later'` notation.")
-            return
-    else:
-        print("This project does not specify correctly an SPDX id for its oubound license")
-        return
-    return OutboundLicense
-
-
-def Compare(InboundLicenses, OutboundLicense):
-    print("Running SPDXid mapping function:")
-    InboundLicenses_SPDX = SPDXIdMapping(InboundLicenses)
-
-    if len(InboundLicenses_SPDX) == 1:
-        print("The SPDX id for the only inbound license detected is:")
-        print(InboundLicenses_SPDX[0])
-    else:
-        print("The SPDX IDs for the inbound licenses found are:")
-        print(InboundLicenses_SPDX)
-    print("#################")
-    print("Running the license compliance verification:")
-    print("Inbound license list :\n"+str(InboundLicenses_SPDX))
-    print("The outbound license is: ", OutboundLicense)
-    CSVfilePath = "../../csv/licenses_tests.csv"
-    verificationListToParse = verify(
-        CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
-    verificationList = parseVerificationList(verificationListToParse)
-    return verificationList
-
-
-def CompareFlag(InboundLicenses, OutboundLicense):
-    print("Running SPDXid mapping function:")
-    InboundLicenses_SPDX = SPDXIdMapping(InboundLicenses)
-
-    if len(InboundLicenses_SPDX) == 1:
-        print("The SPDX id for the only inbound license detected is:")
-        print(InboundLicenses_SPDX[0])
-    else:
-        print("The SPDX IDs for the inbound licenses found are:")
-        print(InboundLicenses_SPDX)
-    print("#################")
-    print("Running the license compliance verification:")
-    print("Inbound license list :\n"+str(InboundLicenses_SPDX))
-    print("The outbound license is: ", OutboundLicense)
-    CSVfilePath = "../../csv/licenses_tests.csv"
-    verificationFlag = verifyFlag(
-        CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
-    return verificationFlag
 
 
 def CompareSPDX(InboundLicenses_SPDX, OutboundLicense):
@@ -454,13 +253,3 @@ def parseVerificationList(verificationList):
         else:
             print("Hence your project is not compatible.")
         return verificationList
-
-
-def runtimer(t):
-    print("###############################################")
-    print("tasks done, now sleeping for "+str(t)+" seconds")
-    for i in range(t, 0, -1):
-        sys.stdout.write(str(i)+' ')
-        sys.stdout.flush()
-        time.sleep(1)
-    print("\n")
