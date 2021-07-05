@@ -1,4 +1,4 @@
-from LCVlib.verify import retrieveOutboundLicense, Compare, CompareSPDX, CompareFlag, CompareSPDXFlag, CompareSPDX_OSADL
+from LCVlib.verify import retrieveOutboundLicense, CompareSPDX, CompareSPDXFlag, CompareSPDX_OSADL
 import logging
 import signal
 import time
