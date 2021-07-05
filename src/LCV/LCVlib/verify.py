@@ -37,7 +37,7 @@ def CSV_to_dataframeOSADL(CSVfilePath):
 # create a list of licenses presents in the OSADL matrix
 df = CSV_to_dataframeOSADL("../../csv/OSADL.csv")
 supported_licenses_OSADL = list(df.index)
-#print(supported_licenses_OSADL)
+print(supported_licenses_OSADL)
 # create a list of licenses presents in our original matrix
 
 def verifyOSADL_Transposed(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
@@ -92,7 +92,9 @@ def verifyOSADL_Transposed(CSVfilePath, InboundLicenses_cleaned, OutboundLicense
 
 def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
     verificationFlagList = list()
+
     if (OutboundLicense in supported_licenses_OSADL):
+
         column_names_list = [OutboundLicense]
         column_names_list.insert(0, 'License')
         # retrieve data from CSV file
@@ -123,6 +125,10 @@ def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
             else:
                 output = "The inbound license "+license+" is not present in the Compatibility Matrix"
                 verificationFlagList.append(output)
+                #simple output single line
+                #return output
+                #output containing all the flags, including the missing license
+                return verificationFlagList
 
         if ("DUC" in verificationFlagList):
             verificationFlag = "DUC"
@@ -134,9 +140,9 @@ def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
             verificationFlag = False
             return verificationFlag
     else:
-        output = "The outbound license "+license+" is not present in the Compatibility Matrix"
-        verificationFlag.append(output)
-        return verificationFlag
+        output = "The outbound license "+OutboundLicense+" is not present in the Compatibility Matrix"
+        verificationFlagList.append(output)
+        return verificationFlagList
 
 
 
