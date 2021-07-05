@@ -145,7 +145,6 @@ def verifyFlag(CSVfilePath, InboundLicenses_cleaned, OutboundLicense):
         return verificationFlagList
 
 
-
 def retrieveOutboundLicense(url):
     print("Retrieving outbound license from: "+url)
     response = requests.get(url).json()
