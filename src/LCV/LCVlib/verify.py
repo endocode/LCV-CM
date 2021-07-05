@@ -37,7 +37,7 @@ def CSV_to_dataframeOSADL(CSVfilePath):
 # create a list of licenses presents in the OSADL matrix
 df = CSV_to_dataframeOSADL("../../csv/OSADL.csv")
 supported_licenses_OSADL = list(df.index)
-print(supported_licenses_OSADL)
+#print(supported_licenses_OSADL)
 # create a list of licenses presents in our original matrix
 df = CSV_to_dataframeOSADL("../../csv/licenses_tests.csv")
 supported_licenses = list(df.index)
