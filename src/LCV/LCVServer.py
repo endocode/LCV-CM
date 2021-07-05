@@ -188,14 +188,6 @@ def LicensesInputSPDXFlag():
     verificationFlag = CompareSPDXFlag(InboundLicenses, OutboundLicense)
     return jsonify(verificationFlag)
 
-# not strictly useful endpoints (at the moment)
-
-
-@app.route('/versionz')
-def version():
-    GitHeadHash = GitHash(GITREPO)
-    return jsonify(GitProject=GITREPO,
-                   GitHeadHash=GitHeadHash)
 
 
 @app.route('/shutdown/', defaults={"secs": "1"})

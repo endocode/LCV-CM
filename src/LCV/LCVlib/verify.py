@@ -37,7 +37,7 @@ def CSV_to_dataframeOSADL(CSVfilePath):
 # create a list of licenses presents in the OSADL matrix
 df = CSV_to_dataframeOSADL("../../csv/OSADL.csv")
 supported_licenses_OSADL = list(df.index)
-#print(supported_licenses_OSADL)
+print(supported_licenses_OSADL)
 # create a list of licenses presents in our original matrix
 df = CSV_to_dataframeOSADL("../../csv/licenses_tests.csv")
 supported_licenses = list(df.index)
@@ -62,7 +62,7 @@ def verifyOSADL_Transposed(CSVfilePath, InboundLicenses_cleaned, OutboundLicense
             verificationList.append(output)
             return verificationList
         for license in InboundLicenses_cleaned:
-            if (license in Column_array):
+            if (license in supported_licenses_OSADL):
                 comparison = df.loc[license, OutboundLicense]
                 if comparison == "No":
                     output = license+" is not compatible with " + \
@@ -88,9 +88,9 @@ def verifyOSADL_Transposed(CSVfilePath, InboundLicenses_cleaned, OutboundLicense
                         OutboundLicense + " license is explicitly stated in the " + \
                         OutboundLicense+" license checklist hosted by OSADL.org"
                     verificationList.append(output)
-        else:
-            output = "The inbound license "+license+" is not present in the Compatibility Matrix"
-            verificationList.append(output)
+            else:
+                output = "The inbound license "+license+" is not present in the Compatibility Matrix"
+                verificationList.append(output)
     return verificationList
 
 
@@ -186,8 +186,8 @@ def CompareSPDX_OSADL(InboundLicenses_SPDX, OutboundLicense):
     print("Inbound license list :\n"+str(InboundLicenses_SPDX))
     print("The outbound license is: "+OutboundLicense)
     #CSVfilePath = "../../csv/licenses_tests.csv"
-    CSVfilePath = "../../csv/OSADL.csv"
-    verificationList = verifyOSADL(
+    CSVfilePath = "../../csv/OSADL_transposed.csv"
+    verificationList = verifyOSADL_Transposed(
         CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
     verificationList = parseVerificationList(verificationList)
     return verificationList
