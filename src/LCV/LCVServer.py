@@ -1,4 +1,4 @@
-from LCVlib.verify import retrieveOutboundLicense, Compare, CompareSPDX, CompareFlag, CompareSPDXFlag
+from LCVlib.verify import retrieveOutboundLicense, Compare, CompareSPDX, CompareFlag, CompareSPDXFlag, CompareSPDX_OSADL
 import logging
 import signal
 import time
@@ -156,6 +156,21 @@ def ComplianceSPDX():
         return jsonify(verificationList)
 
 
+@app.route('/CompatibilitySPDX_OSADL')
+def CompatibilitySPDX_OSADL():
+    return render_template('compatibilitySPDX_OSADL.html')
+
+
+@app.route('/CompatibilitySPDX_OSADLOutput', methods=['POST', 'GET'])
+def ComplianceSPDX_OSADL():
+    if request.method == 'POST':
+        InboundLicenses = request.form['inboundLicenses']
+        InboundLicenses = InboundLicenses.split(",")
+        OutboundLicense = request.form['outboundLicense']
+        verificationList = CompareSPDX_OSADL(InboundLicenses, OutboundLicense)
+        return jsonify(verificationList)
+
+
 @app.route('/CompatibilitySPDXFlag')
 def CompatibilitySPDXFlag():
     return render_template('compatibilitySPDXFlag.html')
@@ -213,6 +228,17 @@ def LicensesInputSPDX():
     InboundLicenses = InboundLicenses.split(",")
     OutboundLicense = args['OutboundLicense']
     verificationList = CompareSPDX(InboundLicenses, OutboundLicense)
+    return jsonify(verificationList)
+
+
+@app.route('/LicensesInputSPDX_OSADL', methods=['POST', 'GET'])
+def LicensesInputSPDX_OSADL():
+    args = request.args
+    print(args)  # For debugging
+    InboundLicenses = args['InboundLicenses']
+    InboundLicenses = InboundLicenses.split(",")
+    OutboundLicense = args['OutboundLicense']
+    verificationList = CompareSPDX_OSADL(InboundLicenses, OutboundLicense)
     return jsonify(verificationList)
 
 
