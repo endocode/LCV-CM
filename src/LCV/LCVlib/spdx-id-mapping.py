@@ -13,7 +13,16 @@ import re
 * SPDX-License-Identifier: MIT
 '''
 
+license_list = ['MIT', 'Apache-2.0', 'GPL-2.0-only']
 
+
+#re approach
 def SPDXMapping(license):
+    for item in license_list:
+        if re.match("mit$",item, flags=re.I): # re.I == re.IGNORECASE
+            
+
+
+#split approach
     list_of_words = license.split()
     if word in list_of_words:
