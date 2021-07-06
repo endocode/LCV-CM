@@ -30,16 +30,14 @@ def Mapping(InboundLicenses_cleaned):
     column_names_list = ['Scancode', 'SPDX-ID']
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
     df = df.set_index('Scancode')
+    # @Michele you should insert a check upon the column of "scancode name", if the license is there, enter the cycle
+    # if not, provide an output without producing a KeyError
     for license in InboundLicenses_cleaned:
         newElement = df.loc[license]['SPDX-ID']
         if newElement is not np.nan:
-            # print(newElement)
             InboundLicenses_SPDX.append(newElement)
-            #if orLater in newElement:
-                #print("The usage of 'or later' is not supported. \n Please specify a license version instead of using 'or later' notation.")
         else:
             InboundLicenses_SPDX.append(license)
-        # print(InboundLicenses_cleaned)
 
     return InboundLicenses_SPDX
 
