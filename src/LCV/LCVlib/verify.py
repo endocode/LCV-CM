@@ -6,6 +6,8 @@ import time
 import sys
 import pandas as pd
 import numpy as np
+from LCVlib.SPDXIdMapping import Mapping
+
 '''
 * SPDX-FileCopyrightText: 2021 Michele Scarlato <michele.scarlato@endocode.com>
 *
@@ -177,6 +179,7 @@ def CompareSPDX(InboundLicenses_SPDX, OutboundLicense):
 
 
 def CompareSPDX_OSADL(InboundLicenses_SPDX, OutboundLicense):
+    #InboundLicenses_SPDX = Mapping(InboundLicenses_SPDX)
     if len(InboundLicenses_SPDX) == 1:
         print("The SPDX id for the only inbound license detected is:")
         print(InboundLicenses_SPDX[0])
@@ -193,6 +196,27 @@ def CompareSPDX_OSADL(InboundLicenses_SPDX, OutboundLicense):
         CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
     verificationList = parseVerificationList(verificationList)
     return verificationList
+
+def Compare_OSADL(InboundLicenses_SPDX, OutboundLicense):
+    InboundLicenses_SPDX = Mapping(InboundLicenses_SPDX)
+
+    if len(InboundLicenses_SPDX) == 1:
+        print("The SPDX id for the only inbound license detected is:")
+        print(InboundLicenses_SPDX[0])
+    else:
+        print("The SPDX IDs for the inbound licenses found are:")
+        print(InboundLicenses_SPDX)
+    print("#################")
+    print("Running the license compliance verification:")
+    print("Inbound license list :\n"+str(InboundLicenses_SPDX))
+    print("The outbound license is: "+OutboundLicense)
+    #CSVfilePath = "../../csv/licenses_tests.csv"
+    CSVfilePath = "../../csv/OSADL_transposed.csv"
+    verificationList = verifyOSADL_Transposed(
+        CSVfilePath, InboundLicenses_SPDX, OutboundLicense)
+    verificationList = parseVerificationList(verificationList)
+    return verificationList
+
 
 
 def CompareSPDXFlag(InboundLicenses_SPDX, OutboundLicense):

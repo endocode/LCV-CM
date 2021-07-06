@@ -1,4 +1,4 @@
-from LCVlib.verify import retrieveOutboundLicense, CompareSPDX, CompareSPDXFlag, CompareSPDX_OSADL
+from LCVlib.verify import retrieveOutboundLicense, CompareSPDX, CompareSPDXFlag, CompareSPDX_OSADL, Compare_OSADL
 import logging
 import signal
 import time
@@ -176,6 +176,16 @@ def LicensesInputSPDX_OSADL():
     verificationList = CompareSPDX_OSADL(InboundLicenses, OutboundLicense)
     return jsonify(verificationList)
 
+#this endpoint perform the check upon the OSADL.csv
+@app.route('/LicensesInput', methods=['POST', 'GET'])
+def LicensesInput():
+    args = request.args
+    print(args)  # For debugging
+    InboundLicenses = args['InboundLicenses']
+    InboundLicenses = InboundLicenses.split(";")
+    OutboundLicense = args['OutboundLicense']
+    verificationList = Compare_OSADL(InboundLicenses, OutboundLicense)
+    return jsonify(verificationList)
 
 @app.route('/LicensesInputSPDXFlag', methods=['GET', 'POST'])
 # @app.route('/LicensesInput', methods=['POST'])
