@@ -14,8 +14,6 @@ import re
 * SPDX-License-Identifier: MIT
 '''
 
-license_list = ['MIT', 'Apache-2.0', 'GPL-2.0-only']
-
 def CSV_to_dataframe(CSVfilePath, column_names_list):
     """
     Import a CSV and transform it into a pandas dataframe selecting only the useful columns from the Compatibility Matrix
@@ -38,18 +36,32 @@ def Mapping(InboundLicenses_cleaned):
             InboundLicenses_SPDX.append(newElement)
         else:
             InboundLicenses_SPDX.append(license)
-
     return InboundLicenses_SPDX
 
 
-'''
-#re approach
-def SPDXMapping(license):
+# possible inputs from Maven central
+license_list = ['The Apache Software License, Version 2.0', 'Apache License, Version 2.0']
+
+# possible licenses keywords
+licenses = ["Apache","GPL"]
+# possible versions list
+versions = ["1.0","2.0"]
+
+def Re(licenses):
     for item in license_list:
-        if re.match("mit$",item, flags=re.I): # re.I == re.IGNORECASE
+        list_of_words = item.split()
+        for license in licenses:
+            #here should a control upon case sensitivity
+            if license in list_of_words:
+                for version in versions:
+                    if version in list_of_words:
+                        supposedLicenseSPDX = license+"-"+version
+                        supposedLicense = license+" "+version
+                        print("Supposed License: "+supposedLicense)
+                        print("Supposed License SPDX: "+supposedLicenseSPDX)
 
 
-
+'''
 #split approach
     list_of_words = license.split()
     if word in list_of_words:

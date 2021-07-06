@@ -13,9 +13,12 @@ EPL 2.0,EPL-2.0,
 
 GPL 2.0 or later,GPL-2.0-or-later,
 Classpath exception to GPL 2.0 or later,GPL-2.0-with-classpath-exception,Yes - https://spdx.org/licenses/GPL-2.0-with-classpath-exception.html
+
+"GNU General Public License Version 3.0",GPL-3.0-only,
 GPL 3.0,GPL-3.0-only,
 GPL 3.0 only,GPL-3.0-only,
 GPL 3.0 or later,GPL-3.0-or-later,
+"GNU Lesser General Public License", Version 3,LGPL-3.0-only,
 LGPL 3.0 or later,LGPL-3.0-or-later,
 
 MIT License,MIT,
