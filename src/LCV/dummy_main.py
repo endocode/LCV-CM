@@ -10,6 +10,8 @@ import sys
 import pandas as pd
 import numpy as np
 import re
+from LCVlib.SPDXIdMapping import Mapping
+from LCVlib.verify import CSV_to_dataframeOSADL
 
 '''
 * SPDX-FileCopyrightText: 2021 Michele Scarlato <michele.scarlato@endocode.com>
@@ -17,66 +19,78 @@ import re
 * SPDX-License-Identifier: MIT
 '''
 
+df = CSV_to_dataframeOSADL("../../csv/OSADL.csv")
+supported_licenses_OSADL = list(df.index)
+print(supported_licenses_OSADL)
 
-license_list = ['The Apache Software License, Version 2.0', 'Apache License, Version 1.0']
+
+license_list = ['AGPL 3.0 only','MIT Licensed','The Apache Software License, Version 2.0', 'Apache License, Version 1.0','AGPL 3.0 or later']
 #re approach
 
-licenses = ["Apache","GPL"]
-versions = ["1.0","2.0"]
+# Currently the algorithm is not able to reason like: "General Public License = GPL"
+licenses = ["Apache","GPL","MIT","AGPL"]
+versions = ["1.0","1.1","2.0","2.1","3.0","3.1"]
 
-def Re(licenses):
-    for item in license_list:
-        list_of_words = item.split()
-        for license in licenses:
-            #here should a control upon case sensitivity
-            if license in list_of_words:
-                for version in versions:
-                    if version in list_of_words:
-                        supposedLicenseSPDX = license+"-"+version
-                        supposedLicense = license+" "+version
-                        print("Supposed License: "+supposedLicense)
-                        print("Supposed License SPDX: "+supposedLicenseSPDX)
+# To do: excluding the "," from parsing - currently it remains attached to the License, word e.g.
+def Re(verbose_license):
+    print(verbose_license)
+    licenseVersion = None
+    licenseName = None
+    orLater=False
+    list_of_words = verbose_license.split()
+    for word in list_of_words:
+        if word in licenses:
+            licenseName=word
+        if word in versions:
+            licenseVersion=word
+        if word == "Later" or word == "later":
+            print(word)
+            orLater=True
+    # after scanning the whole verbose license
 
+    if licenseName is not None and licenseVersion is None:
+        supposedLicenseSPDX = licenseName
+        print("Supposed License SPDX: "+supposedLicenseSPDX)
+        return supposedLicenseSPDX
+    if not orLater:
+        print(orLater)
+        if licenseName and licenseVersion is not None:
+            supposedLicense = licenseName+" "+licenseVersion
+            supposedLicenseSPDX = licenseName+"-"+licenseVersion
+            print("Supposed License: "+supposedLicense)
+            print("Supposed License SPDX: "+supposedLicenseSPDX)
+            return supposedLicenseSPDX
+    if orLater:
+        print(orLater)
+        if licenseName and licenseVersion is not None:
+            supposedLicense = licenseName+" "+licenseVersion+" or later"
+            supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-or-later"
+            print("Supposed License: "+supposedLicense)
+            print("Supposed License SPDX: "+supposedLicenseSPDX)
+            return supposedLicenseSPDX
 
+Re_license_list=[]
+Re_license_list_to_Map=[]
+Re_license_list_SPDX=[]
+for verbose_license in license_list:
+    license = Re(verbose_license)
+    if license is not None:
+        Re_license_list.append(license)
+print("Printing list afther Re")
+print(Re_license_list)
 
-        '''
-        if re.match("Apache$",item, flags=re.I): # re.I == re.IGNORECASE
-            print(item)
-        '''
+for license in Re_license_list:
+    if license in supported_licenses_OSADL:
+        #print(license)
+        print(license+" is an SDPX id")
+        Re_license_list_SPDX.append(license)
+    else:
+        #Mapping(Re_license_list)
+        print(license+" is NOT an SDPX id")
+        Re_license_list_to_Map.append(license)
 
-Re(licenses)
+Re_license_list_Mapped=Mapping(Re_license_list_to_Map)
+print(Re_license_list_Mapped)
 
-'''
-my_list = ['webcam old', 'home', 'Space', 'Maybe later', 'Webcamnew']
-for item in my_list:
-    list_of_words = item.split()
-    if word in list_of_words:
-        if re.match("webcam$",item, flags=re.I): # re.I == re.IGNORECASE
-            print(item)
-'''
-
-'''
-CSVfilePath = "/home/michelescarlato/gitrepo/LCV-CM-Fasten/LCV-CM/csv/OSADL_transposed.csv"
-
-# Outbound
-column_names_list = ['MIT']
-column_names_list.insert(0, 'License')
-df = pd.read_csv(CSVfilePath, usecols=column_names_list)
-print(df)
-License = "Pippo"
-
-
-Column_array = df.to_numpy()
-
-#df.loc[:, 'License']
-print(Column_array)
-if (License in Column_array):
-    print("License is in the Matrix")
-else:
-    print("License is not in the Matrix")
-#df[~df.License.isin(License)]
-
-#print(df)
-#df.iloc[-1, -1] = "License"
-#print(df)
-'''
+final_SPDX_ID_list = Re_license_list_SPDX + Re_license_list_Mapped
+print(final_SPDX_ID_list)

@@ -23,6 +23,7 @@ def CSV_to_dataframe(CSVfilePath, column_names_list):
 
 
 def Mapping(InboundLicenses_cleaned):
+    print(InboundLicenses_cleaned)
     CSVfilePath = "../../csv/spdx-id.csv"
     InboundLicenses_SPDX = []
     column_names_list = ['Scancode', 'SPDX-ID']
