@@ -10,7 +10,7 @@ import sys
 import pandas as pd
 import numpy as np
 import re
-from LCVlib.SPDXIdMapping import StaticMapping
+from LCVlib.SPDXIdMapping import StaticMappingList,IsASPDX,StaticMapping,DynamicMapping
 from LCVlib.verify import CSV_to_dataframeOSADL
 
 '''
@@ -32,10 +32,14 @@ license_list = ['AGPL 3.0 only','The Apache Software License, Version 2.0', 'Apa
 # BSD contains the Clause word after the version number - which is not including .0 or .1
 # bzip versions are in the format 1.0.5 or 1.0.6.
 # still you are not catching classpath with this logic
+# MIT CMU will be hardly recognized
+# MPL no copyleft cannot be recognized with this method
+# MS-PL (Microsoft Public License) and MS-RL (Microsoft Reciprocal License) cannot be recognized
+# Unicode DFS 2015 and 2016 currently cannot be re-composed.
+# zlib-acknowledgement can be matched only with hyphen in the middle, inasmuch zlib is written equally.
 licenses = ["AFL","AGPL","Apache","Artistic","BSD","BSL","bzip2","CC0","CDDL","CPL","curl","EFL","EPL","EUPL","FTL","GPL","HPND","IBM","ICU","IJG","IPL","ISC",
-"LGPL",
-"MIT"]
-versions = ["1.0","1.0.5","1.0.6","1.1","2.0","2.1","3.0","3.1"]
+"LGPL","Libpng","libtiff","MirOS","MIT","CMU","MPL","MS","NBPL","NTP","OpenSSL","OSL","Python","Qhull","RPL","SunPro","Unicode","UPL","WTFPL","X11","XFree86","Zlib","zlib-acknowledgement"]
+versions = ["1.0","1.0.5","1.0.6","1.1","1.5","2.0","2.1","3.0","3.1"]
 
 # To do: excluding the "," from parsing - currently it remains attached to the License, word e.g.
 
@@ -92,10 +96,26 @@ def DynamicMapping(verbose_license):
 DM_license_list=[]
 DM_license_list_to_Map=[]
 DM_license_list_SPDX=[]
+# for inbound licenses or just CheckOutboundLicense
 for verbose_license in license_list:
-    license = DynamicMapping(verbose_license)
-    if license is not None:
-        DM_license_list.append(license)
+    print(verbose_license)
+    license = StaticMapping(verbose_license)
+    #print(license)
+    # this check has no sense.
+    # here is going to end up or the SPDX-id, or the verbose_license name.
+    #if license is not None:
+
+    # IF ... IS An SPDX ID
+    IsASPDX(license)
+
+    # IF IT IS NOT:
+    # run DynamicMapping
+
+
+    #DM_license_list.append(license)
+
+
+'''
 print("Printing list afther Re")
 print(DM_license_list)
 
@@ -109,8 +129,9 @@ for license in DM_license_list:
         print(license+" is NOT an SDPX id")
         DM_license_list_to_Map.append(license)
 
-DM_license_list_Mapped=StaticMapping(DM_license_list_to_Map)
+DM_license_list_Mapped=StaticMappingList(DM_license_list_to_Map)
 print(DM_license_list_Mapped)
 
 final_SPDX_ID_list = DM_license_list_SPDX + DM_license_list_Mapped
 print(final_SPDX_ID_list)
+'''
