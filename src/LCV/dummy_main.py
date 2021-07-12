@@ -10,7 +10,7 @@ import sys
 import pandas as pd
 import numpy as np
 import re
-from LCVlib.SPDXIdMapping import Mapping
+from LCVlib.SPDXIdMapping import StaticMapping
 from LCVlib.verify import CSV_to_dataframeOSADL
 
 '''
@@ -21,22 +21,30 @@ from LCVlib.verify import CSV_to_dataframeOSADL
 
 df = CSV_to_dataframeOSADL("../../csv/OSADL.csv")
 supported_licenses_OSADL = list(df.index)
-print(supported_licenses_OSADL)
+#print(supported_licenses_OSADL)
 
 
-license_list = ['AGPL 3.0 only','MIT Licensed','The Apache Software License, Version 2.0', 'Apache License, Version 1.0','AGPL 3.0 or later']
+license_list = ['AGPL 3.0 only','The Apache Software License, Version 2.0', 'Apache License, Version 1.0','AGPL 3.0 or later','GPL 3.0 only','MIT Licensed']
 #re approach
 
 # Currently the algorithm is not able to reason like: "General Public License = GPL"
-licenses = ["Apache","GPL","MIT","AGPL"]
-versions = ["1.0","1.1","2.0","2.1","3.0","3.1"]
+# Artistic is artistic-1.0-perl, try to catch it!
+# BSD contains the Clause word after the version number - which is not including .0 or .1
+# bzip versions are in the format 1.0.5 or 1.0.6.
+# still you are not catching classpath with this logic
+licenses = ["AFL","AGPL","Apache","Artistic","BSD","BSL","bzip2","CC0","CDDL","CPL","curl","EFL","EPL","EUPL","FTL","GPL","HPND","IBM","ICU","IJG","IPL","ISC",
+"LGPL",
+"MIT"]
+versions = ["1.0","1.0.5","1.0.6","1.1","2.0","2.1","3.0","3.1"]
 
 # To do: excluding the "," from parsing - currently it remains attached to the License, word e.g.
-def Re(verbose_license):
-    print(verbose_license)
+
+def DynamicMapping(verbose_license):
+    #print(verbose_license)
     licenseVersion = None
     licenseName = None
     orLater=False
+    only=False
     list_of_words = verbose_license.split()
     for word in list_of_words:
         if word in licenses:
@@ -46,14 +54,18 @@ def Re(verbose_license):
         if word == "Later" or word == "later":
             print(word)
             orLater=True
+        if word == "Only" or word == "only":
+            print(word)
+            only=True
     # after scanning the whole verbose license
 
     if licenseName is not None and licenseVersion is None:
         supposedLicenseSPDX = licenseName
         print("Supposed License SPDX: "+supposedLicenseSPDX)
         return supposedLicenseSPDX
-    if not orLater:
+    if not orLater and not only:
         print(orLater)
+        print(only)
         if licenseName and licenseVersion is not None:
             supposedLicense = licenseName+" "+licenseVersion
             supposedLicenseSPDX = licenseName+"-"+licenseVersion
@@ -68,29 +80,37 @@ def Re(verbose_license):
             print("Supposed License: "+supposedLicense)
             print("Supposed License SPDX: "+supposedLicenseSPDX)
             return supposedLicenseSPDX
+    if only:
+        print(only)
+        if licenseName and licenseVersion is not None:
+            supposedLicense = licenseName+" "+licenseVersion+" only"
+            supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-only"
+            print("Supposed License: "+supposedLicense)
+            print("Supposed License SPDX: "+supposedLicenseSPDX)
+            return supposedLicenseSPDX
 
-Re_license_list=[]
-Re_license_list_to_Map=[]
-Re_license_list_SPDX=[]
+DM_license_list=[]
+DM_license_list_to_Map=[]
+DM_license_list_SPDX=[]
 for verbose_license in license_list:
-    license = Re(verbose_license)
+    license = DynamicMapping(verbose_license)
     if license is not None:
-        Re_license_list.append(license)
+        DM_license_list.append(license)
 print("Printing list afther Re")
-print(Re_license_list)
+print(DM_license_list)
 
-for license in Re_license_list:
+for license in DM_license_list:
     if license in supported_licenses_OSADL:
         #print(license)
         print(license+" is an SDPX id")
-        Re_license_list_SPDX.append(license)
+        DM_license_list_SPDX.append(license)
     else:
-        #Mapping(Re_license_list)
+        #Mapping(DM_license_list)
         print(license+" is NOT an SDPX id")
-        Re_license_list_to_Map.append(license)
+        DM_license_list_to_Map.append(license)
 
-Re_license_list_Mapped=Mapping(Re_license_list_to_Map)
-print(Re_license_list_Mapped)
+DM_license_list_Mapped=StaticMapping(DM_license_list_to_Map)
+print(DM_license_list_Mapped)
 
-final_SPDX_ID_list = Re_license_list_SPDX + Re_license_list_Mapped
+final_SPDX_ID_list = DM_license_list_SPDX + DM_license_list_Mapped
 print(final_SPDX_ID_list)

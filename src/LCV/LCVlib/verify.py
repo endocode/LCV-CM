@@ -6,7 +6,7 @@ import time
 import sys
 import pandas as pd
 import numpy as np
-from LCVlib.SPDXIdMapping import Mapping
+from LCVlib.SPDXIdMapping import StaticMapping
 
 '''
 * SPDX-FileCopyrightText: 2021 Michele Scarlato <michele.scarlato@endocode.com>

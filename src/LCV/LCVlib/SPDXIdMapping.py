@@ -22,7 +22,7 @@ def CSV_to_dataframe(CSVfilePath, column_names_list):
     return df
 
 
-def Mapping(InboundLicenses_cleaned):
+def StaticMapping(InboundLicenses_cleaned):
     print(InboundLicenses_cleaned)
     CSVfilePath = "../../csv/spdx-id.csv"
     InboundLicenses_SPDX = []
@@ -38,6 +38,44 @@ def Mapping(InboundLicenses_cleaned):
         else:
             InboundLicenses_SPDX.append(license)
     return InboundLicenses_SPDX
+
+
+def DynamicMapping(verbose_license):
+    #print(verbose_license)
+    licenseVersion = None
+    licenseName = None
+    orLater=False
+    list_of_words = verbose_license.split()
+    for word in list_of_words:
+        if word in licenses:
+            licenseName=word
+        if word in versions:
+            licenseVersion=word
+        if word == "Later" or word == "later":
+            print(word)
+            orLater=True
+    # after scanning the whole verbose license
+
+    if licenseName is not None and licenseVersion is None:
+        supposedLicenseSPDX = licenseName
+        print("Supposed License SPDX: "+supposedLicenseSPDX)
+        return supposedLicenseSPDX
+    if not orLater:
+        print(orLater)
+        if licenseName and licenseVersion is not None:
+            supposedLicense = licenseName+" "+licenseVersion
+            supposedLicenseSPDX = licenseName+"-"+licenseVersion
+            print("Supposed License: "+supposedLicense)
+            print("Supposed License SPDX: "+supposedLicenseSPDX)
+            return supposedLicenseSPDX
+    if orLater:
+        print(orLater)
+        if licenseName and licenseVersion is not None:
+            supposedLicense = licenseName+" "+licenseVersion+" or later"
+            supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-or-later"
+            print("Supposed License: "+supposedLicense)
+            print("Supposed License SPDX: "+supposedLicenseSPDX)
+            return supposedLicenseSPDX
 
 
 # possible inputs from Maven central
