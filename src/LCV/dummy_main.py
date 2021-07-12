@@ -100,6 +100,7 @@ DM_license_list_SPDX=[]
 for verbose_license in license_list:
     print(verbose_license)
     license = StaticMapping(verbose_license)
+    print(license)
     #print(license)
     # this check has no sense.
     # here is going to end up or the SPDX-id, or the verbose_license name.
