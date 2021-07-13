@@ -34,7 +34,7 @@ def IsInAliases(single_verbose_license):
         reader = csv.reader(f, delimiter=',')
         for row in reader:
             if single_verbose_license == row[0]: # if the username shall be on column 3 (-> index 2)
-                print (single_verbose_license+" is a recognized Alias")                
+                print (single_verbose_license+" is a recognized Alias")
                 IsInAliases = True
                 return IsInAliases
         if not IsInAliases:
@@ -47,7 +47,7 @@ def StaticMapping(single_verbose_license):
     column_names_list = ['Scancode', 'SPDX-ID']
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
     df = df.set_index('Scancode')
-    IsAnAlias = False
+    #IsAnAlias = False
     # @Michele you should insert a check upon the column of "scancode name",
     # if the license is there, enter the cycle
     # if not, run the Dynamic Method.
@@ -75,7 +75,7 @@ def IsAnSPDX(license_name):
 
 
 def ConvertToSPDX(verbose_license):
-    print(verbose_license)
+    #print(verbose_license)
     IsAnAlias = False
     IsAnAlias = IsInAliases(verbose_license)
     # if verbose license is within aliases - run static mapping
@@ -88,23 +88,29 @@ def ConvertToSPDX(verbose_license):
             return license
     # if verbose license IS NOT within aliases - run dynamic mapping
     else:
-        license_names = DynamicMapping(verbose_license)
+        license_names = []
+        license_name = DynamicMapping(verbose_license)
         #print("After dynamicMapping in ConvertToSPDX")
         print("Dynamic mapping result: ")
-        print(license_names)
-        for license in license_names:
-            # IF license IS An SPDX ID
-            #print(license)
-            IsSPDX = IsAnSPDX(license)
+        print(license_name)
+        #print(license_name_SPDX)
+    #for license in license_names:
+        # IF license IS An SPDX ID
+        #print(license)
+        #IsSPDX = IsAnSPDX(license_name_SPDX)
+        IsAnAlias = IsInAliases(license_name)
+        '''
+        if IsSPDX :
+            print(license_name_SPDX+" is an SPDX-id")
+            return license_name_SPDX
+        '''
+        if IsAnAlias:
+            print(license_name)
+            license_mapped = StaticMapping(license_name)
+            IsSPDX = IsAnSPDX(license_mapped)
             if IsSPDX :
-                print(license+" is an SPDX-id")
-                return license
-            else:
-                license_mapped = StaticMapping(license)
-                IsSPDX = IsAnSPDX(license_mapped)
-                if IsSPDX :
-                    print(license_mapped+" is an SPDX-id")
-                    return license_mapped
+                print(license_mapped+" is an SPDX-id")
+                return license_mapped
 
 
 def StaticMappingList(InboundLicenses_cleaned):
@@ -132,6 +138,8 @@ def DynamicMapping(verbose_license):
     only=False
     IsAnAlias=False
     IsSPDX=False
+    supposedLicenseSPDX = None
+    supposedLicense = None
 
     list_of_words = verbose_license.split()
     for word in list_of_words:
@@ -150,25 +158,26 @@ def DynamicMapping(verbose_license):
     if not orLater and not only:
         if licenseName and licenseVersion is not None:
             supposedLicense = licenseName+" "+licenseVersion
-            supposedLicenseSPDX = licenseName+"-"+licenseVersion
+            #supposedLicenseSPDX = licenseName+"-"+licenseVersion
     if orLater:
         if licenseName and licenseVersion is not None:
             supposedLicense = licenseName+" "+licenseVersion+" or later"
-            supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-or-later"
+            #supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-or-later"
     if only:
         if licenseName and licenseVersion is not None:
             supposedLicense = licenseName+" "+licenseVersion+" only"
-            supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-only"
+            #supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-only"
     if supposedLicense is not None:
         IsAnAlias = IsInAliases(supposedLicense)
-    if supposedLicenseSPDX is not None:
-        IsSPDX = IsAnSPDX(supposedLicenseSPDX)
-    if IsAnAlias and IsSPDX:
-        return supposedLicense,supposedLicenseSPDX
-    if IsAnAlias and not IsSPDX:
-        return supposedLicense
-    if not IsAnAlias and IsSPDX:
-        return supposedLicenseSPDX
-    if not IsAnAlias and not IsSPDX:
-        notDetected = True
-        return notDetected,verbose_license
+    #if supposedLicenseSPDX is not None:
+        #IsSPDX = IsAnSPDX(supposedLicenseSPDX)
+    # the next three if could be simply the else of the last if - currently debugging
+    if IsAnAlias: #and IsSPDX:
+        return supposedLicense#,supposedLicenseSPDX
+    #if IsAnAlias and not IsSPDX:
+        #return supposedLicense,supposedLicenseSPDX
+    if not IsAnAlias:# and IsSPDX:
+        return verbose_license#supposedLicense,supposedLicenseSPDX
+    #if not IsAnAlias and not IsSPDX:
+        #print("enters here")
+        #return verbose_license,supposedLicenseSPDX
