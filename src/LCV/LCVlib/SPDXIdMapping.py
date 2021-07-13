@@ -27,35 +27,80 @@ def CSV_to_dataframe(CSVfilePath, column_names_list):
     df = pd.read_csv(CSVfilePath, usecols=column_names_list)
     return df
 
+def IsInAliases(single_verbose_license):
+    CSVfilePath = "../../csv/spdx-id.csv"
+    IsInAliases = False
+    with open(CSVfilePath, 'rt') as f:
+        reader = csv.reader(f, delimiter=',')
+        for row in reader:
+            a = 0
+            if single_verbose_license == row[0]: # if the username shall be on column 3 (-> index 2)
+                print (single_verbose_license+" is a recognized Alias")
+                a+= 1
+                print(a)
+                IsInAliases = True
+                return IsInAliases
+        if not IsInAliases:
+            print (single_verbose_license+" is a not recognized Alias")
+            return IsInAliases
 
 def StaticMapping(single_verbose_license):
-    #print(single_verbose_license)
     #1540 entries
     CSVfilePath = "../../csv/spdx-id.csv"
-    #InboundLicenses_SPDX = []
     column_names_list = ['Scancode', 'SPDX-ID']
     df = CSV_to_dataframe(CSVfilePath, column_names_list)
-    print(df)
     df = df.set_index('Scancode')
-    # @Michele you should insert a check upon the column of "scancode name", if the license is there, enter the cycle
-    # if not, provide an output without producing a KeyError
-    #for license in InboundLicenses_cleaned:
+    IsAnAlias = False
+    # @Michele you should insert a check upon the column of "scancode name",
+    # if the license is there, enter the cycle
+    # if not, run the Dynamic Method.
+    # After the dynamic method, a keyerror should be handled
+    # you should provide an output without producing a KeyError
+    #IsAnAlias = IsInAliases(single_verbose_license)
+    #if IsAnAlias:
     single_verbose_license_SPDX_id = df.loc[single_verbose_license]['SPDX-ID']
     print(single_verbose_license_SPDX_id)
     if single_verbose_license_SPDX_id is not np.nan:
-        #InboundLicenses_SPDX.append(newElement)
         return single_verbose_license_SPDX_id
     else:
-        #InboundLicenses_SPDX.append(license)
         return single_verbose_license
 
-def IsASPDX(license_name):
+def IsAnSPDX(license_name):
+    IsSPDX = False
     with open('../../csv/SPDX_license_name.csv', 'rt') as f:
          reader = csv.reader(f)
          for row in reader:
               for field in row:
                   if field == license_name:
-                      print(license_name+"is a SPDX-id")
+                      #print(license_name+" is a SPDX-id")
+                      IsSPDX = True
+                      return IsSPDX
+
+
+def ConvertToSPDX(verbose_license):
+    print(verbose_license)
+    IsAnAlias = False
+    IsAnAlias = IsInAliases(verbose_license)
+    # if verbose license is within aliases - run static mapping
+    if IsAnAlias:
+        license = StaticMapping(verbose_license)
+        # IF license IS An SPDX ID
+        IsSPDX = IsAnSPDX(license)
+        if IsSPDX :
+            print(license+" is an SPDX-id")
+            return license
+    # if verbose license IS NOT within aliases - run dynamic mapping
+    else:
+        license = DynamicMapping(verbose_license)
+        # IF license IS An SPDX ID
+        IsSPDX = IsAnSPDX(license)
+        if IsSPDX :
+            print(license+" is an SPDX-id")
+            return license
+        else:
+            print(license+" is not an SPDX-id")
+            return license
+
 
 def StaticMappingList(InboundLicenses_cleaned):
     print(InboundLicenses_cleaned)
@@ -99,8 +144,8 @@ def DynamicMapping(verbose_license):
         print("Supposed License SPDX: "+supposedLicenseSPDX)
         return supposedLicenseSPDX
     if not orLater and not only:
-        print(orLater)
-        print(only)
+        #print(orLater)
+        #print(only)
         if licenseName and licenseVersion is not None:
             supposedLicense = licenseName+" "+licenseVersion
             supposedLicenseSPDX = licenseName+"-"+licenseVersion
@@ -108,7 +153,7 @@ def DynamicMapping(verbose_license):
             print("Supposed License SPDX: "+supposedLicenseSPDX)
             return supposedLicenseSPDX
     if orLater:
-        print(orLater)
+        #print(orLater)
         if licenseName and licenseVersion is not None:
             supposedLicense = licenseName+" "+licenseVersion+" or later"
             supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-or-later"
@@ -116,7 +161,7 @@ def DynamicMapping(verbose_license):
             print("Supposed License SPDX: "+supposedLicenseSPDX)
             return supposedLicenseSPDX
     if only:
-        print(only)
+        #print(only)
         if licenseName and licenseVersion is not None:
             supposedLicense = licenseName+" "+licenseVersion+" only"
             supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-only"
@@ -134,23 +179,3 @@ def DynamicMapping(verbose_license):
 #licenses = ["Apache","GPL"]
 # possible versions list
 #versions = ["1.0","2.0"]
-
-def Re(licenses):
-    for item in license_list:
-        list_of_words = item.split()
-        for license in licenses:
-            #here should a control upon case sensitivity
-            if license in list_of_words:
-                for version in versions:
-                    if version in list_of_words:
-                        supposedLicenseSPDX = license+"-"+version
-                        supposedLicense = license+" "+version
-                        print("Supposed License: "+supposedLicense)
-                        print("Supposed License SPDX: "+supposedLicenseSPDX)
-
-
-'''
-#split approach
-    list_of_words = license.split()
-    if word in list_of_words:
-'''
