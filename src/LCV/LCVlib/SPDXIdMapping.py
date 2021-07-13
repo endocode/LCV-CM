@@ -33,11 +33,8 @@ def IsInAliases(single_verbose_license):
     with open(CSVfilePath, 'rt') as f:
         reader = csv.reader(f, delimiter=',')
         for row in reader:
-            a = 0
             if single_verbose_license == row[0]: # if the username shall be on column 3 (-> index 2)
-                print (single_verbose_license+" is a recognized Alias")
-                a+= 1
-                print(a)
+                print (single_verbose_license+" is a recognized Alias")                
                 IsInAliases = True
                 return IsInAliases
         if not IsInAliases:
@@ -59,7 +56,7 @@ def StaticMapping(single_verbose_license):
     #IsAnAlias = IsInAliases(single_verbose_license)
     #if IsAnAlias:
     single_verbose_license_SPDX_id = df.loc[single_verbose_license]['SPDX-ID']
-    print(single_verbose_license_SPDX_id)
+    #print(single_verbose_license_SPDX_id)
     if single_verbose_license_SPDX_id is not np.nan:
         return single_verbose_license_SPDX_id
     else:
@@ -91,15 +88,23 @@ def ConvertToSPDX(verbose_license):
             return license
     # if verbose license IS NOT within aliases - run dynamic mapping
     else:
-        license = DynamicMapping(verbose_license)
-        # IF license IS An SPDX ID
-        IsSPDX = IsAnSPDX(license)
-        if IsSPDX :
-            print(license+" is an SPDX-id")
-            return license
-        else:
-            print(license+" is not an SPDX-id")
-            return license
+        license_names = DynamicMapping(verbose_license)
+        #print("After dynamicMapping in ConvertToSPDX")
+        print("Dynamic mapping result: ")
+        print(license_names)
+        for license in license_names:
+            # IF license IS An SPDX ID
+            #print(license)
+            IsSPDX = IsAnSPDX(license)
+            if IsSPDX :
+                print(license+" is an SPDX-id")
+                return license
+            else:
+                license_mapped = StaticMapping(license)
+                IsSPDX = IsAnSPDX(license_mapped)
+                if IsSPDX :
+                    print(license_mapped+" is an SPDX-id")
+                    return license_mapped
 
 
 def StaticMappingList(InboundLicenses_cleaned):
@@ -125,6 +130,9 @@ def DynamicMapping(verbose_license):
     licenseName = None
     orLater=False
     only=False
+    IsAnAlias=False
+    IsSPDX=False
+
     list_of_words = verbose_license.split()
     for word in list_of_words:
         if word in licenses:
@@ -132,50 +140,35 @@ def DynamicMapping(verbose_license):
         if word in versions:
             licenseVersion=word
         if word == "Later" or word == "later":
-            print(word)
             orLater=True
         if word == "Only" or word == "only":
-            print(word)
             only=True
     # after scanning the whole verbose license
-
     if licenseName is not None and licenseVersion is None:
+        supposedLicense = licenseName
         supposedLicenseSPDX = licenseName
-        print("Supposed License SPDX: "+supposedLicenseSPDX)
-        return supposedLicenseSPDX
     if not orLater and not only:
-        #print(orLater)
-        #print(only)
         if licenseName and licenseVersion is not None:
             supposedLicense = licenseName+" "+licenseVersion
             supposedLicenseSPDX = licenseName+"-"+licenseVersion
-            print("Supposed License: "+supposedLicense)
-            print("Supposed License SPDX: "+supposedLicenseSPDX)
-            return supposedLicenseSPDX
     if orLater:
-        #print(orLater)
         if licenseName and licenseVersion is not None:
             supposedLicense = licenseName+" "+licenseVersion+" or later"
             supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-or-later"
-            print("Supposed License: "+supposedLicense)
-            print("Supposed License SPDX: "+supposedLicenseSPDX)
-            return supposedLicenseSPDX
     if only:
-        #print(only)
         if licenseName and licenseVersion is not None:
             supposedLicense = licenseName+" "+licenseVersion+" only"
             supposedLicenseSPDX = licenseName+"-"+licenseVersion+"-only"
-            print("Supposed License: "+supposedLicense)
-            print("Supposed License SPDX: "+supposedLicenseSPDX)
-            return supposedLicenseSPDX
-
-
-
-
-# possible inputs from Maven central
-#license_list = ['The Apache Software License, Version 2.0', 'Apache License, Version 2.0']
-
-# possible licenses keywords
-#licenses = ["Apache","GPL"]
-# possible versions list
-#versions = ["1.0","2.0"]
+    if supposedLicense is not None:
+        IsAnAlias = IsInAliases(supposedLicense)
+    if supposedLicenseSPDX is not None:
+        IsSPDX = IsAnSPDX(supposedLicenseSPDX)
+    if IsAnAlias and IsSPDX:
+        return supposedLicense,supposedLicenseSPDX
+    if IsAnAlias and not IsSPDX:
+        return supposedLicense
+    if not IsAnAlias and IsSPDX:
+        return supposedLicenseSPDX
+    if not IsAnAlias and not IsSPDX:
+        notDetected = True
+        return notDetected,verbose_license
